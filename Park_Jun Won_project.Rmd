@@ -1,0 +1,67 @@
+---
+output: 
+  pdf_document:
+    citation_package: natbib
+    keep_tex: true
+    fig_caption: true
+    latex_engine: xelatex
+    template: https://raw.githubusercontent.com/svmiller/svm-r-markdown-templates/master/svm-latex-ms.tex
+title: "White Advantage in Chess and How to Counter It"
+author:
+- name: Jun Won (Lakon) Park (Group Leader)
+  affiliation: 79453940, Group Leader, data collection, data analysis, report-writing
+- name: Sarah Li
+  affiliation: (your student number), data collection, data analysis, report-writing
+abstract: "Research question: Is white at an advantage in chess and if so, what are some optimal strategies for black to increase their winning probability?"
+date: "`r format(Sys.time(), '%B %d, %Y')`"
+geometry: margin=1in
+fontfamily: mathpazo
+fontsize: 11pt
+# spacing: double
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(leaps)
+library(lubridate)
+library(stringr)
+library(MASS)
+library(car)
+library(boot)
+library(sjPlot)
+library(sjmisc)
+library(sjlabelled)
+library(stargazer)
+```
+
+### Introduction
+For several centuries, millions of people worldwide have been playing chess as a recreational and competitive board game at their homes, in clubs, in tournaments, and even online nowadays. In the recent decades, chess has been one of the most popular topic in machine learning and artificial intelligence. The first move advantage has been researched extensively since the end of 18th century, and many studies have been shown that white has an inherent advantage.   
+\newline
+Although there are general set chess openings for black according to white's first move, less research has been done on the effects of those openings on the final outcome. This paper intends to confirm white's first move advantage and study the relationship between each opening or black and the final outcome.  
+\newline
+This paper’s data collection consists basic player information and game information of over 20000 chess games obtained exclusively from Lichess, a very popular internet chess platform. The data includes game length, number of turns, winner, player elo$^*$, all moves in Standard Chess Notation, Opening Eco$^*$, Opening Name, and Opening Ply$^*$ (some stuff about sampling method and target population)   
+\newline
+Two research questions are explored via this paper: Is white at an advantage in chess, and what are some optimal strategies for black to increase their winning probability? (some summary about the result)   
+\newline
+----------------------------------------------------------
+\begin{flushleft}
+Elo : A numerical measurement to quantify a player's skill level\newline
+Eco : Standardised code for any given opening\newline
+Ply : Number of moves in the opening phasenewline
+\pagebreak
+\end{flushleft}
+----------------------------------------------------------
+\begin{flushleft}
+\end{flushleft}
+
+### Analysis
+
+### Conclusion
+\pagebreak
+\begin{center}
+\Large{References}
+\end{center}
+
+
