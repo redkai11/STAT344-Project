@@ -11,7 +11,7 @@ author:
 - name: Jun Won (Lakon) Park (Group Leader)
   affiliation: 79453940, Group Leader, data collection, data analysis, report-writing
 - name: Sarah Li
-  affiliation: (your student number), data collection, data analysis, report-writing
+  affiliation: 60136959, data collection, data analysis, report-writing
 abstract: "Research question: Is white at an advantage in chess and if so, what are some optimal strategies for black to increase their winning probability?"
 date: "`r format(Sys.time(), '%B %d, %Y')`"
 geometry: margin=1in
@@ -34,16 +34,16 @@ library(sjPlot)
 library(sjmisc)
 library(sjlabelled)
 library(stargazer)
+library(tidyverse)
 ```
 
 ### Introduction
 For several centuries, millions of people worldwide have been playing chess as a recreational and competitive board game at their homes, in clubs, in tournaments, and even online nowadays. In the recent decades, chess has been one of the most popular topic in machine learning and artificial intelligence. The first move advantage has been researched extensively since the end of 18th century, and many studies have been shown that white has an inherent advantage.   
 \newline
-Although there are general set chess openings for black according to white's first move, less research has been done on the effects of those openings on the final outcome. This paper intends to confirm white's first move advantage and study the relationship between each opening or black and the final outcome.  
+Although there are general set chess openings for black according to white's first move, less research has been done on the effects of those openings on the final outcome. This paper intends to confirm white's first move advantage and study the relationship between the openings and the victory status.  
 \newline
-This paper’s data collection consists basic player information and game information of over 20000 chess games obtained exclusively from Lichess, a very popular internet chess platform. The data includes game length, number of turns, winner, player elo$^*$, all moves in Standard Chess Notation, Opening Eco$^*$, Opening Name, and Opening Ply$^*$ (some stuff about sampling method and target population)   
+This paper’s data collection consists basic player information and game information of over 20000 chess games obtained exclusively from Lichess, a very popular internet chess platform. The data includes game length, number of turns, winner, player elo$^*$, all moves in Standard Chess Notation, Opening Eco$^*$, Opening Name, and Opening Ply$^*$ (some stuff about sampling method and target population)
 \newline
-Two research questions are explored via this paper: Is white at an advantage in chess, and what are some optimal strategies for black to increase their winning probability? (some summary about the result)   
 \newline
 ----------------------------------------------------------
 \begin{flushleft}
@@ -57,6 +57,32 @@ Ply : Number of moves in the opening phasenewline
 \end{flushleft}
 
 ### Analysis
+
+```{r}
+# Load data
+df <- read.csv("games.csv")
+
+# Calculate the average elo of the game
+df <- mutate(df %>% rowwise(),
+       average_elo = rowMeans(cbind(black_rating,white_rating)))
+
+# Filter games by average elo
+df <- filter(df, average_elo > 1200)
+
+# Filter games by average elo
+df <- filter(df, victory_status != "outoftime")
+
+df <- subset(df, 
+             select = c(turns, white_rating, black_rating, victory_status, 
+                        winner, moves, opening_eco, opening_name, opening_ply, average_elo ))
+
+# Simple Random Sampling
+N <- nrow(df)
+n <- 1000
+set.seed(1234)
+sample.index <- sample(1:N, size=n, replace = FALSE)
+srs.sample <- df[sample.index,]
+```
 
 ### Conclusion
 \pagebreak
