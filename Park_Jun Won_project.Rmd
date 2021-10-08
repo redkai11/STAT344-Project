@@ -58,7 +58,7 @@ Ply : Number of moves in the opening phasenewline
 
 ### Analysis
 
-```{r}
+```{r srs}
 # Load data
 df <- read.csv("games.csv")
 
@@ -82,6 +82,24 @@ n <- 1000
 set.seed(1234)
 sample.index <- sample(1:N, size=n, replace = FALSE)
 srs.sample <- df[sample.index,]
+```
+
+
+```{r stratified}
+# Determine minimum and maximum before stratifying
+min(df$average_elo)
+max(df$average_elo)
+
+# Stratified sampling
+df$elo_range <- cut(df$average_elo, c(1200, 1400, 1600, 1800, 2000, 2200, 2400, 2600))
+levels(df$elo_range) <- c("1200-1400", "1400-1600", "1600-1800", "1800-2000", 
+                          "2000-2200", "2200-2400", "2400+")
+
+# Sample from each strata using proportional allocation
+stratified_sample <- df %>% 
+  group_by(elo_range) %>%
+  sample_frac(round(n/nrow(df), 4), replace = FALSE)
+table(stratified_sample$elo_range)
 ```
 
 ### Conclusion
