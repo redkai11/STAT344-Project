@@ -91,14 +91,46 @@ min(df$average_elo)
 max(df$average_elo)
 
 # Stratified sampling
-df$elo_range <- cut(df$average_elo, c(1200, 1400, 1600, 1800, 2000, 2200, 2400, 2600))
+df$elo_range <- cut(df$average_elo, 
+                    c(1200, 1400, 1600, 1800, 2000, 2200, 2400, 2600))
 levels(df$elo_range) <- c("1200-1400", "1400-1600", "1600-1800", "1800-2000", 
                           "2000-2200", "2200-2400", "2400+")
+df$winner <- as.factor(df$winner)
+levels(df$winner) <- list("white"=c("white"), 
+                          "not_white"=c("black", "draw"))
 
-# Sample from each strata using proportional allocation
-stratified_sample <- df %>% 
-  group_by(elo_range) %>%
-  sample_frac(round(n/nrow(df), 4), replace = FALSE)
+# Check if standard deviations of the strata are identical
+se <- aggregate(as.numeric(df$winner), by=list(df$elo_range), FUN=sd)
+se
+
+# Standard deviations within strata are not identical, \
+# so find optimal sample sizes
+pop_sizes <- aggregate(df$winner, by=list(df$elo_range), FUN=length)
+denom <- sum(pop_sizes[2] * se[2])
+sample_sizes <- (pop_sizes[2] * se[2]) / denom
+
+# Sample from each strata
+stratified_sample <- df[FALSE,]
+colnames(stratified_sample) <- names(df)
+for (i in 1:length(levels(df$elo_range))) {
+  strata <- which(df$elo_range == levels(df$elo_range)[i])
+  sample_indices <- sample(strata, 
+                           size = ceiling(sample_sizes$x[i] * n), 
+                           replace = FALSE)
+  sample <- df[sample_indices,]
+  stratified_sample <- rbind(stratified_sample, sample)
+}
+table <- table(stratified_sample$elo_range)
+table
+
+# Stratified sample contains 1003 samples due to rounding of the proportions,
+# so we randomly remove three from the largest strata (???)
+to_remove <- sample(which(stratified_sample$elo_range == "1200-1400"), 1)
+stratified_sample <- stratified_sample[-to_remove,]
+to_remove <- sample(which(stratified_sample$elo_range == "1400-1600"), 1)
+stratified_sample <- stratified_sample[-to_remove,]
+to_remove <- sample(which(stratified_sample$elo_range == "1600-1800"), 1)
+stratified_sample <- stratified_sample[-to_remove,]
 table(stratified_sample$elo_range)
 ```
 
