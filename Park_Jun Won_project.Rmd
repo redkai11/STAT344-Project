@@ -67,7 +67,7 @@ df <- mutate(df %>% rowwise(),
        average_elo = rowMeans(cbind(black_rating,white_rating)))
 
 # Filter games by average elo
-df <- filter(df, average_elo > 1200)
+df <- filter(df, average_elo >= 1200)
 
 # Filter games by average elo
 df <- filter(df, victory_status != "outoftime")
@@ -96,8 +96,9 @@ df$elo_range <- cut(df$average_elo,
 levels(df$elo_range) <- c("1200-1400", "1400-1600", "1600-1800", "1800-2000", 
                           "2000-2200", "2200-2400", "2400+")
 df$winner <- as.factor(df$winner)
-levels(df$winner) <- list("white"=c("white"), 
-                          "not_white"=c("black", "draw"))
+# levels(df$winner) <- list("white"=c("white"), 
+#                           "black"=c("black")
+#                           "not_white"=c("black", "draw"))
 
 # Check if standard deviations of the strata are identical
 se <- aggregate(as.numeric(df$winner), by=list(df$elo_range), FUN=sd)
@@ -108,6 +109,7 @@ se
 pop_sizes <- aggregate(df$winner, by=list(df$elo_range), FUN=length)
 denom <- sum(pop_sizes[2] * se[2])
 sample_sizes <- (pop_sizes[2] * se[2]) / denom
+
 
 # Sample from each strata
 stratified_sample <- df[FALSE,]
@@ -132,7 +134,61 @@ stratified_sample <- stratified_sample[-to_remove,]
 to_remove <- sample(which(stratified_sample$elo_range == "1600-1800"), 1)
 stratified_sample <- stratified_sample[-to_remove,]
 table(stratified_sample$elo_range)
+
 ```
+
+```{r srs analysis}
+# Calculate white's win rate
+win.prop <- srs.sample %>%
+  count(winner) %>%
+  group_by(winner) %>%
+  mutate(win.prop = n / 1000)
+
+white.p <- as.numeric(win.prop[3,3])
+black.p <- as.numeric(win.prop[1,3])
+
+srs.se <- sqrt((1-n/N)*(white.p * (1-white.p) + black.p * (1-black.p) - 2*white.p*black.p)/n)
+
+(white.p-black.p) + 1.96 * srs.se * c(-1, 1)
+```
+
+```{r stratified sampling analysis}
+strata <- c("1200-1400", "1400-1600", "1600-1800", "1800-2000", 
+                          "2000-2200", "2200-2400", "2400+")
+stratified_sample <- stratified_sample %>% group_by(elo_range) 
+
+# Calculate Nh/N, the strata proportion
+nh <- stratified_sample %>% count(elo_range)
+strata.size.prop <- nh[2]/n
+
+# Calculate white's win proportion by each strata
+win.prop <- stratified_sample %>%
+  count(winner) %>%
+  group_by(elo_range) %>%
+  mutate(win.prop = n / sum(n))
+
+# The estimated aggregated win proportion for white
+white.prop <- win.prop[win.prop$winner == "white", ] 
+white.p.str.est <- sum(white.prop$win.prop * strata.size.prop)
+
+black.prop <- win.prop[win.prop$winner == "black", ] 
+black.p.str.est <- sum(black.prop$win.prop * strata.size.prop)
+
+# The estimated se 
+white.se.by.strata <- sqrt((1-nh[2]/N) * white.prop$win.prop * (1-white.prop$win.prop)/nh[2])
+white.str.se <- sum(strata.size.prop^2 * (1 - nh[2]/pop_sizes[2]) * white.se.by.strata^2)
+
+black.se.by.strata <- sqrt((1-nh[2]/N) * black.prop$win.prop * (1-black.prop$win.prop)/nh[2])
+black.str.se <- sum(strata.size.prop^2 * (1 - nh[2]/pop_sizes[2]) * black.se.by.strata^2)
+
+# Their difference, 
+diff.se <- sqrt(1-n/N) *sqrt(white.p.str.est*(1-white.p.str.est) + black.p.str.est*(1-black.p.str.est) - 2*white.p.str.est*black.p.str.est)/sqrt(n)
+(white.p.str.est - black.p.str.est) + 1.96 * diff.se * c(-1, 1)
+
+# The confidence interval does not contain 0 so we can reject the null hypothesis in favour of the alternative hypothesis that the win rate of white is larger than that of black
+
+```
+
 
 ### Conclusion
 \pagebreak
