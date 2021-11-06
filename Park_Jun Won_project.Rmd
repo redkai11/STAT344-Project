@@ -126,13 +126,12 @@ table <- table(stratified_sample$elo_range)
 table
 
 # Stratified sample contains 1003 samples due to rounding of the proportions,
-# so we randomly remove three from the largest strata (???)
-to_remove <- sample(which(stratified_sample$elo_range == "1200-1400"), 1)
-stratified_sample <- stratified_sample[-to_remove,]
-to_remove <- sample(which(stratified_sample$elo_range == "1400-1600"), 1)
-stratified_sample <- stratified_sample[-to_remove,]
-to_remove <- sample(which(stratified_sample$elo_range == "1600-1800"), 1)
-stratified_sample <- stratified_sample[-to_remove,]
+# so we randomly remove three from random strata
+strata_for_removal <- sample(1:7, 3)
+for (s in strata_for_removal) {
+  to_remove <- sample(which(stratified_sample$elo_range == levels(df$elo_range)[s]), 1)
+  stratified_sample <- stratified_sample[-to_remove,]
+}
 table(stratified_sample$elo_range)
 
 ```
