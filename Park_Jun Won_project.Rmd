@@ -127,7 +127,7 @@ table
 
 # Stratified sample contains 1003 samples due to rounding of the proportions,
 # so we randomly remove three from random strata
-strata.for.removal <- sample(1:7, 3)
+strata.for.removal <- sample(1:6, 3)
 for (s in strata.for.removal) {
   to.remove <- sample(which(str.sample$elo_range == levels(df$elo_range)[s]), 1)
   str.sample <- str.sample[-to.remove,]
