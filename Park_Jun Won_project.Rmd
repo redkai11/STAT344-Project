@@ -182,12 +182,11 @@ black.prop <- win.prop[win.prop$winner == "black", ]
 black.p.str.est <- sum(black.prop$win.prop * strata.size.prop)
 
 # The estimated se 
-# TODO: remove if unused
-# white.se.by.strata <- sqrt((1-nh[2]/Nh[2]) * var.est(white.prop$win.prop)/nh[2])
-# white.str.se <- sum(strata.size.prop^2 * (1 - nh[2]/Nh[2]) * white.se.by.strata^2)
-# 
-# black.se.by.strata <- sqrt((1-nh[2]/Nh[2]) * var.est(black.prop$win.prop)/nh[2])
-# black.str.se <- sum(strata.size.prop^2 * (1 - nh[2]/Nh[2]) * black.se.by.strata^2)
+white.se.by.strata <- sqrt((1-nh[2]/Nh[2]) * var.est(white.prop$win.prop)/nh[2])
+white.str.se <- sum(strata.size.prop^2 * (1 - nh[2]/Nh[2]) * white.se.by.strata^2)
+
+black.se.by.strata <- sqrt((1-nh[2]/Nh[2]) * var.est(black.prop$win.prop)/nh[2])
+black.str.se <- sum(strata.size.prop^2 * (1 - nh[2]/Nh[2]) * black.se.by.strata^2)
 
 # Their difference, 
 diff.se <- sqrt(1-n/N) *sqrt(var.est(white.p.str.est) + var.est(black.p.str.est) + 2*white.p.str.est*black.p.str.est)/sqrt(n)
@@ -290,12 +289,11 @@ for (i in 1:nrow(openings.valid)) {
   black.p <- win.prop[win.prop$winner == "black", ] 
   black.p.str.est <- sum(black.prop$win.prop * strata.size.prop)
   
-  # TODO: remove if unused
-  # white.se.by.strata <- sqrt((1-n.d/N.d) * var.est(white.p$win.prop)/nh.d[2])
-  # white.str.se <- sum(strata.size.prop^2 * (1 - nh.d[2]/Nh.d[2]) * white.se.by.strata^2)
-  # 
-  # black.se.by.strata <- sqrt((1-n.d/N.d) * var.est(black.p$win.prop)/nh.d[2])
-  # black.str.se <- sum(strata.size.prop^2 * (1 - nh.d[2]/Nh.d[2]) * black.se.by.strata^2)
+  white.se.by.strata <- sqrt((1-n.d/N.d) * var.est(white.p$win.prop)/nh.d[2])
+  white.str.se <- sum(strata.size.prop^2 * (1 - nh.d[2]/Nh.d[2]) * white.se.by.strata^2)
+
+  black.se.by.strata <- sqrt((1-n.d/N.d) * var.est(black.p$win.prop)/nh.d[2])
+  black.str.se <- sum(strata.size.prop^2 * (1 - nh.d[2]/Nh.d[2]) * black.se.by.strata^2)
 
   diff.se <- sqrt(1-n.d/N.d) *sqrt(var.est(white.p.str.est) + var.est(black.p.str.est) + 2*white.p.str.est*black.p.str.est)/sqrt(n.d)
   (white.p.str.est - black.p.str.est) + z.95 * diff.se * c(-1, 1)
