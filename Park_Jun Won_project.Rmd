@@ -514,6 +514,7 @@ knitr::kable(openings) %>%
 The confidence intervals for openings "Sicilian Defense", "Sicilian Defense: Bowdler Attack", and " Van't Kruijs Opening" are strictly negative. This suggests that for these openings, Black has a higher win rate than White. For "Scandinavian Defense: Mieses-Kotroc Variation", the confidence interval is strictly positive so White has a higher win rate than Black. For the openings with confidence intervals that contain 0, we cannot reject the null hypothesis which states that there is no difference in win rates. More specifically, there is insufficient evidence to suggest that black has a higher win rate when these openings are used.   
 \newline
 Since SRS and StRS sample contain different valid openings, it is not possible to compare the results. However, we have found several openings in which Black has a higher win rate.
+\newpage
 
 ### **Does it take longer for Black to win?**
 We have already confirmed that White has a first-move advantage over Black. So how does Black actually overcome this advantage? Our hypothesis is that Black will need to spend extra turns to overcome the disadvantage in the beginning. This leads to increase an increase in overall turn spent by Black to win. Hence, we will test the following hypothesis,
@@ -641,13 +642,13 @@ knitr::kable(str.mean.diff.table) %>%
 
 ### **Conclusion**
 
-From our analysis of win rate, we have even more reason to believe that White has a first-move advantage. Both SRS and StRS with optimal allocation produced estimates which suggest a significant difference between Black and White win rate.
-
-Furthermore, we discovered through StRS that there are openings with greater win rates for Black side. Our choice of stratifying by "average elo" may have been effective in lowering variance of our estimate, as players in the same elo range would likely have similar performance. Estimates of win rate per opening suffer from the limitation of sample size, since the abundance of possible openings leads to very few observations of each opening. There may be other openings which are more advantageous for Black side, but are rarely used by players on Lichess.
-
-While the Black side cannot easily change which opening White starts with, they can attempt to play more turns to overcome White's early-game advantage. Our analysis of average number of turns produced results indicating that games won by Black side involve more turns.
-
-We cannot assume that our sample from Lichess is representative of the entire population of chess players due to differences in the nature of online chess and traditional chess. However, our results could possibly be extended to other online chess platforms, such as [Chess.com](https://www.chess.com/) and [chess24](https://chess24.com/en), which likely have similar players.
+From our analysis of win rate, we have even more reason to believe that White has a first-move advantage. Both SRS and StRS with optimal allocation produced estimates which suggest a significant difference between Black and White win rate.    
+\newline
+Furthermore, we discovered through StRS that there are openings with greater win rates for Black side. Our choice of stratifying by "average elo" may have been effective in lowering variance of our estimate, as players in the same elo range would likely have similar performance. Estimates of win rate per opening suffer from the limitation of sample size, since the abundance of possible openings leads to very few observations of each opening. There may be other openings which are more advantageous for Black side, but are rarely used by players on Lichess.    
+\newline
+While the Black side cannot easily change which opening White starts with, they can attempt to play more turns to overcome White's early-game advantage. Our analysis of average number of turns produced results indicating that games won by Black side involve more turns.    
+\newline
+We cannot assume that our sample from Lichess is representative of the entire population of chess players due to differences in the nature of online chess and traditional chess. For example, online elo could be less indicative of actual skill, due to randomness of opponents and lack of formality. However, our results could possibly be extended to other online chess platforms, such as [Chess.com](https://www.chess.com/) and [chess24](https://chess24.com/en), which likely have similar players. Our new knowledge of openings and game length favouring Black side could be used to try and overcome first-move advantage in online chess.
 \newpage
 \begin{center}
 \Large{Appendix}
