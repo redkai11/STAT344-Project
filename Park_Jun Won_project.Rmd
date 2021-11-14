@@ -39,7 +39,7 @@ library(kableExtra)
 library(tidyverse)
 ```
 
-### Introduction
+### **Introduction**
 For several centuries, millions of people worldwide have been playing chess as a recreational and competitive board game at their homes, in clubs, in tournaments, and even online nowadays. In the recent decades, chess has been one of the most popular topic in machine learning and artificial intelligence. The first move advantage has been researched extensively since the end of 19th century, and many studies have been shown that white has an inherent advantage.   
 \newline
 Although there is a general set of chess openings, less research has been done on the effects of those openings on the final outcome. This paper intends to confirm white's first move advantage and study the relationship between the openings and the victory status. In particular, we are interested in the openings that are in favour for Black.  
@@ -56,19 +56,20 @@ Ply : Number of moves in the opening phasenewline
 \end{flushleft}
 ----------------------------------------------------------
 \pagebreak
-For every sampling method, we will perform sampling twice. In this way, we do not have to calculate the covariance term which is difficult to calculate as below.
-$$Var(X-Y) = Var(X)+Var(Y)-2Cov(X,Y)$$
-By combining two independent samples, the variance will increase but we will choose a sample size that is sufficiently large such that the margin of error is still small. For every sampling method, we will choose the total sample size to be 2000 which is approximately 10\% of the population. This sample size is sufficiently large enough such that the width of our confidence interval is small.   
 
-### The parameters of Interest
-The parameters of Interest are
+### **The Parameters of Interest**
 \begin{itemize}
 \item White and Black's win rate
 \item White and Black's win rate for specific openings
 \item White and Black's mean number of turns to win
 \end{itemize}
 
-### Does White have higher win rate than Black?
+### **Sampling methods**
+For every sampling method, we will perform sampling twice - once for the White parameter estimate and once for Black. In this way, we do not have to calculate the covariance term which is difficult to calculate as below.
+$$Var(X-Y) = Var(X)+Var(Y)-2Cov(X,Y)$$
+By combining two independent samples, the variance will increase but we will choose a sample size that is sufficiently large such that the margin of error is still small. For every sampling method, we will choose the total sample size to be 2000 which is approximately 10\% of the population. This sample size is sufficiently large enough such that the width of our confidence intervals are small.   
+
+### **Does White have higher win rate than Black?**
 We define win rate to be the proportion of games won by each side. To confirm White's inherent advantage, we will perform two independent sample t-test to determine whether White has a higher win rate than that of Black. Hence, we will test the following hypothesis below
 $$H_0 : p_w - p_b = 0 \quad  \quad H_a : p_w - p_b > 0$$
 where $p_w$ and $p_b$ represent White and Black's win rate each respectively.   
@@ -276,12 +277,12 @@ knitr::kable(str.diff.p.table)
 ```
 The constructed 95\% confidence interval is $(0.0268, 0.0713)$ which does not contain 0. Hence, we can reject the null hypothesis in favour of the alternative hypothesis that White has a higher winning proportion.   
 \newline
-
-The result from both SRS and StRS show that White has a higher winning proportion. There is no other plausible explanation for such phenomenon other than that White has a first-move advantage. (I think the argument is a bit weak here)
+The result from both SRS and StRS show that White has a higher winning proportion. Such phenomenon could be due to white having a first-move advantage.
+<!-- I think we can say "could" and make it vague -->
 \newpage
 
-### What is an optimal game opening for Black?
-Due to the many possible openings a game can start with, the sample size in each possible domain (split by opening_name) may be very small. In order to ensure that the confidence interval is of reasonable width, we will only estimate if sample size in the domain yields a confidence interval including $\pm 0.2$ of our estimate of win rate. In the worst case, the win rate of Black is the same as that of White. Hence, using $p=0.5$, the initial minimum sample size is at least 25. Since we know the domain size of each opening, the resulting minimum sample size for each opening will differ and will be less than 25.
+### **What is an optimal game opening for Black?**
+Due to the many possible openings a game can start with, the sample size in each possible domain (split by opening) may be very small. In order to ensure that the confidence interval is of reasonable width, we will only estimate within the domain if its sample size yields a confidence interval including $\pm 0.2$ of our estimate of win rate. In the worst case, the win rate of Black is the same as that of White. Hence, using an initial guess of $p=0.5$, the minimum sample size is at least 25. Since we know the domain size of each opening, the resulting minimum sample size for each opening will differ and will be less than 25.
 \newline
 ```{r, include = FALSE}
 # Guess the most conservative variance
@@ -357,15 +358,16 @@ white.lower <- openings[openings$`95.CI.upper` < 0,]
 ```
 
 ```{r, echo = FALSE}
-names(openings.valid.srs.sample) <- c("opening name", "n in sample 1", "n in sample 2")
+names(openings.valid.srs.sample) <- c("opening name", "size of sample 1", "size of sample 2")
 knitr::kable(openings.valid.srs.sample)
 ```
 Again, using the openings above, we test the same hypothesis as above. The resulting confidence interval is as below
-```{r}
-knitr::kable(openings)
+```{r, echo = FALSE}
+knitr::kable(openings) %>% 
+  kable_styling(latex_options=c("scale_down", "hold_position"))
 ```
 Using SRS sampling and assuming equal variances, all openings but "Scandinavian Defense: Mieses-Kotroc Variation" and "Scotch Game" contain 0 in their 95\% confidence intervals. For these openings, we cannot reject the null hypothesis which states that there is no difference in win rates. More specifically, there is insufficient evidence to suggest that black has a higher win rate when these openings are used. For the intervals that are strictly greater than 0, there is sufficient evidence  to reject the null hypothesis in favour of the alternative hypothesis that White has higher win rate. In all, there is no opening that yields higher win rate for Black.   
-\newline
+
 Using StRS, we will again determine the valid openings in two different samples and test the same hypothesis.
 ``` {r, include = FALSE}
 openings.df.s1 <- data.frame(table(white.str.sample$opening_name))
@@ -476,15 +478,17 @@ openings
 names(openings.valid.str.sample) <- c("opening name", "n in sample 1", "n in sample 2")
 knitr::kable(openings.valid.srs.sample)
 ```
-The resulting confidence interval for the opening above is as follows
+$~$ \newline The resulting confidence interval for the openings above is as follows:
 ```{r, results='asis', echo = FALSE}
-knitr::kable(openings)
+knitr::kable(openings) %>% 
+  kable_styling(latex_options=c("scale_down", "hold_position"))
 ```
-The confidence intervals for openings "Sicilian Defense", "Sicilian Defense: Bowdler Attack", and " Van't Kruijs Opening" are strictly negative. For these openings, Black has a higher win rate than that of White. For "Scandinavian Defense: Mieses-Kotroc Variation", the constructed confidence interval is strictly positive so White has a higher win rate than that of Black. For the openings with confidence intervals that contain 0, we cannot reject the null hypothesis which states that there is no difference in win rates. More specifically, there is insufficient evidence to suggest that black has a higher win rate when these openings are used.   
+\newpage
+The confidence intervals for openings "Sicilian Defense", "Sicilian Defense: Bowdler Attack", and " Van't Kruijs Opening" are strictly negative. This suggests that for these openings, Black has a higher win rate than White. For "Scandinavian Defense: Mieses-Kotroc Variation", the confidence interval is strictly positive so White has a higher win rate than Black. For the openings with confidence intervals that contain 0, we cannot reject the null hypothesis which states that there is no difference in win rates. More specifically, there is insufficient evidence to suggest that black has a higher win rate when these openings are used.   
 \newline
 Since SRS and StRS sample contain different valid openings, it is not possible to compare the results. However, we have found several openings in which Black has a higher win rate.
 
-### Does it take longer for Black to win?
+### **Does it take longer for Black to win?**
 We have already confirmed that White has a first-move advantage over Black. So how does Black actually overcome this advantage? Our hypothesis is that Black will need to spend extra turns to overcome the disadvantage in the beginning. This leads to increase an increase in overall turn spent by Black to win. Hence, we will test the following hypothesis,
 $$H_0 : \mu_W - \mu_B = 0 \quad \quad H_a: \mu_W - \mu_B < 0$$
 where $\mu_W$ and $\mu_B$ represent White and Black's mean number of turns to win each respectively.   
@@ -510,20 +514,27 @@ srs.se <- sqrt((n-1)*(n.w.var+n.b.var)/(2*n-2))
 mean.turn.srs <- rbind(cbind(white.win.turns.avg, sqrt(n.w.var)), cbind(black.win.turns.avg, sqrt(n.b.var)))
 mean.turn.srs <- data.frame(mean.turn.srs)
 names(mean.turn.srs) <- c("Est.", "SE")
+rownames(mean.turn.srs) <- c("White", "Black")
 
 mean.turn.diff.srs <- c(white.win.turns.avg - black.win.turns.avg, srs.se, 
                         (white.win.turns.avg - black.win.turns.avg) + z.95 * srs.se * c(-1, 1))
 
 mean.turn.diff.srs <- t(data.frame(mean.turn.diff.srs))
-names(mean.turn.diff.srs) <- c("Diff. mean turn", "SE", "95.CI.lower", "95.CI.upper")
+colnames(mean.turn.diff.srs) <- c("Diff", "SE", "95.CI.lower", "95.CI.upper")
 rownames(mean.turn.diff.srs) <- NULL
 
 
 ```
 
-```{r, echo = FALSE}
-knitr::kable(mean.turn.srs)
-knitr::kable(mean.turn.diff.srs)
+```{r, echo = FALSE, results = 'asis'}
+t1 <- kable(mean.turn.srs, format = 'latex')
+t2 <- kable(mean.turn.diff.srs, format = 'latex')
+
+cat(c("\\begin{table}[h] \\centering ", 
+      t1,
+    "\\hspace{1cm} \\centering ",
+      t2,
+    "\\end{table}"))  
 ```
 The constructed confidence interval does not contain 0 which implies there is sufficient evidence to reject the null hypothesis in favour of the alternative hypothesis that Black takes longer to win.   
 \newline
@@ -580,17 +591,28 @@ str.mean.diff.table <- data.frame(str.mean.diff.table)
 names(str.mean.diff.table) <- c("Diff", "Pooled SE", "95.CI.lower", "95.CI.upper")
 ```
 
-```{r, echo = FALSE}
-knitr::kable(avg.turns.w)
-knitr::kable(avg.turns.b)
-knitr::kable(white.se.by.strata.table)
-knitr::kable(black.se.by.strata.table)
-knitr::kable(str.mean.diff.table)
+```{r, echo = FALSE, results = 'asis'}
+tw <- kable(avg.turns.w, format = 'latex')
+tb <- kable(avg.turns.b, format = 'latex')
+cat(c("\\begin{table}[h] \\centering ", 
+      tw,
+    "\\hspace{1cm} \\centering ",
+      tb,
+    "\\end{table}"))  
+tw.se <- kable(white.se.by.strata.table)
+tb.se <- kable(black.se.by.strata.table)
+cat(c("\\begin{table}[h] \\centering ", 
+      tw.se,
+    "\\hspace{0.5cm} \\centering ",
+      tb.se,
+    "\\end{table}")) 
+knitr::kable(str.mean.diff.table) %>% 
+  kable_styling(latex_options=c("hold_position"))
 ```
-The constructed confidence interval does not contain 0 which implies there is sufficient evidence to reject the null hypothesis in favour of the alternative hypothesis that Black takes longer to win.   
+\newpage The constructed confidence interval does not contain 0 which implies there is sufficient evidence to reject the null hypothesis in favour of the alternative hypothesis that Black takes longer to win.   
 \newline
 
-### Conclusion
+### **Conclusion**
 something
 
 \newpage
