@@ -39,14 +39,59 @@
 
 \setcounter{secnumdepth}{0}
 
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
 
 
 
 \title{White Advantage in Chess and How to Counter It  }
+ 
 
 
 
-\author{\Large Jun Won (Lakon) Park (Group Leader)\vspace{0.05in} \newline\normalsize\emph{79453940, Group Leader, data collection, data analysis, report-writing}   \and \Large Sarah Li\vspace{0.05in} \newline\normalsize\emph{(your student number), data collection, data analysis, report-writing}  }
+\author{\Large Jun Won (Lakon) Park (Group
+Leader)\vspace{0.05in} \newline\normalsize\emph{79453940, Group Leader,
+data collection, data analysis, report-writing}   \and \Large Sarah
+Li\vspace{0.05in} \newline\normalsize\emph{60136959, data collection,
+data analysis, report-writing}  }
 
 
 \date{}
@@ -75,6 +120,20 @@
 \def\fps@figure{htbp}
 \makeatother
 
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{colortbl}
+\usepackage{pdflscape}
+\usepackage{tabu}
+\usepackage{threeparttable}
+\usepackage{threeparttablex}
+\usepackage[normalem]{ulem}
+\usepackage{makecell}
+\usepackage{xcolor}
 
 % move the hyperref stuff down here, after header-includes, to allow for - \usepackage{hyperref}
 
@@ -97,7 +156,9 @@
 \makeatother
 \hypersetup{breaklinks=true,
             bookmarks=true,
-            pdfauthor={Jun Won (Lakon) Park (Group Leader) (79453940, Group Leader, data collection, data analysis, report-writing) and Sarah Li ((your student number), data collection, data analysis, report-writing)},
+            pdfauthor={Jun Won (Lakon) Park (Group Leader) (79453940,
+Group Leader, data collection, data analysis, report-writing) and Sarah
+Li (60136959, data collection, data analysis, report-writing)},
              pdfkeywords = {},  
             pdftitle={White Advantage in Chess and How to Counter It},
             colorlinks=true,
@@ -125,7 +186,8 @@
 \begin{document}
 	
 % \pagenumbering{arabic}% resets `page` counter to 1 
-%
+%    
+
 % \maketitle
 
 {% \usefont{T1}{pnc}{m}{n}
@@ -138,7 +200,12 @@
 
 {
    \vskip 13.5pt\relax \normalsize\fontsize{11}{12} 
-\textbf{\authorfont Jun Won (Lakon) Park (Group Leader)} \hskip 15pt \emph{\small 79453940, Group Leader, data collection, data analysis, report-writing}   \par \textbf{\authorfont Sarah Li} \hskip 15pt \emph{\small (your student number), data collection, data analysis, report-writing}   
+\textbf{\authorfont Jun Won (Lakon) Park (Group
+Leader)} \hskip 15pt \emph{\small 79453940, Group Leader, data
+collection, data analysis,
+report-writing}   \par \textbf{\authorfont Sarah
+Li} \hskip 15pt \emph{\small 60136959, data collection, data analysis,
+report-writing}   
 
 }
 
@@ -157,8 +224,9 @@
 
     \vskip 8.5pt % \small 
 
-\noindent Research question: Is white at an advantage in chess and if so, what are
-some optimal strategies for black to increase their winning probability?
+\noindent Research question: Is white at an advantage in chess and if
+so, what are some optimal strategies for black to increase their winning
+probability?
 
 
     \hbox{\vrule height .2pt width 39.14pc}
@@ -182,46 +250,774 @@ chess as a recreational and competitive board game at their homes, in
 clubs, in tournaments, and even online nowadays. In the recent decades,
 chess has been one of the most popular topic in machine learning and
 artificial intelligence. The first move advantage has been researched
-extensively since the end of 18th century, and many studies have been
+extensively since the end of 19th century, and many studies have been
 shown that white has an inherent advantage.\\
-\newline Although there are general set chess openings for black
-according to white's first move, less research has been done on the
-effects of those openings on the final outcome. This paper intends to
-confirm white's first move advantage and study the relationship between
-each opening or black and the final outcome.\\
-\newline This paper's data collection consists basic player information
-and game information of over 20000 chess games obtained exclusively from
-Lichess, a very popular internet chess platform. The data includes game
-length, number of turns, winner, player elo\(^*\), all moves in Standard
-Chess Notation, Opening Eco\(^*\), Opening Name, and Opening Ply\(^*\)
-(some stuff about sampling method and target population)\\
-\newline Two research questions are explored via this paper: Is white at
-an advantage in chess, and what are some optimal strategies for black to
-increase their winning probability? (some summary about the result)\\
-\newline ----------------------------------------------------------
+\newline Although there is a general set of chess openings, less
+research has been done on the effects of those openings on the final
+outcome. This paper intends to confirm white's first move advantage and
+study the relationship between the openings and the victory status. In
+particular, we are interested in the openings that are in favour for
+Black.\\
+\newline This paper's data consists basic player information and game
+information of over 20000 chess games played on Lichess, a very popular
+internet chess platform. The data includes game length, number of turns,
+winner, player elo\(^*\), all moves in Standard Chess Notation, Opening
+Eco\(^*\), Opening Name, and Opening Ply\(^*\).\\
+\newline Our target population is the data set itself. This paper will
+perform simple random sampling and stratified random sampling from the
+data set and compare the results obtained from the two different
+sampling methods. We will first define a new feature called ``average
+elo'' which is a mean of two player's ratings. We will define if a game
+is played by beginners if the average elo of the game is below 1200.
+These game records will likely negatively affect our result; if there
+exists any advantage for certain side, beginners will not likely to be
+able to use that advantage in their favour. \newline
+----------------------------------------------------------
 
 \begin{flushleft}
 Elo : A numerical measurement to quantify a player's skill level\newline
 Eco : Standardised code for any given opening\newline
 Ply : Number of moves in the opening phasenewline
-\pagebreak
 \end{flushleft}
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
-\begin{flushleft}
-\end{flushleft}
+\pagebreak
 
-\hypertarget{analysis}{%
-\subsubsection{Analysis}\label{analysis}}
+For every sampling method, we will perform sampling twice. In this way,
+we do not have to calculate the covariance term which is difficult to
+calculate as below. \[Var(X-Y) = Var(X)+Var(Y)-2Cov(X,Y)\] By combining
+two independent samples, the variance will increase but we will choose a
+sample size that is sufficiently large such that the margin of error is
+still small. For every sampling method, we will choose the total sample
+size to be 2000 which is approximately 10\% of the population. This
+sample size is sufficiently large enough such that the width of our
+confidence interval is small.
+
+\hypertarget{the-parameters-of-interest}{%
+\subsubsection{The parameters of
+Interest}\label{the-parameters-of-interest}}
+
+The parameters of Interest are
+
+\begin{itemize}
+\item White and Black's win rate
+\item White and Black's win rate for specific openings
+\item White and Black's mean number of turns to win
+\end{itemize}
+
+\hypertarget{does-white-have-higher-win-rate-than-black}{%
+\subsubsection{Does White have higher win rate than
+Black?}\label{does-white-have-higher-win-rate-than-black}}
+
+We define win rate to be the proportion of games won by each side. To
+confirm White's inherent advantage, we will perform two independent
+sample t-test to determine whether White has a higher win rate than that
+of Black. Hence, we will test the following hypothesis below
+\[H_0 : p_w - p_b = 0 \quad  \quad H_a : p_w - p_b > 0\] where \(p_w\)
+and \(p_b\) represent White and Black's win rate each respectively.\\
+\newline We will assume equal variance among two SRS samples and conduct
+t-test using pooled variance. The constructed 95\% confidence interval
+is as below.
+
+\begin{tabular}{l|r|r}
+\hline
+  & Win rate Estimate & SE\\
+\hline
+White & 0.5040 & 0.0105715\\
+\hline
+Black & 0.4685 & 0.0105509\\
+\hline
+\end{tabular}
+
+\begin{tabular}{r|r|r|r}
+\hline
+Diff & Pooled SE & 95.CI.lower & 95.CI.upper\\
+\hline
+0.0355 & 0.0105612 & 0.0148004 & 0.0561996\\
+\hline
+\end{tabular}
+
+The constructed 95\% confidence interval is \((0.0062, 0.0648)\) which
+does not contain 0. Hence, we can reject the null hypothesis in favour
+of the alternative hypothesis that White has a higher winning
+proportion.\\
+\newline We will assume equal variance among two StRS samples and
+conduct t-test using pooled variance. The constructed 95\% confidence
+interval is as below.
+
+\begin{tabular}{l|l|r|r|r}
+\hline
+elo range & winner & win rate est. & strata size & Var. by strata\\
+\hline
+1200-1400 & white & 0.5217391 & 391 & 0.0006382\\
+\hline
+1400-1600 & white & 0.5069552 & 647 & 0.0003863\\
+\hline
+1600-1800 & white & 0.4898785 & 494 & 0.0005059\\
+\hline
+1800-2000 & white & 0.5143770 & 313 & 0.0007981\\
+\hline
+2000+ & white & 0.5032258 & 155 & 0.0016128\\
+\hline
+\end{tabular}
+
+\begin{tabular}{l|l|r|r|r}
+\hline
+elo range & winner & win rate est. & strata size & Var. by strata\\
+\hline
+1200-1400 & black & 0.4884910 & 391 & 0.0006390\\
+\hline
+1400-1600 & black & 0.4544049 & 647 & 0.0003832\\
+\hline
+1600-1800 & black & 0.4534413 & 494 & 0.0005017\\
+\hline
+1800-2000 & black & 0.4423077 & 312 & 0.0007906\\
+\hline
+2000+ & black & 0.4358974 & 156 & 0.0015762\\
+\hline
+\end{tabular}
+
+\begin{tabular}{l|r}
+\hline
+elo range & strata size prop.\\
+\hline
+1200-1400 & 0.1949283\\
+\hline
+1400-1600 & 0.3219334\\
+\hline
+1600-1800 & 0.2470221\\
+\hline
+1800-2000 & 0.1568638\\
+\hline
+2000+ & 0.0790407\\
+\hline
+\end{tabular}
+
+\begin{tabular}{l|r|r}
+\hline
+  & Win rate Estimate & SE\\
+\hline
+White & 0.5063808 & 0.0078503\\
+\hline
+Black & 0.4573546 & 0.0081990\\
+\hline
+\end{tabular}
+
+\begin{tabular}{r|r|r|r}
+\hline
+Diff & Pooled SE & 95.CI.lower & 95.CI.upper\\
+\hline
+0.0490262 & 0.0105612 & 0.0332945 & 0.0647579\\
+\hline
+\end{tabular}
+
+The constructed 95\% confidence interval is \((0.0268, 0.0713)\) which
+does not contain 0. Hence, we can reject the null hypothesis in favour
+of the alternative hypothesis that White has a higher winning
+proportion.\\
+\newline
+
+The result from both SRS and StRS show that White has a higher winning
+proportion. There is no other plausible explanation for such phenomenon
+other than that White has a first-move advantage. (I think the argument
+is a bit weak here) \newpage
+
+\hypertarget{what-is-an-optimal-game-opening-for-black}{%
+\subsubsection{What is an optimal game opening for
+Black?}\label{what-is-an-optimal-game-opening-for-black}}
+
+Due to the many possible openings a game can start with, the sample size
+in each possible domain (split by opening\_name) may be very small. In
+order to ensure that the confidence interval is of reasonable width, we
+will only estimate if sample size in the domain yields a confidence
+interval including \(\pm 0.2\) of our estimate of win rate. In the worst
+case, the win rate of Black is the same as that of White. Hence, using
+\(p=0.5\), the initial minimum sample size is at least 25. Since we know
+the domain size of each opening, the resulting minimum sample size for
+each opening will differ and will be less than 25. \newline
+
+\begin{tabular}{l|r|r}
+\hline
+opening name & n in sample 1 & n in sample 2\\
+\hline
+French Defense: Knight Variation & 28 & 22\\
+\hline
+Scandinavian Defense: Mieses-Kotroc Variation & 31 & 24\\
+\hline
+Scotch Game & 35 & 23\\
+\hline
+Sicilian Defense & 35 & 39\\
+\hline
+Sicilian Defense: Bowdler Attack & 41 & 32\\
+\hline
+Van't Kruijs Opening & 24 & 33\\
+\hline
+\end{tabular}
+
+Again, using the openings above, we test the same hypothesis as above.
+The resulting confidence interval is as below
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{knitr}\SpecialCharTok{::}\FunctionTok{kable}\NormalTok{(openings)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{tabular}{l|r|r|r|r}
+\hline
+opening name & Diff. win rate & SE & 95.CI.lower & 95.CI.upper\\
+\hline
+French Defense: Knight Variation & -0.0909091 & 0.0942050 & -0.2803210 & 0.0985028\\
+\hline
+Scandinavian Defense: Mieses-Kotroc Variation & 0.3346774 & 0.0842921 & 0.1656088 & 0.5037460\\
+\hline
+Scotch Game & 0.1962733 & 0.0820415 & 0.0319243 & 0.3606223\\
+\hline
+Sicilian Defense & -0.1355311 & 0.0768343 & -0.2886975 & 0.0176352\\
+\hline
+Sicilian Defense: Bowdler Attack & -0.0228659 & 0.0764140 & -0.1752310 & 0.1294993\\
+\hline
+Van't Kruijs Opening & -0.1704545 & 0.0874960 & -0.3458004 & 0.0048913\\
+\hline
+\end{tabular}
+
+Using SRS sampling and assuming equal variances, all openings but
+``Scandinavian Defense: Mieses-Kotroc Variation'' and ``Scotch Game''
+contain 0 in their 95\% confidence intervals. For these openings, we
+cannot reject the null hypothesis which states that there is no
+difference in win rates. More specifically, there is insufficient
+evidence to suggest that black has a higher win rate when these openings
+are used. For the intervals that are strictly greater than 0, there is
+sufficient evidence to reject the null hypothesis in favour of the
+alternative hypothesis that White has higher win rate. In all, there is
+no opening that yields higher win rate for Black.\\
+\newline Using StRS, we will again determine the valid openings in two
+different samples and test the same hypothesis.
+
+\begin{tabular}{l|r|r}
+\hline
+opening name & n in sample 1 & n in sample 2\\
+\hline
+French Defense: Knight Variation & 28 & 22\\
+\hline
+Scandinavian Defense: Mieses-Kotroc Variation & 31 & 24\\
+\hline
+Scotch Game & 35 & 23\\
+\hline
+Sicilian Defense & 35 & 39\\
+\hline
+Sicilian Defense: Bowdler Attack & 41 & 32\\
+\hline
+Van't Kruijs Opening & 24 & 33\\
+\hline
+\end{tabular}
+
+The resulting confidence interval for the opening above is as follows
+
+\begin{tabular}{l|r|r|r|r}
+\hline
+opening name & Diff. win rate & SE & 95.CI.lower & 95.CI.upper\\
+\hline
+French Defense: Knight Variation & 0.0426424 & 0.0651798 & -0.0879285 & 0.1732133\\
+\hline
+Scandinavian Defense: Mieses-Kotroc Variation & 0.2094644 & 0.0495076 & 0.1103999 & 0.3085289\\
+\hline
+Scotch Game & -0.0172765 & 0.0705189 & -0.1586583 & 0.1241054\\
+\hline
+Sicilian Defense & -0.1609474 & 0.0549505 & -0.2702818 & -0.0516131\\
+\hline
+Sicilian Defense: Bowdler Attack & -0.1600468 & 0.0686168 & -0.2978677 & -0.0222258\\
+\hline
+Van't Kruijs Opening & -0.3068106 & 0.0539687 & -0.4152100 & -0.1984112\\
+\hline
+\end{tabular}
+
+The confidence intervals for openings ``Sicilian Defense'', ``Sicilian
+Defense: Bowdler Attack'', and '' Van't Kruijs Opening'' are strictly
+negative. For these openings, Black has a higher win rate than that of
+White. For ``Scandinavian Defense: Mieses-Kotroc Variation'', the
+constructed confidence interval is strictly positive so White has a
+higher win rate than that of Black. For the openings with confidence
+intervals that contain 0, we cannot reject the null hypothesis which
+states that there is no difference in win rates. More specifically,
+there is insufficient evidence to suggest that black has a higher win
+rate when these openings are used.\\
+\newline Since SRS and StRS sample contain different valid openings, it
+is not possible to compare the results. However, we have found several
+openings in which Black has a higher win rate.
+
+\hypertarget{does-it-take-longer-for-black-to-win}{%
+\subsubsection{Does it take longer for Black to
+win?}\label{does-it-take-longer-for-black-to-win}}
+
+We have already confirmed that White has a first-move advantage over
+Black. So how does Black actually overcome this advantage? Our
+hypothesis is that Black will need to spend extra turns to overcome the
+disadvantage in the beginning. This leads to increase an increase in
+overall turn spent by Black to win. Hence, we will test the following
+hypothesis,
+\[H_0 : \mu_W - \mu_B = 0 \quad \quad H_a: \mu_W - \mu_B < 0\] where
+\(\mu_W\) and \(\mu_B\) represent White and Black's mean number of turns
+to win each respectively.\\
+\newline We will assume equal variance among two SRS samples and conduct
+t-test using pooled variance. The constructed 95\% confidence interval
+is as below.
+
+\begin{tabular}{r|r}
+\hline
+Est. & SE\\
+\hline
+57.68849 & 0.9787740\\
+\hline
+60.52721 & 0.9840654\\
+\hline
+\end{tabular}
+
+\begin{tabular}{r|r|r|r}
+\hline
+-2.838722 & 0.9814232 & -4.762277 & -0.9151682\\
+\hline
+\end{tabular}
+
+The constructed confidence interval does not contain 0 which implies
+there is sufficient evidence to reject the null hypothesis in favour of
+the alternative hypothesis that Black takes longer to win.\\
+\newline Using StRS and assuming equal variance,
+
+\begin{tabular}{l|r}
+\hline
+elo range & mean turns for white\\
+\hline
+1200-1400 & 51.26471\\
+\hline
+1400-1600 & 55.52744\\
+\hline
+1600-1800 & 60.51653\\
+\hline
+1800-2000 & 65.25466\\
+\hline
+2000+ & 55.08974\\
+\hline
+\end{tabular}
+
+\begin{tabular}{l|r}
+\hline
+elo range & mean turns for black\\
+\hline
+1200-1400 & 55.90052\\
+\hline
+1400-1600 & 57.77551\\
+\hline
+1600-1800 & 60.82143\\
+\hline
+1800-2000 & 65.34783\\
+\hline
+2000+ & 72.05882\\
+\hline
+\end{tabular}
+
+\begin{tabular}{l|r|r|l}
+\hline
+elo range & strata size & var. by strata & winner\\
+\hline
+1200-1400 & 391 & 1.725542 & white\\
+\hline
+1400-1600 & 647 & 1.235008 & white\\
+\hline
+1600-1800 & 494 & 1.563627 & white\\
+\hline
+1800-2000 & 313 & 3.240864 & white\\
+\hline
+2000+ & 155 & 4.484618 & white\\
+\hline
+\end{tabular}
+
+\begin{tabular}{l|r|r|l}
+\hline
+elo range & strata size & var. by strata & winner\\
+\hline
+1200-1400 & 391 & 2.331782 & black\\
+\hline
+1400-1600 & 647 & 1.338437 & black\\
+\hline
+1600-1800 & 494 & 1.553842 & black\\
+\hline
+1800-2000 & 312 & 3.169745 & black\\
+\hline
+2000+ & 156 & 6.058140 & black\\
+\hline
+\end{tabular}
+
+\begin{tabular}{r|r|r|r}
+\hline
+Diff & Pooled SE & 95.CI.lower & 95.CI.upper\\
+\hline
+-3.058561 & 0.0490262 & -4.687201 & -1.42992\\
+\hline
+\end{tabular}
+
+The constructed confidence interval does not contain 0 which implies
+there is sufficient evidence to reject the null hypothesis in favour of
+the alternative hypothesis that Black takes longer to win.\\
+\newline
 
 \hypertarget{conclusion}{%
 \subsubsection{Conclusion}\label{conclusion}}
 
-\pagebreak
+something
+
+\newpage
 \begin{center}
-\Large{References}
+\Large{Appendix}
 \end{center}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Load data}
+\NormalTok{df }\OtherTok{\textless{}{-}} \FunctionTok{read.csv}\NormalTok{(}\StringTok{"games.csv"}\NormalTok{)}
+
+\CommentTok{\# Calculate the average elo of the game}
+\NormalTok{df }\OtherTok{\textless{}{-}} \FunctionTok{mutate}\NormalTok{(df }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{rowwise}\NormalTok{(),}
+       \AttributeTok{average\_elo =} \FunctionTok{rowMeans}\NormalTok{(}\FunctionTok{cbind}\NormalTok{(black\_rating, white\_rating)))}
+
+\CommentTok{\# Filter games by average elo}
+\NormalTok{df }\OtherTok{\textless{}{-}} \FunctionTok{filter}\NormalTok{(df, average\_elo }\SpecialCharTok{\textgreater{}=} \DecValTok{1200}\NormalTok{)}
+
+\CommentTok{\# Select only necessary columns for analysis}
+\NormalTok{df }\OtherTok{\textless{}{-}} \FunctionTok{subset}\NormalTok{(df, }
+             \AttributeTok{select =} \FunctionTok{c}\NormalTok{(id, turns, white\_rating, black\_rating, victory\_status, }
+\NormalTok{                        winner, moves, opening\_eco, opening\_name, opening\_ply, average\_elo ))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Simple Random Sampling}
+\NormalTok{N }\OtherTok{\textless{}{-}} \FunctionTok{nrow}\NormalTok{(df)}
+\NormalTok{n }\OtherTok{\textless{}{-}} \DecValTok{2000}
+\FunctionTok{set.seed}\NormalTok{(}\DecValTok{1234}\NormalTok{)}
+\NormalTok{sample.index.s1 }\OtherTok{\textless{}{-}} \FunctionTok{sample}\NormalTok{(}\DecValTok{1}\SpecialCharTok{:}\NormalTok{N, }\AttributeTok{size=}\NormalTok{n, }\AttributeTok{replace =} \ConstantTok{FALSE}\NormalTok{)}
+\NormalTok{srs.sample.s1 }\OtherTok{\textless{}{-}}\NormalTok{ df[sample.index.s1,]}
+
+\FunctionTok{set.seed}\NormalTok{(}\DecValTok{4321}\NormalTok{)}
+\NormalTok{sample.index.s2 }\OtherTok{\textless{}{-}} \FunctionTok{sample}\NormalTok{(}\DecValTok{1}\SpecialCharTok{:}\NormalTok{N, }\AttributeTok{size=}\NormalTok{n, }\AttributeTok{replace =} \ConstantTok{FALSE}\NormalTok{)}
+\NormalTok{srs.sample.s2 }\OtherTok{\textless{}{-}}\NormalTok{ df[sample.index.s2,]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Determine minimum and maximum before stratifying}
+\FunctionTok{min}\NormalTok{(df}\SpecialCharTok{$}\NormalTok{average\_elo)}
+\FunctionTok{max}\NormalTok{(df}\SpecialCharTok{$}\NormalTok{average\_elo)}
+
+\NormalTok{df}\SpecialCharTok{$}\NormalTok{elo\_range }\OtherTok{\textless{}{-}} \FunctionTok{cut}\NormalTok{(df}\SpecialCharTok{$}\NormalTok{average\_elo,}
+                    \FunctionTok{c}\NormalTok{(}\DecValTok{1200}\NormalTok{, }\DecValTok{1400}\NormalTok{, }\DecValTok{1600}\NormalTok{, }\DecValTok{1800}\NormalTok{, }\DecValTok{2000}\NormalTok{, }\DecValTok{2600}\NormalTok{))}
+\FunctionTok{levels}\NormalTok{(df}\SpecialCharTok{$}\NormalTok{elo\_range) }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"1200{-}1400"}\NormalTok{, }\StringTok{"1400{-}1600"}\NormalTok{, }\StringTok{"1600{-}1800"}\NormalTok{, }\StringTok{"1800{-}2000"}\NormalTok{,}
+                          \StringTok{"2000+"}\NormalTok{)}
+\NormalTok{df}\SpecialCharTok{$}\NormalTok{winner }\OtherTok{\textless{}{-}} \FunctionTok{as.factor}\NormalTok{(df}\SpecialCharTok{$}\NormalTok{winner)}
+
+\CommentTok{\# Check if standard deviations of the strata are identical}
+\NormalTok{se.by.strata }\OtherTok{\textless{}{-}} \FunctionTok{aggregate}\NormalTok{(}\FunctionTok{as.numeric}\NormalTok{(df}\SpecialCharTok{$}\NormalTok{winner), }\AttributeTok{by=}\FunctionTok{list}\NormalTok{(df}\SpecialCharTok{$}\NormalTok{elo\_range), }\AttributeTok{FUN=}\NormalTok{sd)}
+\NormalTok{se.by.strata}
+
+\CommentTok{\# Standard deviations within strata are not identical, \textbackslash{}}
+\CommentTok{\# so find optimal sample sizes}
+\NormalTok{pop.size.by.strata }\OtherTok{\textless{}{-}} \FunctionTok{aggregate}\NormalTok{(df}\SpecialCharTok{$}\NormalTok{winner, }\AttributeTok{by=}\FunctionTok{list}\NormalTok{(df}\SpecialCharTok{$}\NormalTok{elo\_range), }\AttributeTok{FUN=}\NormalTok{length)}
+\NormalTok{denom }\OtherTok{\textless{}{-}} \FunctionTok{sum}\NormalTok{(pop.size.by.strata[}\DecValTok{2}\NormalTok{] }\SpecialCharTok{*}\NormalTok{ se.by.strata[}\DecValTok{2}\NormalTok{])}
+\NormalTok{sample.size.by.strata }\OtherTok{\textless{}{-}}\NormalTok{ (pop.size.by.strata[}\DecValTok{2}\NormalTok{] }\SpecialCharTok{*}\NormalTok{ se.by.strata[}\DecValTok{2}\NormalTok{]) }\SpecialCharTok{/}\NormalTok{ denom}
+
+\CommentTok{\# Sample from each strata}
+\NormalTok{strsample }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(df, sample.size.by.strata, n, seed) \{}
+\NormalTok{  str.sample }\OtherTok{\textless{}{-}}\NormalTok{ df[}\ConstantTok{FALSE}\NormalTok{,]}
+  \FunctionTok{colnames}\NormalTok{(str.sample) }\OtherTok{\textless{}{-}} \FunctionTok{names}\NormalTok{(df)}
+  \ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\FunctionTok{length}\NormalTok{(}\FunctionTok{levels}\NormalTok{(df}\SpecialCharTok{$}\NormalTok{elo\_range))) \{}
+\NormalTok{    strata }\OtherTok{\textless{}{-}} \FunctionTok{which}\NormalTok{(df}\SpecialCharTok{$}\NormalTok{elo\_range }\SpecialCharTok{==} \FunctionTok{levels}\NormalTok{(df}\SpecialCharTok{$}\NormalTok{elo\_range)[i])}
+    \FunctionTok{set.seed}\NormalTok{(seed)}
+\NormalTok{    sample.idx }\OtherTok{\textless{}{-}} \FunctionTok{sample}\NormalTok{(strata, }
+                             \AttributeTok{size =} \FunctionTok{ceiling}\NormalTok{(sample.size.by.strata}\SpecialCharTok{$}\NormalTok{x[i] }\SpecialCharTok{*}\NormalTok{ n), }
+                             \AttributeTok{replace =} \ConstantTok{FALSE}\NormalTok{)}
+\NormalTok{    sample }\OtherTok{\textless{}{-}}\NormalTok{ df[sample.idx,]}
+\NormalTok{    str.sample }\OtherTok{\textless{}{-}} \FunctionTok{rbind}\NormalTok{(str.sample, sample)}
+\NormalTok{  \}}
+  
+  \CommentTok{\# Stratified sample contains 1003 samples due to rounding of the proportions,}
+  \CommentTok{\# so we randomly remove three from random strata}
+\NormalTok{  strata.for.removal }\OtherTok{\textless{}{-}} \FunctionTok{sample}\NormalTok{(}\DecValTok{1}\SpecialCharTok{:}\DecValTok{5}\NormalTok{, }\DecValTok{2}\NormalTok{)}
+  \ControlFlowTok{for}\NormalTok{ (s }\ControlFlowTok{in}\NormalTok{ strata.for.removal) \{}
+    \FunctionTok{set.seed}\NormalTok{(}\DecValTok{1234}\NormalTok{)}
+\NormalTok{    to.remove }\OtherTok{\textless{}{-}} \FunctionTok{sample}\NormalTok{(}\FunctionTok{which}\NormalTok{(str.sample}\SpecialCharTok{$}\NormalTok{elo\_range }\SpecialCharTok{==} \FunctionTok{levels}\NormalTok{(df}\SpecialCharTok{$}\NormalTok{elo\_range)[s]), }\DecValTok{1}\NormalTok{)}
+\NormalTok{    str.sample }\OtherTok{\textless{}{-}}\NormalTok{ str.sample[}\SpecialCharTok{{-}}\NormalTok{to.remove,]}
+\NormalTok{  \}}
+  
+  \FunctionTok{return}\NormalTok{(str.sample)}
+\NormalTok{\}}
+
+\NormalTok{white.str.sample }\OtherTok{\textless{}{-}} \FunctionTok{strsample}\NormalTok{(df, sample.size.by.strata, n, }\DecValTok{1234}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{group\_by}\NormalTok{(elo\_range) }
+\NormalTok{black.str.sample }\OtherTok{\textless{}{-}} \FunctionTok{strsample}\NormalTok{(df, sample.size.by.strata, n, }\DecValTok{4321}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{group\_by}\NormalTok{(elo\_range) }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{z}\FloatTok{.95} \OtherTok{\textless{}{-}} \FunctionTok{qnorm}\NormalTok{(}\FloatTok{0.975}\NormalTok{)}
+\CommentTok{\# Returns the sample variance of a given proportion}
+\NormalTok{var.est }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(p) \{}
+\NormalTok{  p }\SpecialCharTok{*}\NormalTok{ (}\DecValTok{1} \SpecialCharTok{{-}}\NormalTok{ p)}
+\NormalTok{\}}
+\CommentTok{\# Calculate white\textquotesingle{}s win rate}
+\NormalTok{white.prop }\OtherTok{\textless{}{-}}\NormalTok{ srs.sample.s1 }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{count}\NormalTok{(winner) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{group\_by}\NormalTok{(winner) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{win.prop =}\NormalTok{ n }\SpecialCharTok{/} \DecValTok{2000}\NormalTok{)}
+
+\NormalTok{white.p }\OtherTok{\textless{}{-}} \FunctionTok{as.numeric}\NormalTok{(white.prop[}\DecValTok{3}\NormalTok{,}\DecValTok{3}\NormalTok{])}
+
+\NormalTok{black.prop }\OtherTok{\textless{}{-}}\NormalTok{ srs.sample.s2 }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{count}\NormalTok{(winner) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{group\_by}\NormalTok{(winner) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{win.prop =}\NormalTok{ n }\SpecialCharTok{/} \DecValTok{2000}\NormalTok{)}
+
+\NormalTok{black.p }\OtherTok{\textless{}{-}} \FunctionTok{as.numeric}\NormalTok{(black.prop[}\DecValTok{1}\NormalTok{,}\DecValTok{3}\NormalTok{])}
+
+\NormalTok{srs.se }\OtherTok{\textless{}{-}} \FunctionTok{sqrt}\NormalTok{((}\DecValTok{1}\SpecialCharTok{{-}}\NormalTok{n}\SpecialCharTok{/}\NormalTok{N)}\SpecialCharTok{*}\NormalTok{(}\FunctionTok{var.est}\NormalTok{(white.p) }\SpecialCharTok{+} \FunctionTok{var.est}\NormalTok{(black.p))}\SpecialCharTok{/}\NormalTok{n)}
+
+
+\NormalTok{table1 }\OtherTok{\textless{}{-}} \FunctionTok{t}\NormalTok{(}\FunctionTok{c}\NormalTok{(white.p, black.p, srs.se, (white.p}\SpecialCharTok{{-}}\NormalTok{black.p) }\SpecialCharTok{+}\NormalTok{ z}\FloatTok{.95} \SpecialCharTok{*}\NormalTok{ srs.se }\SpecialCharTok{*} \FunctionTok{c}\NormalTok{(}\SpecialCharTok{{-}}\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{)))}
+\NormalTok{table1 }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(table1)}
+\FunctionTok{names}\NormalTok{(table1) }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"White\textquotesingle{}s win rate"}\NormalTok{, }\StringTok{"Black\textquotesingle{}s win rate"}\NormalTok{, }\StringTok{"SE of the difference"}\NormalTok{, }\StringTok{"Lower Confidence Interval"}\NormalTok{, }\StringTok{"Upper Confidence Interval"}\NormalTok{)}
+\CommentTok{\#knitr::kable(table1)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Calculate Nh/N, the strata proportion}
+\NormalTok{Nh }\OtherTok{\textless{}{-}}\NormalTok{ df }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{count}\NormalTok{(elo\_range, }\AttributeTok{.drop=}\ConstantTok{FALSE}\NormalTok{)}
+\NormalTok{Nh }\OtherTok{\textless{}{-}}\NormalTok{ Nh[}\FunctionTok{complete.cases}\NormalTok{(Nh),]}
+
+\NormalTok{nh.white }\OtherTok{\textless{}{-}}\NormalTok{ white.str.sample }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{count}\NormalTok{(elo\_range, }\AttributeTok{.drop=}\ConstantTok{FALSE}\NormalTok{)}
+\NormalTok{nh.black }\OtherTok{\textless{}{-}}\NormalTok{ black.str.sample }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{count}\NormalTok{(elo\_range, }\AttributeTok{.drop=}\ConstantTok{FALSE}\NormalTok{)}
+\NormalTok{strata.size.prop }\OtherTok{\textless{}{-}}\NormalTok{ Nh[}\DecValTok{2}\NormalTok{] }\SpecialCharTok{/}\NormalTok{ N}
+
+\CommentTok{\# Calculate white\textquotesingle{}s win proportion by each strata}
+\NormalTok{white.win.prop }\OtherTok{\textless{}{-}}\NormalTok{ white.str.sample }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{count}\NormalTok{(winner) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{group\_by}\NormalTok{(elo\_range) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{win.prop =}\NormalTok{ n }\SpecialCharTok{/} \FunctionTok{sum}\NormalTok{(n))}
+
+\CommentTok{\# The estimated aggregated win proportion for white}
+\NormalTok{white.prop }\OtherTok{\textless{}{-}}\NormalTok{ white.win.prop[white.win.prop}\SpecialCharTok{$}\NormalTok{winner }\SpecialCharTok{==} \StringTok{"white"}\NormalTok{, ] }
+\NormalTok{white.p.str.est }\OtherTok{\textless{}{-}} \FunctionTok{sum}\NormalTok{(white.prop}\SpecialCharTok{$}\NormalTok{win.prop }\SpecialCharTok{*}\NormalTok{ strata.size.prop)}
+
+\CommentTok{\# The estimated aggregated variance of win proportion for white}
+\NormalTok{white.se.by.strata }\OtherTok{\textless{}{-}} \FunctionTok{bind\_cols}\NormalTok{(white.prop, }\AttributeTok{nh =}\NormalTok{ nh.white}\SpecialCharTok{$}\NormalTok{n)}
+\NormalTok{white.se.by.strata }\OtherTok{\textless{}{-}}\NormalTok{ white.se.by.strata }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{mutate}\NormalTok{(}\AttributeTok{var.by.strata =}\NormalTok{ win.prop }\SpecialCharTok{*}\NormalTok{ (}\DecValTok{1}\SpecialCharTok{{-}}\NormalTok{win.prop)}\SpecialCharTok{/}\NormalTok{nh)}
+\NormalTok{white.se.by.strata }\OtherTok{\textless{}{-}} \FunctionTok{bind\_cols}\NormalTok{(white.se.by.strata, }\AttributeTok{strata.prop.sq =}\NormalTok{ strata.size.prop}\SpecialCharTok{$}\NormalTok{n}\SpecialCharTok{\^{}}\DecValTok{2}\NormalTok{)}
+\NormalTok{white.se.by.strata }\OtherTok{\textless{}{-}}\NormalTok{ white.se.by.strata }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{mutate}\NormalTok{(strata.prop.sq}\SpecialCharTok{*}\NormalTok{(}\DecValTok{1}\SpecialCharTok{{-}}\NormalTok{n}\SpecialCharTok{/}\NormalTok{nh)}\SpecialCharTok{*}\NormalTok{var.by.strata)}
+\NormalTok{white.str.se }\OtherTok{\textless{}{-}} \FunctionTok{sqrt}\NormalTok{(}\FunctionTok{sum}\NormalTok{(white.se.by.strata}\SpecialCharTok{$}\StringTok{\textasciigrave{}}\AttributeTok{strata.prop.sq * (1 {-} n/nh) * var.by.strata}\StringTok{\textasciigrave{}}\NormalTok{))}
+
+\CommentTok{\# Calculate black\textquotesingle{}s win proportion by each strata}
+\NormalTok{black.win.prop }\OtherTok{\textless{}{-}}\NormalTok{ black.str.sample }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{count}\NormalTok{(winner) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{group\_by}\NormalTok{(elo\_range) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{win.prop =}\NormalTok{ n }\SpecialCharTok{/} \FunctionTok{sum}\NormalTok{(n))}
+
+\CommentTok{\# The estimated aggregated win proportion for white}
+\NormalTok{black.prop }\OtherTok{\textless{}{-}}\NormalTok{ black.win.prop[black.win.prop}\SpecialCharTok{$}\NormalTok{winner }\SpecialCharTok{==} \StringTok{"black"}\NormalTok{, ] }
+\NormalTok{black.p.str.est }\OtherTok{\textless{}{-}} \FunctionTok{sum}\NormalTok{(black.prop}\SpecialCharTok{$}\NormalTok{win.prop }\SpecialCharTok{*}\NormalTok{ strata.size.prop)}
+
+\CommentTok{\# The estimated aggregated variance of win proportion for black}
+\NormalTok{black.se.by.strata }\OtherTok{\textless{}{-}} \FunctionTok{bind\_cols}\NormalTok{(black.prop, }\AttributeTok{nh =}\NormalTok{ nh.black}\SpecialCharTok{$}\NormalTok{n)}
+\NormalTok{black.se.by.strata }\OtherTok{\textless{}{-}}\NormalTok{ black.se.by.strata }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{mutate}\NormalTok{(}\AttributeTok{var.by.strata =}\NormalTok{ win.prop }\SpecialCharTok{*}\NormalTok{ (}\DecValTok{1}\SpecialCharTok{{-}}\NormalTok{win.prop)}\SpecialCharTok{/}\NormalTok{nh)}
+\NormalTok{black.se.by.strata }\OtherTok{\textless{}{-}} \FunctionTok{bind\_cols}\NormalTok{(black.se.by.strata, }\AttributeTok{strata.prop.sq =}\NormalTok{ strata.size.prop}\SpecialCharTok{$}\NormalTok{n}\SpecialCharTok{\^{}}\DecValTok{2}\NormalTok{)}
+\NormalTok{black.se.by.strata }\OtherTok{\textless{}{-}}\NormalTok{ black.se.by.strata }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{mutate}\NormalTok{(strata.prop.sq}\SpecialCharTok{*}\NormalTok{(}\DecValTok{1}\SpecialCharTok{{-}}\NormalTok{n}\SpecialCharTok{/}\NormalTok{nh)}\SpecialCharTok{*}\NormalTok{var.by.strata)}
+\NormalTok{black.str.se }\OtherTok{\textless{}{-}} \FunctionTok{sqrt}\NormalTok{(}\FunctionTok{sum}\NormalTok{(black.se.by.strata}\SpecialCharTok{$}\StringTok{\textasciigrave{}}\AttributeTok{strata.prop.sq * (1 {-} n/nh) * var.by.strata}\StringTok{\textasciigrave{}}\NormalTok{))}
+
+\CommentTok{\# Their difference}
+\NormalTok{diff.p }\OtherTok{\textless{}{-}}\NormalTok{ white.p.str.est }\SpecialCharTok{{-}}\NormalTok{ black.p.str.est}
+\NormalTok{diff.se }\OtherTok{\textless{}{-}} \FunctionTok{sqrt}\NormalTok{(white.str.se}\SpecialCharTok{\^{}}\DecValTok{2} \SpecialCharTok{+}\NormalTok{ black.str.se}\SpecialCharTok{\^{}}\DecValTok{2}\NormalTok{)}
+\NormalTok{(diff.p) }\SpecialCharTok{+}\NormalTok{ z}\FloatTok{.95} \SpecialCharTok{*}\NormalTok{ diff.se }\SpecialCharTok{*} \FunctionTok{c}\NormalTok{(}\SpecialCharTok{{-}}\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Guess the most conservative variance}
+\CommentTok{\# Find minimum domain sample size for desired CI width}
+\NormalTok{var.guess }\OtherTok{\textless{}{-}} \FloatTok{0.25}
+\NormalTok{ci.width }\OtherTok{\textless{}{-}} \FloatTok{0.2}
+\NormalTok{n0 }\OtherTok{\textless{}{-}}\NormalTok{ z}\FloatTok{.95}\SpecialCharTok{\^{}}\DecValTok{2} \SpecialCharTok{*}\NormalTok{ var.guess }\SpecialCharTok{/}\NormalTok{ ci.width}\SpecialCharTok{\^{}}\DecValTok{2}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{openings.df.s1 }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}\FunctionTok{table}\NormalTok{(white.str.sample}\SpecialCharTok{$}\NormalTok{opening\_name))}
+\NormalTok{openings.df.s2 }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}\FunctionTok{table}\NormalTok{(black.str.sample}\SpecialCharTok{$}\NormalTok{opening\_name))}
+\FunctionTok{names}\NormalTok{(openings.df.s1) }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"name"}\NormalTok{, }\StringTok{"frequency"}\NormalTok{)}
+\FunctionTok{names}\NormalTok{(openings.df.s2) }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"name"}\NormalTok{, }\StringTok{"frequency"}\NormalTok{)}
+
+\CommentTok{\# Include openings with sample size large enough for usable CI}
+\NormalTok{openings.freq.s1 }\OtherTok{\textless{}{-}}\NormalTok{ openings.df.s1[openings.df.s1}\SpecialCharTok{$}\NormalTok{frequency }\SpecialCharTok{\textgreater{}} \DecValTok{15}\NormalTok{,]}
+\NormalTok{openings.freq.s2 }\OtherTok{\textless{}{-}}\NormalTok{ openings.df.s2[openings.df.s2}\SpecialCharTok{$}\NormalTok{frequency }\SpecialCharTok{\textgreater{}} \DecValTok{15}\NormalTok{,]}
+
+\NormalTok{openings.df.p }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}\FunctionTok{table}\NormalTok{(df}\SpecialCharTok{$}\NormalTok{opening\_name))}
+\FunctionTok{names}\NormalTok{(openings.df.p) }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"name"}\NormalTok{, }\StringTok{"frequency"}\NormalTok{)}
+
+\CommentTok{\# openings.size.p1 \textless{}{-} openings.df.p[openings.df.p$name \%in\% openings.freq.s1$name,]}
+\CommentTok{\# openings.size.p2 \textless{}{-} openings.df.p[openings.df.p$name \%in\% openings.freq.s2$name,]}
+
+\CommentTok{\# Include openings with sample sizes yielding the desired CI width}
+\NormalTok{domain.sizes.s1 }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{()}
+\NormalTok{domain.sizes.s2 }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{()}
+
+\ControlFlowTok{for}\NormalTok{ (name }\ControlFlowTok{in}\NormalTok{ openings.freq.s1}\SpecialCharTok{$}\NormalTok{name) \{}
+\NormalTok{  domain.sizes.s1 }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(domain.sizes.s1, n0 }\SpecialCharTok{/}\NormalTok{ (}\DecValTok{1} \SpecialCharTok{+}\NormalTok{ n0 }\SpecialCharTok{/}\NormalTok{ openings.df.p[openings.df.p}\SpecialCharTok{$}\NormalTok{name }\SpecialCharTok{==}\NormalTok{ name,]}\SpecialCharTok{$}\NormalTok{frequency))}
+\NormalTok{\}}
+
+\ControlFlowTok{for}\NormalTok{ (name }\ControlFlowTok{in}\NormalTok{ openings.freq.s2}\SpecialCharTok{$}\NormalTok{name) \{}
+\NormalTok{  domain.sizes.s2 }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(domain.sizes.s2, n0 }\SpecialCharTok{/}\NormalTok{ (}\DecValTok{1} \SpecialCharTok{+}\NormalTok{ n0 }\SpecialCharTok{/}\NormalTok{ openings.df.p[openings.df.p}\SpecialCharTok{$}\NormalTok{name }\SpecialCharTok{==}\NormalTok{ name,]}\SpecialCharTok{$}\NormalTok{frequency))}
+\NormalTok{\}}
+
+\NormalTok{openings.valid.s1 }\OtherTok{\textless{}{-}}\NormalTok{ openings.freq.s1[openings.freq.s1}\SpecialCharTok{$}\NormalTok{frequency }\SpecialCharTok{\textgreater{}}\NormalTok{ domain.sizes.s1,]}
+\NormalTok{openings.valid.s2 }\OtherTok{\textless{}{-}}\NormalTok{ openings.freq.s2[openings.freq.s2}\SpecialCharTok{$}\NormalTok{frequency }\SpecialCharTok{\textgreater{}}\NormalTok{ domain.sizes.s2,]}
+
+\NormalTok{openings.valid.str.sample }\OtherTok{\textless{}{-}} \FunctionTok{merge}\NormalTok{(openings.valid.s1, openings.valid.s2, }\AttributeTok{by =} \StringTok{"name"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{estimates }\OtherTok{\textless{}{-}} \FunctionTok{rep}\NormalTok{(}\DecValTok{0}\NormalTok{, }\FunctionTok{nrow}\NormalTok{(openings.valid.str.sample))}
+\NormalTok{intervals }\OtherTok{\textless{}{-}} \FunctionTok{matrix}\NormalTok{(}\DecValTok{0}\NormalTok{, }\FunctionTok{nrow}\NormalTok{(openings.valid.str.sample), }\DecValTok{2}\NormalTok{)}
+\ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\FunctionTok{nrow}\NormalTok{(openings.valid.str.sample)) \{}
+  \CommentTok{\# Find estimate and CI for difference in win rate for white/black}
+  \CommentTok{\# for one domain}
+\NormalTok{  domain.name }\OtherTok{\textless{}{-}}\NormalTok{ openings.valid.str.sample[i, }\DecValTok{1}\NormalTok{]}
+\NormalTok{  domain.s1 }\OtherTok{\textless{}{-}}\NormalTok{ white.str.sample[white.str.sample}\SpecialCharTok{$}\NormalTok{opening\_name }\SpecialCharTok{==}\NormalTok{ domain.name,]}
+\NormalTok{  domain.s2 }\OtherTok{\textless{}{-}}\NormalTok{ black.str.sample[black.str.sample}\SpecialCharTok{$}\NormalTok{opening\_name }\SpecialCharTok{==}\NormalTok{ domain.name,]}
+\NormalTok{  domain.p }\OtherTok{\textless{}{-}}\NormalTok{ df[df}\SpecialCharTok{$}\NormalTok{opening\_name }\SpecialCharTok{==}\NormalTok{ domain.name,]}
+  
+\NormalTok{  n.d.s1 }\OtherTok{\textless{}{-}}\NormalTok{ openings.valid.str.sample[i, }\DecValTok{2}\NormalTok{]}
+\NormalTok{  n.d.s2 }\OtherTok{\textless{}{-}}\NormalTok{ openings.valid.str.sample[i, }\DecValTok{3}\NormalTok{]}
+
+\NormalTok{  N.d }\OtherTok{\textless{}{-}} \FunctionTok{nrow}\NormalTok{(domain.p)}
+\NormalTok{  nh.d1 }\OtherTok{\textless{}{-}}\NormalTok{ domain.s1 }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{count}\NormalTok{(elo\_range, }\AttributeTok{.drop=}\ConstantTok{FALSE}\NormalTok{)}
+\NormalTok{  nh.d2 }\OtherTok{\textless{}{-}}\NormalTok{ domain.s2 }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{count}\NormalTok{(elo\_range, }\AttributeTok{.drop=}\ConstantTok{FALSE}\NormalTok{)}
+\NormalTok{  Nh.d }\OtherTok{\textless{}{-}}\NormalTok{ domain.p }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{count}\NormalTok{(elo\_range, }\AttributeTok{.drop=}\ConstantTok{FALSE}\NormalTok{)}
+\NormalTok{  strata.size.prop }\OtherTok{\textless{}{-}}\NormalTok{ Nh.d[}\DecValTok{2}\NormalTok{]}\SpecialCharTok{/}\NormalTok{N.d}
+  
+  \CommentTok{\# Calculate white\textquotesingle{}s win proportion by each strata}
+\NormalTok{  white.win.prop }\OtherTok{\textless{}{-}}\NormalTok{ domain.s1 }\SpecialCharTok{\%\textgreater{}\%}
+    \FunctionTok{count}\NormalTok{(winner, }\AttributeTok{.drop=}\ConstantTok{FALSE}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+    \FunctionTok{group\_by}\NormalTok{(elo\_range) }\SpecialCharTok{\%\textgreater{}\%}
+    \FunctionTok{mutate}\NormalTok{(}\AttributeTok{win.prop =}\NormalTok{ n }\SpecialCharTok{/} \FunctionTok{sum}\NormalTok{(n))}
+  
+  \CommentTok{\# The estimated aggregated win proportion for white}
+\NormalTok{  white.prop }\OtherTok{\textless{}{-}}\NormalTok{ white.win.prop[white.win.prop}\SpecialCharTok{$}\NormalTok{winner }\SpecialCharTok{==} \StringTok{"white"}\NormalTok{, ] }
+\NormalTok{  white.prop[}\FunctionTok{is.na}\NormalTok{(white.prop)] }\OtherTok{\textless{}{-}} \DecValTok{0}
+\NormalTok{  white.p.str.est }\OtherTok{\textless{}{-}} \FunctionTok{sum}\NormalTok{(white.prop}\SpecialCharTok{$}\NormalTok{win.prop }\SpecialCharTok{*}\NormalTok{ strata.size.prop)}
+  
+  \CommentTok{\# The estimated aggregated variance of win proportion for white}
+\NormalTok{  white.se.by.strata }\OtherTok{\textless{}{-}} \FunctionTok{bind\_cols}\NormalTok{(white.prop, }\AttributeTok{nh =}\NormalTok{ nh.d1}\SpecialCharTok{$}\NormalTok{n)}
+\NormalTok{  white.se.by.strata }\OtherTok{\textless{}{-}}\NormalTok{ white.se.by.strata }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{mutate}\NormalTok{(}\AttributeTok{var.by.strata =}\NormalTok{ win.prop }\SpecialCharTok{*}\NormalTok{ (}\DecValTok{1}\SpecialCharTok{{-}}\NormalTok{win.prop)}\SpecialCharTok{/}\NormalTok{nh)}
+\NormalTok{  white.se.by.strata }\OtherTok{\textless{}{-}} \FunctionTok{bind\_cols}\NormalTok{(white.se.by.strata, }\AttributeTok{strata.prop.sq =}\NormalTok{ strata.size.prop}\SpecialCharTok{$}\NormalTok{n}\SpecialCharTok{\^{}}\DecValTok{2}\NormalTok{)}
+\NormalTok{  white.se.by.strata }\OtherTok{\textless{}{-}}\NormalTok{ white.se.by.strata }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{mutate}\NormalTok{(strata.prop.sq}\SpecialCharTok{*}\NormalTok{(}\DecValTok{1}\SpecialCharTok{{-}}\NormalTok{n}\SpecialCharTok{/}\NormalTok{nh)}\SpecialCharTok{*}\NormalTok{var.by.strata)}
+\NormalTok{  white.se.by.strata[}\FunctionTok{is.na}\NormalTok{(white.se.by.strata)] }\OtherTok{\textless{}{-}} \DecValTok{0}
+\NormalTok{  white.str.se }\OtherTok{\textless{}{-}} \FunctionTok{sqrt}\NormalTok{(}\FunctionTok{sum}\NormalTok{(white.se.by.strata}\SpecialCharTok{$}\StringTok{\textasciigrave{}}\AttributeTok{strata.prop.sq * (1 {-} n/nh) * var.by.strata}\StringTok{\textasciigrave{}}\NormalTok{))}
+  
+  \CommentTok{\# Calculate black\textquotesingle{}s win proportion by each strata}
+\NormalTok{  black.win.prop }\OtherTok{\textless{}{-}}\NormalTok{ domain.s2 }\SpecialCharTok{\%\textgreater{}\%}
+    \FunctionTok{count}\NormalTok{(winner, }\AttributeTok{.drop=}\ConstantTok{FALSE}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+    \FunctionTok{group\_by}\NormalTok{(elo\_range) }\SpecialCharTok{\%\textgreater{}\%}
+    \FunctionTok{mutate}\NormalTok{(}\AttributeTok{win.prop =}\NormalTok{ n }\SpecialCharTok{/} \FunctionTok{sum}\NormalTok{(n))}
+  
+  \CommentTok{\# The estimated aggregated win proportion for white}
+\NormalTok{  black.prop }\OtherTok{\textless{}{-}}\NormalTok{ black.win.prop[black.win.prop}\SpecialCharTok{$}\NormalTok{winner }\SpecialCharTok{==} \StringTok{"black"}\NormalTok{, ] }
+\NormalTok{  black.prop[}\FunctionTok{is.na}\NormalTok{(black.prop)] }\OtherTok{\textless{}{-}} \DecValTok{0}
+\NormalTok{  black.p.str.est }\OtherTok{\textless{}{-}} \FunctionTok{sum}\NormalTok{(black.prop}\SpecialCharTok{$}\NormalTok{win.prop }\SpecialCharTok{*}\NormalTok{ strata.size.prop)}
+  
+  \CommentTok{\# The estimated aggregated variance of win proportion for black}
+\NormalTok{  black.se.by.strata }\OtherTok{\textless{}{-}} \FunctionTok{bind\_cols}\NormalTok{(black.prop, }\AttributeTok{nh =}\NormalTok{ nh.d2}\SpecialCharTok{$}\NormalTok{n)}
+\NormalTok{  black.se.by.strata }\OtherTok{\textless{}{-}}\NormalTok{ black.se.by.strata }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{mutate}\NormalTok{(}\AttributeTok{var.by.strata =}\NormalTok{ win.prop }\SpecialCharTok{*}\NormalTok{ (}\DecValTok{1}\SpecialCharTok{{-}}\NormalTok{win.prop)}\SpecialCharTok{/}\NormalTok{nh)}
+\NormalTok{  black.se.by.strata }\OtherTok{\textless{}{-}} \FunctionTok{bind\_cols}\NormalTok{(black.se.by.strata, }\AttributeTok{strata.prop.sq =}\NormalTok{ strata.size.prop}\SpecialCharTok{$}\NormalTok{n}\SpecialCharTok{\^{}}\DecValTok{2}\NormalTok{)}
+\NormalTok{  black.se.by.strata }\OtherTok{\textless{}{-}}\NormalTok{ black.se.by.strata }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{mutate}\NormalTok{(strata.prop.sq}\SpecialCharTok{*}\NormalTok{(}\DecValTok{1}\SpecialCharTok{{-}}\NormalTok{n}\SpecialCharTok{/}\NormalTok{nh)}\SpecialCharTok{*}\NormalTok{var.by.strata)}
+\NormalTok{  black.se.by.strata[}\FunctionTok{is.na}\NormalTok{(black.se.by.strata)] }\OtherTok{\textless{}{-}} \DecValTok{0}
+\NormalTok{  black.str.se }\OtherTok{\textless{}{-}} \FunctionTok{sqrt}\NormalTok{(}\FunctionTok{sum}\NormalTok{(black.se.by.strata}\SpecialCharTok{$}\StringTok{\textasciigrave{}}\AttributeTok{strata.prop.sq * (1 {-} n/nh) * var.by.strata}\StringTok{\textasciigrave{}}\NormalTok{))}
+
+  \CommentTok{\# Their difference}
+\NormalTok{  estimates[i] }\OtherTok{\textless{}{-}}\NormalTok{ white.p.str.est }\SpecialCharTok{{-}}\NormalTok{ black.p.str.est}
+  \CommentTok{\# Using pooled variance}
+\NormalTok{  diff.se }\OtherTok{\textless{}{-}} \FunctionTok{sqrt}\NormalTok{(((n.d.s1}\DecValTok{{-}1}\NormalTok{)}\SpecialCharTok{*}\NormalTok{white.str.se}\SpecialCharTok{\^{}}\DecValTok{2} \SpecialCharTok{+}\NormalTok{ (n.d.s2}\DecValTok{{-}1}\NormalTok{)}\SpecialCharTok{*}\NormalTok{black.str.se}\SpecialCharTok{\^{}}\DecValTok{2}\NormalTok{)}\SpecialCharTok{/}\NormalTok{(n.d.s1}\SpecialCharTok{+}\NormalTok{n.d.s2}\DecValTok{{-}2}\NormalTok{))}
+\NormalTok{  intervals[i,] }\OtherTok{\textless{}{-}}\NormalTok{ (white.p.str.est }\SpecialCharTok{{-}}\NormalTok{ black.p.str.est) }\SpecialCharTok{+} \FunctionTok{qt}\NormalTok{(}\FloatTok{0.975}\NormalTok{, n.d.s1}\SpecialCharTok{+}\NormalTok{n.d.s2}\SpecialCharTok{{-}} \DecValTok{2}\NormalTok{) }\SpecialCharTok{*}\NormalTok{ diff.se }\SpecialCharTok{*} \FunctionTok{c}\NormalTok{(}\SpecialCharTok{{-}}\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{)}
+\NormalTok{\}}
+
+\NormalTok{openings }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(openings.valid.str.sample}\SpecialCharTok{$}\NormalTok{name, intervals)}
+\FunctionTok{colnames}\NormalTok{(openings) }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"name"}\NormalTok{, }\StringTok{"95.CI.lower"}\NormalTok{, }\StringTok{"95.CI.upper"}\NormalTok{)}
+\NormalTok{white.higher }\OtherTok{\textless{}{-}}\NormalTok{ openings[openings}\SpecialCharTok{$}\StringTok{\textasciigrave{}}\AttributeTok{95.CI.lower}\StringTok{\textasciigrave{}} \SpecialCharTok{\textgreater{}} \DecValTok{0}\NormalTok{,]}
+\NormalTok{white.lower }\OtherTok{\textless{}{-}}\NormalTok{ openings[openings}\SpecialCharTok{$}\StringTok{\textasciigrave{}}\AttributeTok{95.CI.upper}\StringTok{\textasciigrave{}} \SpecialCharTok{\textless{}} \DecValTok{0}\NormalTok{,]}
+\NormalTok{openings}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# mean number of turns for white wins vs black wins?}
+\NormalTok{white.win }\OtherTok{\textless{}{-}}\NormalTok{ srs.sample.s1[srs.sample.s1}\SpecialCharTok{$}\NormalTok{winner }\SpecialCharTok{==} \StringTok{"white"}\NormalTok{,]}
+\NormalTok{black.win }\OtherTok{\textless{}{-}}\NormalTok{ srs.sample.s2[srs.sample.s2}\SpecialCharTok{$}\NormalTok{winner }\SpecialCharTok{==} \StringTok{"black"}\NormalTok{,]}
+
+\NormalTok{white.win.turns.avg }\OtherTok{\textless{}{-}} \FunctionTok{mean}\NormalTok{(white.win}\SpecialCharTok{$}\NormalTok{turns)}
+\NormalTok{black.win.turns.avg }\OtherTok{\textless{}{-}} \FunctionTok{mean}\NormalTok{(black.win}\SpecialCharTok{$}\NormalTok{turns)}
+
+\NormalTok{n.w }\OtherTok{\textless{}{-}} \FunctionTok{nrow}\NormalTok{(white.win)}
+\NormalTok{n.b }\OtherTok{\textless{}{-}} \FunctionTok{nrow}\NormalTok{(black.win)}
+
+\NormalTok{srs.se }\OtherTok{\textless{}{-}} \FunctionTok{sqrt}\NormalTok{((}\DecValTok{1}\SpecialCharTok{{-}}\NormalTok{n.w}\SpecialCharTok{/}\NormalTok{N)}\SpecialCharTok{*}\FunctionTok{var}\NormalTok{(white.win}\SpecialCharTok{$}\NormalTok{turns)}\SpecialCharTok{/}\NormalTok{n.w }\SpecialCharTok{+}\NormalTok{ (}\DecValTok{1}\SpecialCharTok{{-}}\NormalTok{n.b}\SpecialCharTok{/}\NormalTok{N)}\SpecialCharTok{*}\FunctionTok{var}\NormalTok{(black.win}\SpecialCharTok{$}\NormalTok{turns)}\SpecialCharTok{/}\NormalTok{n.b)}
+\NormalTok{(white.win.turns.avg }\SpecialCharTok{{-}}\NormalTok{ black.win.turns.avg) }\SpecialCharTok{+}\NormalTok{ z}\FloatTok{.95} \SpecialCharTok{*}\NormalTok{ srs.se }\SpecialCharTok{*} \FunctionTok{c}\NormalTok{(}\SpecialCharTok{{-}}\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{white.win }\OtherTok{\textless{}{-}}\NormalTok{ white.str.sample[white.str.sample}\SpecialCharTok{$}\NormalTok{winner }\SpecialCharTok{==} \StringTok{"white"}\NormalTok{,]}
+\NormalTok{black.win }\OtherTok{\textless{}{-}}\NormalTok{ black.str.sample[black.str.sample}\SpecialCharTok{$}\NormalTok{winner }\SpecialCharTok{==} \StringTok{"black"}\NormalTok{,]}
+
+\CommentTok{\# Calculate average number of turns for white win by each strata}
+\NormalTok{avg.turns.w }\OtherTok{\textless{}{-}}\NormalTok{ white.win }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{group\_by}\NormalTok{(elo\_range) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{summarise}\NormalTok{(}\AttributeTok{mean\_turns =} \FunctionTok{mean}\NormalTok{(turns))}
+
+\CommentTok{\# and for black win}
+\NormalTok{avg.turns.b }\OtherTok{\textless{}{-}}\NormalTok{ black.win }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{group\_by}\NormalTok{(elo\_range) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{summarise}\NormalTok{(}\AttributeTok{mean\_turns =} \FunctionTok{mean}\NormalTok{(turns))}
+
+\CommentTok{\# The estimated average number of turns}
+\NormalTok{white.avg }\OtherTok{\textless{}{-}} \FunctionTok{sum}\NormalTok{(Nh[}\DecValTok{2}\NormalTok{]}\SpecialCharTok{/}\NormalTok{N }\SpecialCharTok{*}\NormalTok{ avg.turns.w}\SpecialCharTok{$}\NormalTok{mean\_turns)}
+\NormalTok{black.avg }\OtherTok{\textless{}{-}} \FunctionTok{sum}\NormalTok{(Nh[}\DecValTok{2}\NormalTok{]}\SpecialCharTok{/}\NormalTok{N }\SpecialCharTok{*}\NormalTok{ avg.turns.b}\SpecialCharTok{$}\NormalTok{mean\_turns)}
+
+\CommentTok{\# The estimated se by strata}
+\NormalTok{white.turn.strata  }\OtherTok{\textless{}{-}}\NormalTok{ white.win }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{group\_by}\NormalTok{(elo\_range) }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{summarise}\NormalTok{(}\AttributeTok{var =} \FunctionTok{var}\NormalTok{(turns))}
+\NormalTok{white.turn.strata }\OtherTok{\textless{}{-}} \FunctionTok{bind\_cols}\NormalTok{(white.turn.strata, }\AttributeTok{nh =}\NormalTok{ nh.white}\SpecialCharTok{$}\NormalTok{n)}
+\NormalTok{white.turn.strata }\OtherTok{\textless{}{-}} \FunctionTok{bind\_cols}\NormalTok{(white.turn.strata, }\AttributeTok{Nh =}\NormalTok{ Nh[}\DecValTok{2}\NormalTok{])}
+\NormalTok{white.se.by.strata }\OtherTok{\textless{}{-}}\NormalTok{white.turn.strata }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{mutate}\NormalTok{(}\AttributeTok{var.by.str =}\NormalTok{  (}\DecValTok{1}\SpecialCharTok{{-}}\NormalTok{nh}\SpecialCharTok{/}\NormalTok{n)}\SpecialCharTok{*}\NormalTok{var}\SpecialCharTok{/}\NormalTok{nh)}
+\NormalTok{white.se.by.strata }\OtherTok{\textless{}{-}} \FunctionTok{bind\_cols}\NormalTok{(white.se.by.strata, strata.size.prop)}
+\NormalTok{white.se.by.strata }\OtherTok{\textless{}{-}} \FunctionTok{sqrt}\NormalTok{(}\FunctionTok{sum}\NormalTok{(white.se.by.strata}\SpecialCharTok{$}\NormalTok{n...}\DecValTok{6}\SpecialCharTok{\^{}}\DecValTok{2} \SpecialCharTok{*}\NormalTok{ white.se.by.strata}\SpecialCharTok{$}\NormalTok{var.by.str))}
+
+\NormalTok{black.turn.strata  }\OtherTok{\textless{}{-}}\NormalTok{ black.win }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{group\_by}\NormalTok{(elo\_range) }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{summarise}\NormalTok{(}\AttributeTok{var =} \FunctionTok{var}\NormalTok{(turns))}
+\NormalTok{black.turn.strata }\OtherTok{\textless{}{-}} \FunctionTok{bind\_cols}\NormalTok{(black.turn.strata, }\AttributeTok{nh =}\NormalTok{ nh.black}\SpecialCharTok{$}\NormalTok{n)}
+\NormalTok{black.turn.strata }\OtherTok{\textless{}{-}} \FunctionTok{bind\_cols}\NormalTok{(black.turn.strata, }\AttributeTok{Nh =}\NormalTok{ Nh[}\DecValTok{2}\NormalTok{])}
+\NormalTok{black.se.by.strata }\OtherTok{\textless{}{-}}\NormalTok{black.turn.strata }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{mutate}\NormalTok{(}\AttributeTok{var.by.str =}\NormalTok{  (}\DecValTok{1}\SpecialCharTok{{-}}\NormalTok{nh}\SpecialCharTok{/}\NormalTok{n)}\SpecialCharTok{*}\NormalTok{var}\SpecialCharTok{/}\NormalTok{nh)}
+\NormalTok{black.se.by.strata }\OtherTok{\textless{}{-}} \FunctionTok{bind\_cols}\NormalTok{(black.se.by.strata, strata.size.prop)}
+\NormalTok{black.se.by.strata }\OtherTok{\textless{}{-}} \FunctionTok{sqrt}\NormalTok{(}\FunctionTok{sum}\NormalTok{(black.se.by.strata}\SpecialCharTok{$}\NormalTok{n...}\DecValTok{6}\SpecialCharTok{\^{}}\DecValTok{2} \SpecialCharTok{*}\NormalTok{ black.se.by.strata}\SpecialCharTok{$}\NormalTok{var.by.str))}
+
+\NormalTok{diff.se }\OtherTok{\textless{}{-}} \FunctionTok{sqrt}\NormalTok{(white.se.by.strata}\SpecialCharTok{\^{}}\DecValTok{2} \SpecialCharTok{+}\NormalTok{ black.se.by.strata}\SpecialCharTok{\^{}}\DecValTok{2}\NormalTok{)}
+\NormalTok{(white.avg }\SpecialCharTok{{-}}\NormalTok{ black.avg) }\SpecialCharTok{+}\NormalTok{ z}\FloatTok{.95} \SpecialCharTok{*}\NormalTok{ diff.se }\SpecialCharTok{*} \FunctionTok{c}\NormalTok{(}\SpecialCharTok{{-}}\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
 
 
 
