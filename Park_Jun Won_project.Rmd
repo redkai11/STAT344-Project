@@ -1,4 +1,6 @@
 ---
+header-includes:
+  - \usepackage{amsmath}
 output: 
   pdf_document:
     citation_package: natbib
@@ -52,15 +54,19 @@ Our target population is the data set itself. This paper will perform simple ran
 \begin{flushleft}
 Elo : A numerical measurement to quantify a player's skill level\newline
 Eco : Standardised code for any given opening\newline
-Ply : Number of moves in the opening phasenewline
-\end{flushleft}
+Ply : Number of moves in the opening phase\newline
 ----------------------------------------------------------
+\end{flushleft}
+
 \pagebreak
 
 ### **Sampling methods**
 For both sampling methods, we will perform sampling twice - once for the White parameter estimate and once for Black. In this way, we do not have to calculate the covariance term which is difficult to calculate as below.
 $$Var(X-Y) = Var(X)+Var(Y)-2Cov(X,Y)$$
 By combining two independent samples, the variance will increase but we will choose a sample size that is sufficiently large such that the margin of error is still small. For every sampling method, we will choose the total sample size to be 2000 which is approximately 10\% of the population. This sample size is sufficiently large enough such that the width of our confidence intervals are small. 
+\newline
+For stratified sampling, we will separate the games into 5 different groups based on the average elo of the game from "1200-1400", "1400-1600", "1600-1800", "1800-2000", and "2000+." Players in the same elo range would likely have similar performance which reduces with-in variation of each group. The optimal allocation for stratified sampling yields total of 2003 samples. Hence, we have randomly removed one sample each from the three largest sampled stratas.  
+
 
 ### **The Parameters of Interest**
 \begin{itemize}
@@ -68,6 +74,97 @@ By combining two independent samples, the variance will increase but we will cho
 \item White and Black's win rate for specific openings
 \item White and Black's mean number of turns to win
 \end{itemize}
+
+### **Estimators and Notations**
+
+N = population size   
+n = sample size   
+$N_h$ = population size of strata h   
+$n_h$ = sample size of strata h   
+$S_1$ = first SRS taken from population   
+$S_2$ = second SRS taken from population   
+$St_1$ = first StRS taken from population   
+$St_2$ = second StRS taken from population   
+$S_{1,d}$ = first SRS taken from population with opening d   
+$S_{2,d}$ = second SRS taken from population with opening d   
+$St_{1,d}$ = first StRS taken from population with opening d   
+$St_{2,d}$ = second StRS taken from population with opening d   
+$p_{i,W} = 1$ if $i \in P_{winner = White}$ (if game i's winner is White)   
+$p_{i,B} = 1$ if $i \in P_{winner = Black}$ (if game i's winner is Black)   
+$p_{i,d,W} = 1$ if $i \in P_{winner = White, opening = d}$ (if game i's winner is White with opening d)   
+$p_{i,d,B} = 1$ if $i \in P_{winner = Black, opening = d}$ (if game i's winner is Black with opening d)   
+$y_i$ = number of turns took for the winner to win for game i   
+$\mu_{i,W}$ = y_i$ if $i \in P_{winner = White}$ (if game i's winner is White)   
+$\mu_{i,B}$ = y_i$ if $i \in P_{winner = Black}$ (if game i's winner is Black)   
+$\bar p_{S_1,W}$ = average of $p_{i,W}$ for $i \in S_1$   
+$\bar p_{S_2,B}$ = average of $p_{i,B}$ for $i \in S_2$   
+$\bar p_{S_1,d,W}$ = average of $p_{i,d,W}$ for $i \in S_{1,d}$   
+$\bar p_{S_2,d,B}$ = average of $p_{i,d,B}$ for $i \in S_{2,d}$   
+$\bar p_{St_1,h,w}$ = average of $p_{i,W}$ for $i \in St_1$ in strata h   
+$\bar p_{St_2,h,B}$ = average of $p_{i,B}$ for $i \in St_2$ in strata h   
+$\bar p_{St_1,h,d,W}$ = average of $p_{i,d,W}$ for $i \in St_{1,d}$ in strata h   
+$\bar p_{St_2,h,d,B}$ = average of $p_{i,d,B}$ for $i \in St_{2,d}$ in strata h   
+$\bar \mu_{S_1, W}$  = average of $\mu_{i,W}$ for $i \in S_{1,W}$   
+$\bar \mu_{S_2, B}$  = average of $\mu_{i,B}$ for $i \in S_{2,B}$   
+$\bar \mu_{St_1, W}$  = average of $\mu_{i,W}$ for $i \in St_{1,W}$   
+$\bar \mu_{St_2, B}$  = average of $\mu_{i,W}$ for $i \in St_{2,B}$   
+$\bar \mu_{St_1, h,W}$  = average of $\mu_{i,W}$ for $i \in St_{1,h,W}$ in strata h   
+$\bar \mu_{St_2, h,B}$  = average of $\mu_{i,W}$ for $i \in St_{2,h,B}$ in strata h   
+\newline
+White's win rate in the population will be estimated using the following estimators:
+$$\hat p_{W} = \bar p_{S_1,W}$$
+$$\hat p_{W} = \bar p_{St_1,W} = \sum_{h=1}^{h}\frac{N_h}{N}\bar p_{St_1,h,w}$$
+with Standard errors estimated using
+$$\hat SE(\hat p_{W}) = \sqrt{(1-\frac{n}{N})\frac{\hat p_{W}(1-\hat p_{W})}{n}}$$
+$$\hat SE(\hat p_{W}) = \sqrt{\sum_{h=1}^{5}(\frac{N_h}{N})^2(1-\frac{n_h}{N_h})\frac{\bar p_{St_1,h,W}(1-\bar p_{St_1,h,W})}{n_h}}$$
+Black's win rate and stand error in the population will be estimated using the same formula as above except $\hat P_{W}$ replaced with $\hat P_{B}$, $S_1$ replaced with $S_2$, and $St_1$ replaced with $St_2$.   
+\newline
+The difference in White and Black's win rate in the population will be estimated using 
+$$\hat p_{W} - \hat p_{B} = \bar p_{S_1,W} - \bar p_{S_2,B}$$
+$$\hat p_{W} - \hat p_{B} = \bar p_{St_1,W} - \bar p_{St_2,B}$$
+With pooled standard error with equal sample size
+\begin{align*}
+SE &= \sqrt{\frac{(n-1)((Var(\hat P_W)^2 + Var(\hat P_B)^2)}{2n-2}}\sqrt{\frac{2}{n}}\\
+&=\sqrt{\frac{(Var(\hat P_W)^2 + Var(\hat P_B)^2)}{n}}\\
+&= \sqrt{SE(\hat P_W)^2 + SE(\hat P_B)^2}
+\end{align*}
+\newline
+
+  
+  
+
+White's win rate in the population for a given opening will be estimated using the following estimators:
+$$\hat p_{d, W} = \bar p_{S_1,d,W} $$
+$$\hat p_{d,W} = \bar p_{St_1,d,W} = \sum_{h=1}^{h}\frac{N_h}{N}\bar p_{St_1,h,d,w}$$
+with Standard errors estimated using
+$$\hat SE(\hat p_{d, W}) = \sqrt{(1-\frac{n}{N})\frac{\hat p_{d, W}(1-\hat p_{d, W})}{n}}$$
+$$\hat SE(\hat p_{d, W}) = \sqrt{\sum_{h=1}^{5}(\frac{N_h}{N})^2(1-\frac{n_h}{N_h})\frac{\hat p_{d,h,W}(1-\hat p_{d,h,W})}{n_{h}}}$$
+Black's win rate for the given opening and stand error in the population will be estimated using the same formula as above except $\hat P_{d,W}$ replaced with $\hat P_{d,B}$, $S_{1,d}$ replaced with $S_{2,d}$, and $St_{1,d}$ replaced with $St_{2,d}$. 
+
+The difference in White and Black's win rate for the given opening in the population will be estimated using 
+$$\hat p_{d,W} - \hat p_{d,B} = \bar p_{S_1,d,W} - \bar p_{S_2,d,B}$$
+$$\hat p_{d,W} - \hat p_{d,B} = \bar p_{St_1,d,W} - \bar p_{St_2,d,B}$$
+With pooled standard error 
+$$SE = \sqrt{\frac{(n_{d,St_1}-1)Var(\hat P_{d,W})^2 + (n_{d,St_2}-1)Var(\hat P_{d,B})^2}{n_{d,St_1} + n_{d,St_2} -2}}\sqrt{\frac{1}{n_{d,St_1}}
++\frac{1}{n_{d,St_2}}}$$
+However, this estimate is very tricky to calculate. Hence, we will assume $n_{d,St_1} = n_{d,St_2}$ such that 
+$$SE = \sqrt{\hat SE(\hat p_{d, W})^2 +  \hat SE(\hat p_{d, B})^2}$$
+\newline
+
+White's mean number of turns to win in the population will be estimated using the following estimators:
+$$\hat \mu_W = \bar \mu_{S_1, W}$$
+$$\hat \mu_W = \bar \mu_{St_1, W} = \sum_{h=1}^{h}\frac{N_h}{N}\bar \mu_{St_1,h,w}$$
+with Standard errors estimated using
+$$\hat SE(\hat \mu_{W}) = \sqrt{(1-\frac{n}{N})\frac{Var(S_1)}{n}}$$ where $Var(S_1)$ is the variance of turns in $S_1$
+$$\hat SE(\hat \mu_{W}) = \sqrt{\sum_{h=1}^{5}(\frac{N_h}{N})^2(1-\frac{n_h}{N_h})\frac{Var(S_{1,h})}{n_h}}$$ where $Var(S_{1,h})$ is the variance of turns in strata h in $St_1$.
+
+Black's win rate and stand error in the population will be estimated using the same formula as above except $\hat P_{W}$ replaced with $\hat P_{B}$, $S_1$ replaced with $S_2$, and $St_1$ replaced with $St_2$.  
+\newline
+The difference in White and Black's mean number of turns to win in the population will be estimated using 
+$$\hat \mu_{W} - \hat \mu_{B} = \bar \mu_{S_1,W} - \bar \mu_{S_2,B}$$
+$$\hat \mu_{W} - \hat \mu_{B} = \bar \mu_{St_1,W} - \bar \mu_{St_2,B}$$
+With pooled standard error with equal sample size
+$$SE = \sqrt{SE(\hat \mu_W)^2 + SE(\hat \mu_B)^2}$$
 
 ### **Does White have higher win rate than Black?**
 We define win rate to be the proportion of games won by each side. To confirm White's inherent advantage, we will perform two independent sample t-test to determine whether White has a higher win rate than that of Black. Hence, we will test the following hypothesis below
@@ -175,7 +272,7 @@ black.prop <- srs.sample.s2 %>%
 black.p <- as.numeric(black.prop[1,3])
 white.var <- (1-n/N)*(var.est(white.p)/n)
 black.var <- (1-n/N)*(var.est(black.p)/n)
-srs.se <- sqrt((n-1)*(white.var + black.var)/(2*n-2))
+srs.se <- sqrt(white.var + black.var)
 
 white.p.table <- t(c(white.p, sqrt(white.var)))
 black.p.table <- t(c(black.p, sqrt(black.var)))
@@ -252,9 +349,8 @@ black.str.se <- sqrt(sum(black.se.by.strata$`strata.prop.sq * (1 - n/nh) * var.b
 # Their difference
 
 diff.p <- white.p.str.est - black.p.str.est
-pooled.se <- sqrt((n-1)*(white.str.se^2 + black.str.se^2)/(2*n-2))
+pooled.se <- sqrt(white.str.se^2 + black.str.se^2)
 (diff.p) + z.95 * pooled.se * c(-1, 1)
-
 
 white.se.by.strata <- white.se.by.strata[,c(1,2,4,5,6)]
 names(white.se.by.strata) <- c("elo range", "winner", "win rate est.", "strata size", "Var. by strata")
@@ -265,15 +361,13 @@ names(black.se.by.strata) <- c("elo range", "winner", "win rate est.", "strata s
 strata.size.prop <- cbind(black.se.by.strata$`elo range`, strata.size.prop)
 names(strata.size.prop) <- c("elo range", "strata size prop.")
 
-
 white.p.str.table <- c(white.p.str.est, white.str.se)
 black.p.str.table <- c(black.p.str.est, black.str.se)
 str.diff <- data.frame(rbind(white.p.str.table, black.p.str.table))
 names(str.diff) <- c("Win rate Estimate", "SE")
 rownames(str.diff) <- c("White", "Black")
 
-
-str.diff.p.table <- t(c(diff.p, srs.se, (diff.p) + z.95 * pooled.se * c(-1, 1)))
+str.diff.p.table <- t(c(diff.p, pooled.se, (diff.p) + z.95 * pooled.se * c(-1, 1)))
 str.diff.p.table <- data.frame(str.diff.p.table)
 names(str.diff.p.table) <- c("Diff", "Pooled SE", "95.CI.lower", "95.CI.upper")
 
@@ -368,10 +462,9 @@ for (i in 1:nrow(openings.valid.srs.sample)) {
   black.p <- black.win.count / n.d.2
   
   estimates[i] <- white.p - black.p
-  white.var <- (1-n.d.1/N.d)*var.est(white.p)/n.d.1
-  black.var <- (1-n.d.2/N.d)*var.est(black.p)/n.d.2
   # Using pooled variance
-  diff.ses[i] <- sqrt(((n.d.1-1)*white.var + (n.d.2-1)*black.var)/(n.d.1+n.d.2-2))
+  pooled.var <- sqrt(((n.d.1-1)*var.est(white.p) + (n.d.2-1)*var.est(black.p))/(n.d.1+n.d.2-2))
+  diff.ses[i] <-   pooled.var * sqrt((1-n.d.1/N)*1/n.d.1 + (1-n.d.2/N)*1/n.d.2)
   intervals[i,] <- (white.p - black.p) + qt(0.975, n.d.1+n.d.2-2) * diff.ses[i] * c(-1, 1)
 }
 
@@ -392,7 +485,7 @@ knitr::kable(openings) %>%
   kable_styling(latex_options=c("scale_down", "hold_position"))
 ```
 
-Using SRS sampling and assuming equal variances, all openings but "Scandinavian Defense: Mieses-Kotroc Variation" and "Scotch Game" contain 0 in their 95\% confidence intervals. For these openings, we cannot reject the null hypothesis which states that there is no difference in win rates. More specifically, there is insufficient evidence to suggest that black has a higher win rate when these openings are used. For the intervals that are strictly greater than 0, there is sufficient evidence  to reject the null hypothesis in favour of the alternative hypothesis that White has higher win rate. In all, there is no opening that yields higher win rate for Black.   
+Using SRS sampling and assuming equal variances, all openings but "Scandinavian Defense: Mieses-Kotroc Variation" contain 0 in their 95\% confidence intervals. For these openings, we cannot reject the null hypothesis which states that there is no difference in win rates. More specifically, there is insufficient evidence to suggest that black has a higher win rate when these openings are used. For the intervals that are strictly greater than 0, there is sufficient evidence  to reject the null hypothesis in favour of the alternative hypothesis that White has higher win rate. In all, there is no opening that yields higher win rate for Black.   
 
 Using StRS, we will again determine the valid openings in two different samples and test the same hypothesis.
 \newline
@@ -463,10 +556,11 @@ for (i in 1:nrow(openings.valid.str.sample)) {
   # The estimated aggregated variance of win proportion for white
   white.se.by.strata <- bind_cols(white.prop, nh = nh.d1$n)
   white.se.by.strata <- white.se.by.strata %>% mutate(var.by.strata = win.prop * (1-win.prop)/nh)
+  white.se.by.strata <- bind_cols(white.se.by.strata, Nh = Nh.d$n)
   white.se.by.strata <- bind_cols(white.se.by.strata, strata.prop.sq = strata.size.prop$n^2)
-  white.se.by.strata <- white.se.by.strata %>% mutate(strata.prop.sq*(1-n/nh)*var.by.strata)
+  white.se.by.strata <- white.se.by.strata %>% mutate(strata.prop.sq*(1-nh/Nh)*var.by.strata)
   white.se.by.strata[is.na(white.se.by.strata)] <- 0
-  white.str.se <- sqrt(sum(white.se.by.strata$`strata.prop.sq * (1 - n/nh) * var.by.strata`))
+  white.str.se <- sqrt(sum(white.se.by.strata$`strata.prop.sq * (1 - nh/Nh) * var.by.strata`))
   
   # Calculate black's win proportion by each strata
   black.win.prop <- domain.s2 %>%
@@ -482,17 +576,21 @@ for (i in 1:nrow(openings.valid.str.sample)) {
   # The estimated aggregated variance of win proportion for black
   black.se.by.strata <- bind_cols(black.prop, nh = nh.d2$n)
   black.se.by.strata <- black.se.by.strata %>% mutate(var.by.strata = win.prop * (1-win.prop)/nh)
+  black.se.by.strata <- bind_cols(black.se.by.strata, Nh = Nh.d$n)
   black.se.by.strata <- bind_cols(black.se.by.strata, strata.prop.sq = strata.size.prop$n^2)
-  black.se.by.strata <- black.se.by.strata %>% mutate(strata.prop.sq*(1-n/nh)*var.by.strata)
+  black.se.by.strata <- black.se.by.strata %>% mutate(strata.prop.sq*(1-nh/Nh)*var.by.strata)
   black.se.by.strata[is.na(black.se.by.strata)] <- 0
-  black.str.se <- sqrt(sum(black.se.by.strata$`strata.prop.sq * (1 - n/nh) * var.by.strata`))
+  black.str.se <- sqrt(sum(black.se.by.strata$`strata.prop.sq * (1 - nh/Nh) * var.by.strata`))
+  
 
   # Their difference
   estimates[i] <- white.p.str.est - black.p.str.est
   # Using pooled variance
-  diff.ses[i] <- sqrt(((n.d.s1-1)*white.str.se^2 + (n.d.s2-1)*black.str.se^2)/(n.d.s1+n.d.s2-2))
+  diff.ses[i] <- sqrt(white.str.se^2 + black.str.se^2)
   intervals[i,] <- (white.p.str.est - black.p.str.est) + qt(0.975, n.d.s1+n.d.s2- 2) * diff.ses[i] * c(-1, 1)
 }
+
+
 
 openings <- data.frame(openings.valid.str.sample$name, estimates, diff.ses, intervals)
 names(openings) <- c("opening name", "Diff. win rate", "SE", "95.CI.lower", "95.CI.upper")
@@ -511,9 +609,9 @@ knitr::kable(openings) %>%
   kable_styling(latex_options=c("scale_down", "hold_position"))
 ```
 \newpage
-The confidence intervals for openings "Sicilian Defense", "Sicilian Defense: Bowdler Attack", and " Van't Kruijs Opening" are strictly negative. This suggests that for these openings, Black has a higher win rate than White. For "Scandinavian Defense: Mieses-Kotroc Variation", the confidence interval is strictly positive so White has a higher win rate than Black. For the openings with confidence intervals that contain 0, we cannot reject the null hypothesis which states that there is no difference in win rates. More specifically, there is insufficient evidence to suggest that black has a higher win rate when these openings are used.   
+The confidence interval for opening "Van't Kruijs Opening" is strictly negative. This suggests that for this opening, Black has a higher win rate than White. For other openings with confidence intervals that contain 0, we cannot reject the null hypothesis which states that there is no difference in win rates. More specifically, there is insufficient evidence to suggest that black has a higher win rate when these openings are used.   
 \newline
-Since SRS and StRS sample contain different valid openings, it is not possible to compare the results. However, we have found several openings in which Black has a higher win rate.
+Since SRS and StRS sample contain different valid openings, it is not possible to compare the results. However, we have found an opening in which Black has a higher win rate.
 \newpage
 
 ### **Does it take longer for Black to win?**
@@ -535,7 +633,7 @@ n.b <- nrow(black.win)
 
 n.w.var <- (1-n.w/N)*var(white.win$turns)/n.w
 n.b.var <- (1-n.b/N)*var(black.win$turns)/n.b
-srs.se <- sqrt((n-1)*(n.w.var+n.b.var)/(2*n-2))
+srs.se <- sqrt(n.w.var^2+n.b.var^2)
 
 (white.win.turns.avg - black.win.turns.avg) + z.95 * srs.se * c(-1, 1)
 
@@ -600,7 +698,7 @@ black.se.by.strata <-black.turn.strata %>% mutate(var.by.str =  (1-nh/n)*var/nh)
 black.se.by.strata <- bind_cols(black.se.by.strata, strata.size.prop)
 black.se.by.strata1 <- sqrt(sum(black.se.by.strata$n...6^2 * black.se.by.strata$var.by.str))
 
-diff.se <- sqrt((n-1)*(white.se.by.strata1^2 + black.se.by.strata1^2)/(2*n-2))
+diff.se <- sqrt(white.se.by.strata1^2 + black.se.by.strata1^2)
 (white.avg - black.avg) + z.95 * diff.se * c(-1, 1)
 
 names(avg.turns.w) <- c("elo range", "mean turns for white")
@@ -614,7 +712,7 @@ black.se.by.strata.table <- black.se.by.strata[,c(1,3,5)]
 black.se.by.strata.table <- cbind(black.se.by.strata.table, winner = rep("black", 5))
 names(black.se.by.strata.table) <- c("elo range", "strata size", "var. by strata", "winner")
 
-str.mean.diff.table <- t(c((white.avg - black.avg), (diff.p), (white.avg - black.avg) + z.95 * diff.se * c(-1, 1)))
+str.mean.diff.table <- t(c((white.avg - black.avg), (diff.se), (white.avg - black.avg) + z.95 * diff.se * c(-1, 1)))
 str.mean.diff.table <- data.frame(str.mean.diff.table)
 names(str.mean.diff.table) <- c("Diff", "Pooled SE", "95.CI.lower", "95.CI.upper")
 ```
@@ -642,11 +740,13 @@ knitr::kable(str.mean.diff.table) %>%
 
 ### **Conclusion**
 
-From our analysis of win rate, we have even more reason to believe that White has a first-move advantage. Both SRS and StRS with optimal allocation produced estimates which suggest a significant difference between Black and White win rate.    
+From our analysis of win rate, we have even more reason to believe that White has a first-move advantage. Both SRS and StRS with optimal allocation produced estimates which suggest a significant difference between Black and White win rate.
 \newline
 Furthermore, we discovered through StRS that there are openings with greater win rates for Black side. Our choice of stratifying by "average elo" may have been effective in lowering variance of our estimate, as players in the same elo range would likely have similar performance. Estimates of win rate per opening suffer from the limitation of sample size, since the abundance of possible openings leads to very few observations of each opening. There may be other openings which are more advantageous for Black side, but are rarely used by players on Lichess.    
 \newline
 While the Black side cannot easily change which opening White starts with, they can attempt to play more turns to overcome White's early-game advantage. Our analysis of average number of turns produced results indicating that games won by Black side involve more turns.    
+\newline
+Moreover, it is crucial to note that SRS and StRS yielded the same result yet StRS produced smaller standard errors for each estimate. The advantage of SRS is that it eases the difficulty of standard error calculation. However, the disadvantage of SRS is that due to the simplistic nature of the sampling, the standard error calculation yields a larger standard error than that of StRS.   
 \newline
 We cannot assume that our sample from Lichess is representative of the entire population of chess players due to differences in the nature of online chess and traditional chess. For example, online elo could be less indicative of actual skill, due to randomness of opponents and lack of formality. However, our results could possibly be extended to other online chess platforms, such as [Chess.com](https://www.chess.com/) and [chess24](https://chess24.com/en), which likely have similar players. Our new knowledge of openings and game length favouring Black side could be used to try and overcome first-move advantage in online chess.
 \newpage
@@ -684,6 +784,80 @@ srs.sample.s1 <- df[sample.index.s1,]
 set.seed(4321)
 sample.index.s2 <- sample(1:N, size=n, replace = FALSE)
 srs.sample.s2 <- df[sample.index.s2,]
+knitr::kable(table1)
+
+# Determine minimum and maximum before stratifying
+min(df$average_elo)
+max(df$average_elo)
+
+df$elo_range <- cut(df$average_elo,
+                    c(1200, 1400, 1600, 1800, 2000, 2600))
+levels(df$elo_range) <- c("1200-1400", "1400-1600", "1600-1800", "1800-2000",
+                          "2000+")
+df$winner <- as.factor(df$winner)
+
+# Check if standard deviations of the strata are identical
+se.by.strata <- aggregate(as.numeric(df$winner), by=list(df$elo_range), FUN=sd)
+se.by.strata
+
+# Standard deviations within strata are not identical, \
+# so find optimal sample sizes
+pop.size.by.strata <- aggregate(df$winner, by=list(df$elo_range), FUN=length)
+denom <- sum(pop.size.by.strata[2] * se.by.strata[2])
+sample.size.by.strata <- (pop.size.by.strata[2] * se.by.strata[2]) / denom
+
+# Sample from each strata
+strsample <- function(df, sample.size.by.strata, n, seed) {
+  str.sample <- df[FALSE,]
+  colnames(str.sample) <- names(df)
+  for (i in 1:length(levels(df$elo_range))) {
+    strata <- which(df$elo_range == levels(df$elo_range)[i])
+    set.seed(seed)
+    sample.idx <- sample(strata, 
+                             size = ceiling(sample.size.by.strata$x[i] * n), 
+                             replace = FALSE)
+    sample <- df[sample.idx,]
+    str.sample <- rbind(str.sample, sample)
+  }
+  
+  # Stratified sample contains 1003 samples due to rounding of the proportions,
+  # so we randomly remove three from random strata
+  strata.for.removal <- sample(1:5, 2)
+  for (s in strata.for.removal) {
+    set.seed(1234)
+    to.remove <- sample(which(str.sample$elo_range == levels(df$elo_range)[s]), 1)
+    str.sample <- str.sample[-to.remove,]
+  }
+  
+  return(str.sample)
+}
+
+white.str.sample <- strsample(df, sample.size.by.strata, n, 1234) %>% 
+  group_by(elo_range) 
+black.str.sample <- strsample(df, sample.size.by.strata, n, 4321) %>% 
+  group_by(elo_range) 
+z.95 <- qnorm(0.975)
+# Returns the sample variance of a given proportion
+var.est <- function(p) {
+  p * (1 - p)
+}
+# Calculate white's win rate
+white.prop <- srs.sample.s1 %>%
+  count(winner) %>%
+  group_by(winner) %>%
+  mutate(win.prop = n / 2000)
+
+white.p <- as.numeric(white.prop[3,3])
+
+black.prop <- srs.sample.s2 %>%
+  count(winner) %>%
+  group_by(winner) %>%
+  mutate(win.prop = n / 2000)
+
+black.p <- as.numeric(black.prop[1,3])
+white.var <- (1-n/N)*(var.est(white.p)/n)
+black.var <- (1-n/N)*(var.est(black.p)/n)
+srs.se <- sqrt(white.var + black.var)
 ```
 
 ```{r stratified, eval = FALSE}
@@ -763,13 +937,6 @@ black.p <- as.numeric(black.prop[1,3])
 
 srs.se <- sqrt((1-n/N)*(var.est(white.p) + var.est(black.p))/n)
 
-
-table1 <- t(c(white.p, black.p, srs.se, 
-              (white.p-black.p) + z.95 * srs.se * c(-1, 1)))
-table1 <- data.frame(table1)
-names(table1) <- c("White's win rate", "Black's win rate", "SE of the difference", 
-                   "Lower Confidence Interval", "Upper Confidence Interval")
-#knitr::kable(table1)
 ```
 
 ```{r str analysis, eval = FALSE}
@@ -793,14 +960,10 @@ white.p.str.est <- sum(white.prop$win.prop * strata.size.prop)
 
 # The estimated aggregated variance of win proportion for white
 white.se.by.strata <- bind_cols(white.prop, nh = nh.white$n)
-white.se.by.strata <- white.se.by.strata %>% 
-  mutate(var.by.strata = win.prop * (1-win.prop)/nh)
-white.se.by.strata <- bind_cols(white.se.by.strata, 
-                                strata.prop.sq = strata.size.prop$n^2)
-white.se.by.strata <- white.se.by.strata %>% 
-  mutate(strata.prop.sq*(1-n/nh)*var.by.strata)
-white.str.se <- sqrt(sum(
-  white.se.by.strata$`strata.prop.sq * (1 - n/nh) * var.by.strata`))
+white.se.by.strata <- white.se.by.strata %>% mutate(var.by.strata = win.prop * (1-win.prop)/nh)
+white.se.by.strata <- bind_cols(white.se.by.strata, strata.prop.sq = strata.size.prop$n^2)
+white.se.by.strata <- white.se.by.strata %>% mutate(strata.prop.sq*(1-n/nh)*var.by.strata)
+white.str.se <- sqrt(sum(white.se.by.strata$`strata.prop.sq * (1 - n/nh) * var.by.strata`))
 
 # Calculate black's win proportion by each strata
 black.win.prop <- black.str.sample %>%
@@ -814,19 +977,16 @@ black.p.str.est <- sum(black.prop$win.prop * strata.size.prop)
 
 # The estimated aggregated variance of win proportion for black
 black.se.by.strata <- bind_cols(black.prop, nh = nh.black$n)
-black.se.by.strata <- black.se.by.strata %>% 
-  mutate(var.by.strata = win.prop * (1-win.prop)/nh)
-black.se.by.strata <- bind_cols(black.se.by.strata, 
-                                strata.prop.sq = strata.size.prop$n^2)
-black.se.by.strata <- black.se.by.strata %>% 
-  mutate(strata.prop.sq*(1-n/nh)*var.by.strata)
-black.str.se <- sqrt(sum(
-  black.se.by.strata$`strata.prop.sq * (1 - n/nh) * var.by.strata`))
+black.se.by.strata <- black.se.by.strata %>% mutate(var.by.strata = win.prop * (1-win.prop)/nh)
+black.se.by.strata <- bind_cols(black.se.by.strata, strata.prop.sq = strata.size.prop$n^2)
+black.se.by.strata <- black.se.by.strata %>% mutate(strata.prop.sq*(1-n/nh)*var.by.strata)
+black.str.se <- sqrt(sum(black.se.by.strata$`strata.prop.sq * (1 - n/nh) * var.by.strata`))
 
 # Their difference
+
 diff.p <- white.p.str.est - black.p.str.est
-diff.se <- sqrt(white.str.se^2 + black.str.se^2)
-(diff.p) + z.95 * diff.se * c(-1, 1)
+pooled.se <- sqrt(white.str.se^2 + black.str.se^2)
+(diff.p) + z.95 * pooled.se * c(-1, 1)
 ```
 
 ``` {r, eval = FALSE}
@@ -871,10 +1031,118 @@ openings.valid.s2 <-
 
 openings.valid.str.sample <- merge(openings.valid.s1, 
                                    openings.valid.s2, by = "name")
+
 ```
 
+```{r srs openings domian estimation, eval = FALSE}
+# Guess the most conservative variance
+# Find minimum domain sample size for desired CI width
+var.guess <- 0.25
+ci.width <- 0.2
+n0 <- z.95^2 * var.guess / ci.width^2
+openings.df.s1 <- data.frame(table(srs.sample.s1$opening_name))
+openings.df.s2 <- data.frame(table(srs.sample.s2$opening_name))
+names(openings.df.s1) <- c("name", "frequency")
+names(openings.df.s2) <- c("name", "frequency")
+
+# Include openings with sample size large enough for usable CI
+openings.freq.s1 <- openings.df.s1[openings.df.s1$frequency > 15,]
+openings.freq.s2 <- openings.df.s2[openings.df.s2$frequency > 15,]
+
+openings.df.p <- data.frame(table(df$opening_name))
+names(openings.df.p) <- c("name", "frequency")
+
+# Include openings with sample sizes yielding the desired CI width
+domain.sizes.s1 <- c()
+domain.sizes.s2 <- c()
+
+for (name in openings.freq.s1$name) {
+  domain.sizes.s1 <- c(domain.sizes.s1, n0 / (1 + n0 / openings.df.p[openings.df.p$name == name,]$frequency))
+}
+
+for (name in openings.freq.s2$name) {
+  domain.sizes.s2 <- c(domain.sizes.s2, n0 / (1 + n0 / openings.df.p[openings.df.p$name == name,]$frequency))
+}
+
+openings.valid.s1 <- openings.freq.s1[openings.freq.s1$frequency > domain.sizes.s1,]
+openings.valid.s2 <- openings.freq.s2[openings.freq.s2$frequency > domain.sizes.s2,]
+
+openings.valid.srs.sample <- merge(openings.valid.s1, openings.valid.s2, by = "name")
+
+estimates <- rep(0, nrow(openings.valid.srs.sample))
+diff.ses <- rep(0, nrow(openings.valid.srs.sample))
+intervals <- matrix(0, nrow(openings.valid.srs.sample), 2)
+
+for (i in 1:nrow(openings.valid.srs.sample)) {
+  # Find estimate and CI for difference in win rate for white/black
+  # for one opening
+  domain.name <- openings.valid.srs.sample[i, 1]
+  domain.s1 <- srs.sample.s1[srs.sample.s1$opening_name == domain.name,]
+  domain.s2 <- srs.sample.s2[srs.sample.s2$opening_name == domain.name,]
+  
+  n.d.1 <- openings.valid.srs.sample[i, 2]
+  n.d.2 <- openings.valid.srs.sample[i, 3]
+
+  domain.p <- df[df$opening_name == domain.name,]
+  N.d <- nrow(domain.p)
+  
+  white.win.count <- nrow(domain.s1[domain.s1$winner == "white",])
+  black.win.count <- nrow(domain.s2[domain.s2$winner == "black",])
+  
+  # Vanilla estimates
+  white.p <- white.win.count / n.d.1
+  black.p <- black.win.count / n.d.2
+  
+  estimates[i] <- white.p - black.p
+  # Using pooled variance
+  pooled.var <- sqrt(((n.d.1-1)*var.est(white.p) + (n.d.2-1)*var.est(black.p))/(n.d.1+n.d.2-2))
+  diff.ses[i] <-   pooled.var * sqrt((1-n.d.1/N)*1/n.d.1 + (1-n.d.2/N)*1/n.d.2)
+  intervals[i,] <- (white.p - black.p) + qt(0.975, n.d.1+n.d.2-2) * diff.ses[i] * c(-1, 1)
+}
+
+openings <- data.frame(openings.valid.srs.sample$name, estimates, diff.ses, intervals)
+names(openings) <- c("opening name", "Diff. win rate", "SE", "95.CI.lower", "95.CI.upper")
+white.higher <- openings[openings$`95.CI.lower` > 0,]
+white.lower <- openings[openings$`95.CI.upper` < 0,]
+
+```
+
+
 ``` {r stratified openings domain estimation, eval = FALSE}
+openings.df.s1 <- data.frame(table(white.str.sample$opening_name))
+openings.df.s2 <- data.frame(table(black.str.sample$opening_name))
+names(openings.df.s1) <- c("name", "frequency")
+names(openings.df.s2) <- c("name", "frequency")
+
+# Include openings with sample size large enough for usable CI
+openings.freq.s1 <- openings.df.s1[openings.df.s1$frequency > 15,]
+openings.freq.s2 <- openings.df.s2[openings.df.s2$frequency > 15,]
+
+openings.df.p <- data.frame(table(df$opening_name))
+names(openings.df.p) <- c("name", "frequency")
+
+# openings.size.p1 <- openings.df.p[openings.df.p$name %in% openings.freq.s1$name,]
+# openings.size.p2 <- openings.df.p[openings.df.p$name %in% openings.freq.s2$name,]
+
+# Include openings with sample sizes yielding the desired CI width
+domain.sizes.s1 <- c()
+domain.sizes.s2 <- c()
+
+for (name in openings.freq.s1$name) {
+  domain.sizes.s1 <- c(domain.sizes.s1, n0 / (1 + n0 / openings.df.p[openings.df.p$name == name,]$frequency))
+}
+
+for (name in openings.freq.s2$name) {
+  domain.sizes.s2 <- c(domain.sizes.s2, n0 / (1 + n0 / openings.df.p[openings.df.p$name == name,]$frequency))
+}
+
+openings.valid.s1 <- openings.freq.s1[openings.freq.s1$frequency > domain.sizes.s1,]
+openings.valid.s2 <- openings.freq.s2[openings.freq.s2$frequency > domain.sizes.s2,]
+
+openings.valid.str.sample <- merge(openings.valid.s1, openings.valid.s2, by = "name")
+
 estimates <- rep(0, nrow(openings.valid.str.sample))
+diff.ses <- rep(0, nrow(openings.valid.str.sample))
 intervals <- matrix(0, nrow(openings.valid.str.sample), 2)
 for (i in 1:nrow(openings.valid.str.sample)) {
   # Find estimate and CI for difference in win rate for white/black
@@ -906,15 +1174,12 @@ for (i in 1:nrow(openings.valid.str.sample)) {
   
   # The estimated aggregated variance of win proportion for white
   white.se.by.strata <- bind_cols(white.prop, nh = nh.d1$n)
-  white.se.by.strata <- white.se.by.strata %>% 
-    mutate(var.by.strata = win.prop * (1-win.prop)/nh)
-  white.se.by.strata <- bind_cols(white.se.by.strata, 
-                                  strata.prop.sq = strata.size.prop$n^2)
-  white.se.by.strata <- white.se.by.strata %>% 
-    mutate(strata.prop.sq*(1-n/nh)*var.by.strata)
+  white.se.by.strata <- white.se.by.strata %>% mutate(var.by.strata = win.prop * (1-win.prop)/nh)
+  white.se.by.strata <- bind_cols(white.se.by.strata, Nh = Nh.d$n)
+  white.se.by.strata <- bind_cols(white.se.by.strata, strata.prop.sq = strata.size.prop$n^2)
+  white.se.by.strata <- white.se.by.strata %>% mutate(strata.prop.sq*(1-nh/Nh)*var.by.strata)
   white.se.by.strata[is.na(white.se.by.strata)] <- 0
-  white.str.se <- sqrt(sum(
-    white.se.by.strata$`strata.prop.sq * (1 - n/nh) * var.by.strata`))
+  white.str.se <- sqrt(sum(white.se.by.strata$`strata.prop.sq * (1 - nh/Nh) * var.by.strata`))
   
   # Calculate black's win proportion by each strata
   black.win.prop <- domain.s2 %>%
@@ -929,33 +1194,31 @@ for (i in 1:nrow(openings.valid.str.sample)) {
   
   # The estimated aggregated variance of win proportion for black
   black.se.by.strata <- bind_cols(black.prop, nh = nh.d2$n)
-  black.se.by.strata <- black.se.by.strata %>% 
-    mutate(var.by.strata = win.prop * (1-win.prop)/nh)
-  black.se.by.strata <- bind_cols(black.se.by.strata, 
-                                  strata.prop.sq = strata.size.prop$n^2)
-  black.se.by.strata <- black.se.by.strata %>% 
-    mutate(strata.prop.sq*(1-n/nh)*var.by.strata)
+  black.se.by.strata <- black.se.by.strata %>% mutate(var.by.strata = win.prop * (1-win.prop)/nh)
+  black.se.by.strata <- bind_cols(black.se.by.strata, Nh = Nh.d$n)
+  black.se.by.strata <- bind_cols(black.se.by.strata, strata.prop.sq = strata.size.prop$n^2)
+  black.se.by.strata <- black.se.by.strata %>% mutate(strata.prop.sq*(1-nh/Nh)*var.by.strata)
   black.se.by.strata[is.na(black.se.by.strata)] <- 0
-  black.str.se <- sqrt(sum(
-    black.se.by.strata$`strata.prop.sq * (1 - n/nh) * var.by.strata`))
+  black.str.se <- sqrt(sum(black.se.by.strata$`strata.prop.sq * (1 - nh/Nh) * var.by.strata`))
+  
 
   # Their difference
   estimates[i] <- white.p.str.est - black.p.str.est
   # Using pooled variance
-  diff.se <- sqrt(((n.d.s1-1)*white.str.se^2 + 
-                     (n.d.s2-1)*black.str.se^2)/(n.d.s1+n.d.s2-2))
-  intervals[i,] <- (white.p.str.est - black.p.str.est) + 
-    qt(0.975, n.d.s1+n.d.s2- 2) * diff.se * c(-1, 1)
+  diff.ses[i] <- sqrt(white.str.se^2 + black.str.se^2)
+  intervals[i,] <- (white.p.str.est - black.p.str.est) + qt(0.975, n.d.s1+n.d.s2- 2) * diff.ses[i] * c(-1, 1)
 }
 
-openings <- data.frame(openings.valid.str.sample$name, intervals)
-colnames(openings) <- c("name", "95.CI.lower", "95.CI.upper")
+
+
+openings <- data.frame(openings.valid.str.sample$name, estimates, diff.ses, intervals)
+names(openings) <- c("opening name", "Diff. win rate", "SE", "95.CI.lower", "95.CI.upper")
 white.higher <- openings[openings$`95.CI.lower` > 0,]
 white.lower <- openings[openings$`95.CI.upper` < 0,]
 openings
 ```
 
-``` {r srs mean turns, eval = FALSE}
+``` {r, include = FALSE}
 # mean number of turns for white wins vs black wins?
 white.win <- srs.sample.s1[srs.sample.s1$winner == "white",]
 black.win <- srs.sample.s2[srs.sample.s2$winner == "black",]
@@ -966,12 +1229,28 @@ black.win.turns.avg <- mean(black.win$turns)
 n.w <- nrow(white.win)
 n.b <- nrow(black.win)
 
-srs.se <- sqrt((1-n.w/N)*var(white.win$turns)/n.w + 
-                 (1-n.b/N)*var(black.win$turns)/n.b)
+n.w.var <- (1-n.w/N)*var(white.win$turns)/n.w
+n.b.var <- (1-n.b/N)*var(black.win$turns)/n.b
+srs.se <- sqrt(n.w.var^2+n.b.var^2)
+
 (white.win.turns.avg - black.win.turns.avg) + z.95 * srs.se * c(-1, 1)
+
+mean.turn.srs <- rbind(cbind(white.win.turns.avg, sqrt(n.w.var)), cbind(black.win.turns.avg, sqrt(n.b.var)))
+mean.turn.srs <- data.frame(mean.turn.srs)
+names(mean.turn.srs) <- c("Est.", "SE")
+rownames(mean.turn.srs) <- c("White", "Black")
+
+mean.turn.diff.srs <- c(white.win.turns.avg - black.win.turns.avg, srs.se, 
+                        (white.win.turns.avg - black.win.turns.avg) + z.95 * srs.se * c(-1, 1))
+
+mean.turn.diff.srs <- t(data.frame(mean.turn.diff.srs))
+colnames(mean.turn.diff.srs) <- c("Diff", "SE", "95.CI.lower", "95.CI.upper")
+rownames(mean.turn.diff.srs) <- NULL
+
+
 ```
 
-```{r stratified mean turns, eval = FALSE}
+```{r, include=FALSE}
 white.win <- white.str.sample[white.str.sample$winner == "white",]
 black.win <- black.str.sample[black.str.sample$winner == "black",]
 
@@ -990,25 +1269,20 @@ white.avg <- sum(Nh[2]/N * avg.turns.w$mean_turns)
 black.avg <- sum(Nh[2]/N * avg.turns.b$mean_turns)
 
 # The estimated se by strata
-white.turn.strata  <- white.win %>% group_by(elo_range) %>% 
-  summarise(var = var(turns))
+white.turn.strata  <- white.win %>% group_by(elo_range) %>% summarise(var = var(turns))
 white.turn.strata <- bind_cols(white.turn.strata, nh = nh.white$n)
 white.turn.strata <- bind_cols(white.turn.strata, Nh = Nh[2])
 white.se.by.strata <-white.turn.strata %>% mutate(var.by.str =  (1-nh/n)*var/nh)
 white.se.by.strata <- bind_cols(white.se.by.strata, strata.size.prop)
-white.se.by.strata <- sqrt(sum(
-  white.se.by.strata$n...6^2 * white.se.by.strata$var.by.str))
+white.se.by.strata1 <- sqrt(sum(white.se.by.strata$n...6^2 * white.se.by.strata$var.by.str))
 
-black.turn.strata  <- black.win %>% group_by(elo_range) %>% 
-  summarise(var = var(turns))
+black.turn.strata  <- black.win %>% group_by(elo_range) %>% summarise(var = var(turns))
 black.turn.strata <- bind_cols(black.turn.strata, nh = nh.black$n)
 black.turn.strata <- bind_cols(black.turn.strata, Nh = Nh[2])
 black.se.by.strata <-black.turn.strata %>% mutate(var.by.str =  (1-nh/n)*var/nh)
 black.se.by.strata <- bind_cols(black.se.by.strata, strata.size.prop)
-black.se.by.strata <- sqrt(sum(
-  black.se.by.strata$n...6^2 * black.se.by.strata$var.by.str))
+black.se.by.strata1 <- sqrt(sum(black.se.by.strata$n...6^2 * black.se.by.strata$var.by.str))
 
-diff.se <- sqrt(white.se.by.strata^2 + black.se.by.strata^2)
+diff.se <- sqrt(white.se.by.strata1^2 + black.se.by.strata1^2)
 (white.avg - black.avg) + z.95 * diff.se * c(-1, 1)
-```
 
