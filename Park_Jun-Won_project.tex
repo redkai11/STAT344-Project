@@ -83,10 +83,15 @@
 
 
 \title{White Advantage in Chess and How to Counter It  }
+ 
 
 
 
-\author{\Large Jun Won (Lakon) Park (Group Leader)\vspace{0.05in} \newline\normalsize\emph{79453940, Group Leader, data collection, data analysis, report-writing}   \and \Large Sarah Li\vspace{0.05in} \newline\normalsize\emph{60136959, data collection, data analysis, report-writing}  }
+\author{\Large Jun Won (Lakon) Park (Group
+Leader)\vspace{0.05in} \newline\normalsize\emph{79453940, data
+collection, data analysis, report-writing}   \and \Large Sarah
+Li\vspace{0.05in} \newline\normalsize\emph{60136959, data collection,
+data analysis, report-writing}  }
 
 
 \date{}
@@ -152,7 +157,9 @@
 \makeatother
 \hypersetup{breaklinks=true,
             bookmarks=true,
-            pdfauthor={Jun Won (Lakon) Park (Group Leader) (79453940, Group Leader, data collection, data analysis, report-writing) and Sarah Li (60136959, data collection, data analysis, report-writing)},
+            pdfauthor={Jun Won (Lakon) Park (Group Leader) (79453940,
+data collection, data analysis, report-writing) and Sarah Li (60136959,
+data collection, data analysis, report-writing)},
              pdfkeywords = {},  
             pdftitle={White Advantage in Chess and How to Counter It},
             colorlinks=true,
@@ -180,7 +187,8 @@
 \begin{document}
 	
 % \pagenumbering{arabic}% resets `page` counter to 1 
-%
+%    
+
 % \maketitle
 
 {% \usefont{T1}{pnc}{m}{n}
@@ -193,7 +201,11 @@
 
 {
    \vskip 13.5pt\relax \normalsize\fontsize{11}{12} 
-\textbf{\authorfont Jun Won (Lakon) Park (Group Leader)} \hskip 15pt \emph{\small 79453940, Group Leader, data collection, data analysis, report-writing}   \par \textbf{\authorfont Sarah Li} \hskip 15pt \emph{\small 60136959, data collection, data analysis, report-writing}   
+\textbf{\authorfont Jun Won (Lakon) Park (Group
+Leader)} \hskip 15pt \emph{\small 79453940, data collection, data
+analysis, report-writing}   \par \textbf{\authorfont Sarah
+Li} \hskip 15pt \emph{\small 60136959, data collection, data analysis,
+report-writing}   
 
 }
 
@@ -212,8 +224,9 @@
 
     \vskip 8.5pt % \small 
 
-\noindent Research question: Is white at an advantage in chess and if so, what are
-some optimal strategies for black to increase their winning probability?
+\noindent Research question: Is white at an advantage in chess and if
+so, what are some optimal strategies for black to increase their winning
+probability?
 
 
     \hbox{\vrule height .2pt width 39.14pc}
@@ -327,10 +340,10 @@ i's winner is White with opening d)\\
 \(p_{i,d,B} = 1\) if \(i \in P_{winner = Black, opening = d}\) (if game
 i's winner is Black with opening d)\\
 \(y_i\) = number of turns took for the winner to win for game i\\
-\(\mu_{i,W}\) = y\_i\$ if \(i \in P_{winner = White}\) (if game i's
-winner is White)\\
-\(\mu_{i,B}\) = y\_i\$ if \(i \in P_{winner = Black}\) (if game i's
-winner is Black)\\
+\(\mu_{i,W} = y_i\) if \(i \in P_{winner = White}\) (if game i's winner
+is White)\\
+\(\mu_{i,B} = y_i\) if \(i \in P_{winner = Black}\) (if game i's winner
+is Black)\\
 \(\bar p_{S_1,W}\) = average of \(p_{i,W}\) for \(i \in S_1\)\\
 \(\bar p_{S_2,B}\) = average of \(p_{i,B}\) for \(i \in S_2\)\\
 \(\bar p_{S_1,d,W}\) = average of \(p_{i,d,W}\) for \(i \in S_{1,d}\)\\
@@ -356,9 +369,9 @@ strata h\\
 \newline White's win rate in the population will be estimated using the
 following estimators: \[\hat p_{W} = \bar p_{S_1,W}\]
 \[\hat p_{W} = \bar p_{St_1,W} = \sum_{h=1}^{h}\frac{N_h}{N}\bar p_{St_1,h,w}\]
-with Standard errors estimated using
-\[\hat SE(\hat p_{W}) = \sqrt{(1-\frac{n}{N})\frac{\hat p_{W}(1-\hat p_{W})}{n}}\]
-\[\hat SE(\hat p_{W}) = \sqrt{\sum_{h=1}^{5}(\frac{N_h}{N})^2(1-\frac{n_h}{N_h})\frac{\bar p_{St_1,h,W}(1-\bar p_{St_1,h,W})}{n_h}}\]
+with standard errors found using
+\[SE(\hat p_{W}) = \sqrt{(1-\frac{n}{N})\frac{\hat p_{W}(1-\hat p_{W})}{n}}\]
+\[SE(\hat p_{W}) = \sqrt{\sum_{h=1}^{5}(\frac{N_h}{N})^2(1-\frac{n_h}{N_h})\frac{\bar p_{St_1,h,W}(1-\bar p_{St_1,h,W})}{n_h}}\]
 Black's win rate and stand error in the population will be estimated
 using the same formula as above except \(\hat P_{W}\) replaced with
 \(\hat P_{B}\), \(S_1\) replaced with \(S_2\), and \(St_1\) replaced
@@ -376,9 +389,9 @@ SE &= \sqrt{\frac{(n-1)((Var(\hat P_W)^2 + Var(\hat P_B)^2)}{2n-2}}\sqrt{\frac{2
 White's win rate in the population for a given opening will be estimated
 using the following estimators: \[\hat p_{d, W} = \bar p_{S_1,d,W} \]
 \[\hat p_{d,W} = \bar p_{St_1,d,W} = \sum_{h=1}^{h}\frac{N_h}{N}\bar p_{St_1,h,d,w}\]
-with Standard errors estimated using
-\[\hat SE(\hat p_{d, W}) = \sqrt{(1-\frac{n}{N})\frac{\hat p_{d, W}(1-\hat p_{d, W})}{n}}\]
-\[\hat SE(\hat p_{d, W}) = \sqrt{\sum_{h=1}^{5}(\frac{N_h}{N})^2(1-\frac{n_h}{N_h})\frac{\hat p_{d,h,W}(1-\hat p_{d,h,W})}{n_{h}}}\]
+with Standard errors found using
+\[SE(\hat p_{d, W}) = \sqrt{(1-\frac{n}{N})\frac{\hat p_{d, W}(1-\hat p_{d, W})}{n}}\]
+\[SE(\hat p_{d, W}) = \sqrt{\sum_{h=1}^{5}(\frac{N_h}{N})^2(1-\frac{n_h}{N_h})\frac{\hat p_{d,h,W}(1-\hat p_{d,h,W})}{n_{h}}}\]
 Black's win rate for the given opening and stand error in the population
 will be estimated using the same formula as above except
 \(\hat P_{d,W}\) replaced with \(\hat P_{d,B}\), \(S_{1,d}\) replaced
@@ -392,16 +405,15 @@ With pooled standard error
 \[SE = \sqrt{\frac{(n_{d,St_1}-1)Var(\hat P_{d,W})^2 + (n_{d,St_2}-1)Var(\hat P_{d,B})^2}{n_{d,St_1} + n_{d,St_2} -2}}\sqrt{\frac{1}{n_{d,St_1}}
 +\frac{1}{n_{d,St_2}}}\] However, this estimate is very tricky to
 calculate. Hence, we will assume \(n_{d,St_1} = n_{d,St_2}\) such that
-\[SE = \sqrt{\hat SE(\hat p_{d, W})^2 +  \hat SE(\hat p_{d, B})^2}\]
-\newline
+\[SE = \sqrt{SE(\hat p_{d, W})^2 +  SE(\hat p_{d, B})^2}\] \newline
 
 White's mean number of turns to win in the population will be estimated
 using the following estimators: \[\hat \mu_W = \bar \mu_{S_1, W}\]
 \[\hat \mu_W = \bar \mu_{St_1, W} = \sum_{h=1}^{h}\frac{N_h}{N}\bar \mu_{St_1,h,w}\]
-with Standard errors estimated using
-\[\hat SE(\hat \mu_{W}) = \sqrt{(1-\frac{n}{N})\frac{Var(S_1)}{n}}\]
-where \(Var(S_1)\) is the variance of turns in \(S_1\)
-\[\hat SE(\hat \mu_{W}) = \sqrt{\sum_{h=1}^{5}(\frac{N_h}{N})^2(1-\frac{n_h}{N_h})\frac{Var(S_{1,h})}{n_h}}\]
+with Standard errors found using
+\[SE(\hat \mu_{W}) = \sqrt{(1-\frac{n}{N})\frac{Var(S_1)}{n}}\] where
+\(Var(S_1)\) is the variance of turns in \(S_1\)
+\[SE(\hat \mu_{W}) = \sqrt{\sum_{h=1}^{5}(\frac{N_h}{N})^2(1-\frac{n_h}{N_h})\frac{Var(S_{1,h})}{n_h}}\]
 where \(Var(S_{1,h})\) is the variance of turns in strata h in \(St_1\).
 
 Black's win rate and stand error in the population will be estimated
@@ -779,15 +791,16 @@ the alternative hypothesis that Black takes longer to win.\\
 From our analysis of win rate, we have even more reason to believe that
 White has a first-move advantage. Both SRS and StRS with optimal
 allocation produced estimates which suggest a significant difference
-between Black and White win rate. \newline Furthermore, we discovered
-through StRS that there are openings with greater win rates for Black
-side. Our choice of stratifying by ``average elo'' may have been
-effective in lowering variance of our estimate, as players in the same
-elo range would likely have similar performance. Estimates of win rate
-per opening suffer from the limitation of sample size, since the
-abundance of possible openings leads to very few observations of each
-opening. There may be other openings which are more advantageous for
-Black side, but are rarely used by players on Lichess.\\
+between Black and White win rate.\\
+\newline Furthermore, we discovered through StRS that there are openings
+with greater win rates for Black side. Our choice of stratifying by
+``average elo'' may have been effective in lowering variance of our
+estimate, as players in the same elo range would likely have similar
+performance. Estimates of win rate per opening suffer from the
+limitation of sample size, since the abundance of possible openings
+leads to very few observations of each opening. There may be other
+openings which are more advantageous for Black side, but are rarely used
+by players on Lichess.\\
 \newline While the Black side cannot easily change which opening White
 starts with, they can attempt to play more turns to overcome White's
 early-game advantage. Our analysis of average number of turns produced
@@ -818,479 +831,503 @@ chess. \newpage
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{# Load data}
-\NormalTok{df <-}\StringTok{ }\KeywordTok{read.csv}\NormalTok{(}\StringTok{"games.csv"}\NormalTok{)}
+\CommentTok{\# Load data}
+\NormalTok{df }\OtherTok{\textless{}{-}} \FunctionTok{read.csv}\NormalTok{(}\StringTok{"games.csv"}\NormalTok{)}
 
-\CommentTok{# Calculate the average elo of the game}
-\NormalTok{df <-}\StringTok{ }\KeywordTok{mutate}\NormalTok{(df }\OperatorTok{%>%}\StringTok{ }\KeywordTok{rowwise}\NormalTok{(),}
-       \DataTypeTok{average_elo =} \KeywordTok{rowMeans}\NormalTok{(}\KeywordTok{cbind}\NormalTok{(black_rating, white_rating)))}
+\CommentTok{\# Calculate the average elo of the game}
+\NormalTok{df }\OtherTok{\textless{}{-}} \FunctionTok{mutate}\NormalTok{(df }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{rowwise}\NormalTok{(),}
+       \AttributeTok{average\_elo =} \FunctionTok{rowMeans}\NormalTok{(}\FunctionTok{cbind}\NormalTok{(black\_rating, white\_rating)))}
 
-\CommentTok{# Filter games by average elo}
-\NormalTok{df <-}\StringTok{ }\KeywordTok{filter}\NormalTok{(df, average_elo }\OperatorTok{>=}\StringTok{ }\DecValTok{1200}\NormalTok{)}
+\CommentTok{\# Filter games by average elo}
+\NormalTok{df }\OtherTok{\textless{}{-}} \FunctionTok{filter}\NormalTok{(df, average\_elo }\SpecialCharTok{\textgreater{}=} \DecValTok{1200}\NormalTok{)}
 
-\CommentTok{# Select only necessary columns for analysis}
-\NormalTok{df <-}\StringTok{ }\KeywordTok{subset}\NormalTok{(df, }
-             \DataTypeTok{select =} \KeywordTok{c}\NormalTok{(id, turns, white_rating, black_rating, victory_status, }
-\NormalTok{                        winner, moves, opening_eco, opening_name, opening_ply, }
-\NormalTok{                        average_elo ))}
+\CommentTok{\# Select only necessary columns for analysis}
+\NormalTok{df }\OtherTok{\textless{}{-}} \FunctionTok{subset}\NormalTok{(df, }
+             \AttributeTok{select =} \FunctionTok{c}\NormalTok{(id, turns, white\_rating, black\_rating, victory\_status, }
+\NormalTok{                        winner, moves, opening\_eco, opening\_name, opening\_ply, }
+\NormalTok{                        average\_elo ))}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{# Simple Random Sampling}
-\NormalTok{N <-}\StringTok{ }\KeywordTok{nrow}\NormalTok{(df)}
-\NormalTok{n <-}\StringTok{ }\DecValTok{2000}
-\KeywordTok{set.seed}\NormalTok{(}\DecValTok{1234}\NormalTok{)}
-\NormalTok{sample.index.s1 <-}\StringTok{ }\KeywordTok{sample}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\NormalTok{N, }\DataTypeTok{size=}\NormalTok{n, }\DataTypeTok{replace =} \OtherTok{FALSE}\NormalTok{)}
-\NormalTok{srs.sample.s1 <-}\StringTok{ }\NormalTok{df[sample.index.s1,]}
+\CommentTok{\# Simple Random Sampling}
+\NormalTok{N }\OtherTok{\textless{}{-}} \FunctionTok{nrow}\NormalTok{(df)}
+\NormalTok{n }\OtherTok{\textless{}{-}} \DecValTok{2000}
+\FunctionTok{set.seed}\NormalTok{(}\DecValTok{1234}\NormalTok{)}
+\NormalTok{sample.index.s1 }\OtherTok{\textless{}{-}} \FunctionTok{sample}\NormalTok{(}\DecValTok{1}\SpecialCharTok{:}\NormalTok{N, }\AttributeTok{size=}\NormalTok{n, }\AttributeTok{replace =} \ConstantTok{FALSE}\NormalTok{)}
+\NormalTok{srs.sample.s1 }\OtherTok{\textless{}{-}}\NormalTok{ df[sample.index.s1,]}
 
-\KeywordTok{set.seed}\NormalTok{(}\DecValTok{4321}\NormalTok{)}
-\NormalTok{sample.index.s2 <-}\StringTok{ }\KeywordTok{sample}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\NormalTok{N, }\DataTypeTok{size=}\NormalTok{n, }\DataTypeTok{replace =} \OtherTok{FALSE}\NormalTok{)}
-\NormalTok{srs.sample.s2 <-}\StringTok{ }\NormalTok{df[sample.index.s2,]}
-\NormalTok{knitr}\OperatorTok{::}\KeywordTok{kable}\NormalTok{(table1)}
+\FunctionTok{set.seed}\NormalTok{(}\DecValTok{4321}\NormalTok{)}
+\NormalTok{sample.index.s2 }\OtherTok{\textless{}{-}} \FunctionTok{sample}\NormalTok{(}\DecValTok{1}\SpecialCharTok{:}\NormalTok{N, }\AttributeTok{size=}\NormalTok{n, }\AttributeTok{replace =} \ConstantTok{FALSE}\NormalTok{)}
+\NormalTok{srs.sample.s2 }\OtherTok{\textless{}{-}}\NormalTok{ df[sample.index.s2,]}
+\NormalTok{knitr}\SpecialCharTok{::}\FunctionTok{kable}\NormalTok{(table1)}
 
-\CommentTok{# Determine minimum and maximum before stratifying}
-\KeywordTok{min}\NormalTok{(df}\OperatorTok{$}\NormalTok{average_elo)}
-\KeywordTok{max}\NormalTok{(df}\OperatorTok{$}\NormalTok{average_elo)}
+\CommentTok{\# Determine minimum and maximum before stratifying}
+\FunctionTok{min}\NormalTok{(df}\SpecialCharTok{$}\NormalTok{average\_elo)}
+\FunctionTok{max}\NormalTok{(df}\SpecialCharTok{$}\NormalTok{average\_elo)}
 
-\NormalTok{df}\OperatorTok{$}\NormalTok{elo_range <-}\StringTok{ }\KeywordTok{cut}\NormalTok{(df}\OperatorTok{$}\NormalTok{average_elo,}
-                    \KeywordTok{c}\NormalTok{(}\DecValTok{1200}\NormalTok{, }\DecValTok{1400}\NormalTok{, }\DecValTok{1600}\NormalTok{, }\DecValTok{1800}\NormalTok{, }\DecValTok{2000}\NormalTok{, }\DecValTok{2600}\NormalTok{))}
-\KeywordTok{levels}\NormalTok{(df}\OperatorTok{$}\NormalTok{elo_range) <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"1200-1400"}\NormalTok{, }\StringTok{"1400-1600"}\NormalTok{, }\StringTok{"1600-1800"}\NormalTok{, }\StringTok{"1800-2000"}\NormalTok{,}
+\NormalTok{df}\SpecialCharTok{$}\NormalTok{elo\_range }\OtherTok{\textless{}{-}} \FunctionTok{cut}\NormalTok{(df}\SpecialCharTok{$}\NormalTok{average\_elo,}
+                    \FunctionTok{c}\NormalTok{(}\DecValTok{1200}\NormalTok{, }\DecValTok{1400}\NormalTok{, }\DecValTok{1600}\NormalTok{, }\DecValTok{1800}\NormalTok{, }\DecValTok{2000}\NormalTok{, }\DecValTok{2600}\NormalTok{))}
+\FunctionTok{levels}\NormalTok{(df}\SpecialCharTok{$}\NormalTok{elo\_range) }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"1200{-}1400"}\NormalTok{, }\StringTok{"1400{-}1600"}\NormalTok{, }\StringTok{"1600{-}1800"}\NormalTok{, }\StringTok{"1800{-}2000"}\NormalTok{,}
                           \StringTok{"2000+"}\NormalTok{)}
-\NormalTok{df}\OperatorTok{$}\NormalTok{winner <-}\StringTok{ }\KeywordTok{as.factor}\NormalTok{(df}\OperatorTok{$}\NormalTok{winner)}
+\NormalTok{df}\SpecialCharTok{$}\NormalTok{winner }\OtherTok{\textless{}{-}} \FunctionTok{as.factor}\NormalTok{(df}\SpecialCharTok{$}\NormalTok{winner)}
 
-\CommentTok{# Check if standard deviations of the strata are identical}
-\NormalTok{se.by.strata <-}\StringTok{ }\KeywordTok{aggregate}\NormalTok{(}\KeywordTok{as.numeric}\NormalTok{(df}\OperatorTok{$}\NormalTok{winner), }\DataTypeTok{by=}\KeywordTok{list}\NormalTok{(df}\OperatorTok{$}\NormalTok{elo_range), }\DataTypeTok{FUN=}\NormalTok{sd)}
+\CommentTok{\# Check if standard deviations of the strata are identical}
+\NormalTok{se.by.strata }\OtherTok{\textless{}{-}} \FunctionTok{aggregate}\NormalTok{(}\FunctionTok{as.numeric}\NormalTok{(df}\SpecialCharTok{$}\NormalTok{winner), }\AttributeTok{by=}\FunctionTok{list}\NormalTok{(df}\SpecialCharTok{$}\NormalTok{elo\_range), }\AttributeTok{FUN=}\NormalTok{sd)}
 \NormalTok{se.by.strata}
 
-\CommentTok{# Standard deviations within strata are not identical, \textbackslash{}}
-\CommentTok{# so find optimal sample sizes}
-\NormalTok{pop.size.by.strata <-}\StringTok{ }\KeywordTok{aggregate}\NormalTok{(df}\OperatorTok{$}\NormalTok{winner, }\DataTypeTok{by=}\KeywordTok{list}\NormalTok{(df}\OperatorTok{$}\NormalTok{elo_range), }\DataTypeTok{FUN=}\NormalTok{length)}
-\NormalTok{denom <-}\StringTok{ }\KeywordTok{sum}\NormalTok{(pop.size.by.strata[}\DecValTok{2}\NormalTok{] }\OperatorTok{*}\StringTok{ }\NormalTok{se.by.strata[}\DecValTok{2}\NormalTok{])}
-\NormalTok{sample.size.by.strata <-}\StringTok{ }\NormalTok{(pop.size.by.strata[}\DecValTok{2}\NormalTok{] }\OperatorTok{*}\StringTok{ }\NormalTok{se.by.strata[}\DecValTok{2}\NormalTok{]) }\OperatorTok{/}\StringTok{ }\NormalTok{denom}
+\CommentTok{\# Standard deviations within strata are not identical, \textbackslash{}}
+\CommentTok{\# so find optimal sample sizes}
+\NormalTok{pop.size.by.strata }\OtherTok{\textless{}{-}} \FunctionTok{aggregate}\NormalTok{(df}\SpecialCharTok{$}\NormalTok{winner, }\AttributeTok{by=}\FunctionTok{list}\NormalTok{(df}\SpecialCharTok{$}\NormalTok{elo\_range), }\AttributeTok{FUN=}\NormalTok{length)}
+\NormalTok{denom }\OtherTok{\textless{}{-}} \FunctionTok{sum}\NormalTok{(pop.size.by.strata[}\DecValTok{2}\NormalTok{] }\SpecialCharTok{*}\NormalTok{ se.by.strata[}\DecValTok{2}\NormalTok{])}
+\NormalTok{sample.size.by.strata }\OtherTok{\textless{}{-}}\NormalTok{ (pop.size.by.strata[}\DecValTok{2}\NormalTok{] }\SpecialCharTok{*}\NormalTok{ se.by.strata[}\DecValTok{2}\NormalTok{]) }\SpecialCharTok{/}\NormalTok{ denom}
 
-\CommentTok{# Sample from each strata}
-\NormalTok{strsample <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(df, sample.size.by.strata, n, seed) \{}
-\NormalTok{  str.sample <-}\StringTok{ }\NormalTok{df[}\OtherTok{FALSE}\NormalTok{,]}
-  \KeywordTok{colnames}\NormalTok{(str.sample) <-}\StringTok{ }\KeywordTok{names}\NormalTok{(df)}
-  \ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{1}\OperatorTok{:}\KeywordTok{length}\NormalTok{(}\KeywordTok{levels}\NormalTok{(df}\OperatorTok{$}\NormalTok{elo_range))) \{}
-\NormalTok{    strata <-}\StringTok{ }\KeywordTok{which}\NormalTok{(df}\OperatorTok{$}\NormalTok{elo_range }\OperatorTok{==}\StringTok{ }\KeywordTok{levels}\NormalTok{(df}\OperatorTok{$}\NormalTok{elo_range)[i])}
-    \KeywordTok{set.seed}\NormalTok{(seed)}
-\NormalTok{    sample.idx <-}\StringTok{ }\KeywordTok{sample}\NormalTok{(strata, }
-                             \DataTypeTok{size =} \KeywordTok{ceiling}\NormalTok{(sample.size.by.strata}\OperatorTok{$}\NormalTok{x[i] }\OperatorTok{*}\StringTok{ }\NormalTok{n), }
-                             \DataTypeTok{replace =} \OtherTok{FALSE}\NormalTok{)}
-\NormalTok{    sample <-}\StringTok{ }\NormalTok{df[sample.idx,]}
-\NormalTok{    str.sample <-}\StringTok{ }\KeywordTok{rbind}\NormalTok{(str.sample, sample)}
+\CommentTok{\# Sample from each strata}
+\NormalTok{strsample }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(df, sample.size.by.strata, n, seed) \{}
+\NormalTok{  str.sample }\OtherTok{\textless{}{-}}\NormalTok{ df[}\ConstantTok{FALSE}\NormalTok{,]}
+  \FunctionTok{colnames}\NormalTok{(str.sample) }\OtherTok{\textless{}{-}} \FunctionTok{names}\NormalTok{(df)}
+  \ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\FunctionTok{length}\NormalTok{(}\FunctionTok{levels}\NormalTok{(df}\SpecialCharTok{$}\NormalTok{elo\_range))) \{}
+\NormalTok{    strata }\OtherTok{\textless{}{-}} \FunctionTok{which}\NormalTok{(df}\SpecialCharTok{$}\NormalTok{elo\_range }\SpecialCharTok{==} \FunctionTok{levels}\NormalTok{(df}\SpecialCharTok{$}\NormalTok{elo\_range)[i])}
+    \FunctionTok{set.seed}\NormalTok{(seed)}
+\NormalTok{    sample.idx }\OtherTok{\textless{}{-}} \FunctionTok{sample}\NormalTok{(strata, }
+                             \AttributeTok{size =} \FunctionTok{ceiling}\NormalTok{(sample.size.by.strata}\SpecialCharTok{$}\NormalTok{x[i] }\SpecialCharTok{*}\NormalTok{ n), }
+                             \AttributeTok{replace =} \ConstantTok{FALSE}\NormalTok{)}
+\NormalTok{    sample }\OtherTok{\textless{}{-}}\NormalTok{ df[sample.idx,]}
+\NormalTok{    str.sample }\OtherTok{\textless{}{-}} \FunctionTok{rbind}\NormalTok{(str.sample, sample)}
 \NormalTok{  \}}
   
-  \CommentTok{# Stratified sample contains 1003 samples due to rounding of the proportions,}
-  \CommentTok{# so we randomly remove three from random strata}
-\NormalTok{  strata.for.removal <-}\StringTok{ }\KeywordTok{sample}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\DecValTok{5}\NormalTok{, }\DecValTok{2}\NormalTok{)}
+  \CommentTok{\# Stratified sample contains 1003 samples due to rounding of the proportions,}
+  \CommentTok{\# so we randomly remove three from random strata}
+\NormalTok{  strata.for.removal }\OtherTok{\textless{}{-}} \FunctionTok{sample}\NormalTok{(}\DecValTok{1}\SpecialCharTok{:}\DecValTok{5}\NormalTok{, }\DecValTok{2}\NormalTok{)}
   \ControlFlowTok{for}\NormalTok{ (s }\ControlFlowTok{in}\NormalTok{ strata.for.removal) \{}
-    \KeywordTok{set.seed}\NormalTok{(}\DecValTok{1234}\NormalTok{)}
-\NormalTok{    to.remove <-}\StringTok{ }\KeywordTok{sample}\NormalTok{(}\KeywordTok{which}\NormalTok{(str.sample}\OperatorTok{$}\NormalTok{elo_range }\OperatorTok{==}\StringTok{ }\KeywordTok{levels}\NormalTok{(df}\OperatorTok{$}\NormalTok{elo_range)[s]), }\DecValTok{1}\NormalTok{)}
-\NormalTok{    str.sample <-}\StringTok{ }\NormalTok{str.sample[}\OperatorTok{-}\NormalTok{to.remove,]}
+    \FunctionTok{set.seed}\NormalTok{(}\DecValTok{1234}\NormalTok{)}
+\NormalTok{    to.remove }\OtherTok{\textless{}{-}} \FunctionTok{sample}\NormalTok{(}\FunctionTok{which}\NormalTok{(str.sample}\SpecialCharTok{$}\NormalTok{elo\_range }\SpecialCharTok{==} \FunctionTok{levels}\NormalTok{(df}\SpecialCharTok{$}\NormalTok{elo\_range)[s]), }\DecValTok{1}\NormalTok{)}
+\NormalTok{    str.sample }\OtherTok{\textless{}{-}}\NormalTok{ str.sample[}\SpecialCharTok{{-}}\NormalTok{to.remove,]}
 \NormalTok{  \}}
   
-  \KeywordTok{return}\NormalTok{(str.sample)}
+  \FunctionTok{return}\NormalTok{(str.sample)}
 \NormalTok{\}}
 
-\NormalTok{white.str.sample <-}\StringTok{ }\KeywordTok{strsample}\NormalTok{(df, sample.size.by.strata, n, }\DecValTok{1234}\NormalTok{) }\OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{group_by}\NormalTok{(elo_range) }
-\NormalTok{black.str.sample <-}\StringTok{ }\KeywordTok{strsample}\NormalTok{(df, sample.size.by.strata, n, }\DecValTok{4321}\NormalTok{) }\OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{group_by}\NormalTok{(elo_range) }
-\NormalTok{z}\FloatTok{.95}\NormalTok{ <-}\StringTok{ }\KeywordTok{qnorm}\NormalTok{(}\FloatTok{0.975}\NormalTok{)}
-\CommentTok{# Returns the sample variance of a given proportion}
-\NormalTok{var.est <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(p) \{}
-\NormalTok{  p }\OperatorTok{*}\StringTok{ }\NormalTok{(}\DecValTok{1} \OperatorTok{-}\StringTok{ }\NormalTok{p)}
+\NormalTok{white.str.sample }\OtherTok{\textless{}{-}} \FunctionTok{strsample}\NormalTok{(df, sample.size.by.strata, n, }\DecValTok{1234}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{group\_by}\NormalTok{(elo\_range) }
+\NormalTok{black.str.sample }\OtherTok{\textless{}{-}} \FunctionTok{strsample}\NormalTok{(df, sample.size.by.strata, n, }\DecValTok{4321}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{group\_by}\NormalTok{(elo\_range) }
+\NormalTok{z}\FloatTok{.95} \OtherTok{\textless{}{-}} \FunctionTok{qnorm}\NormalTok{(}\FloatTok{0.975}\NormalTok{)}
+\CommentTok{\# Returns the sample variance of a given proportion}
+\NormalTok{var.est }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(p) \{}
+\NormalTok{  p }\SpecialCharTok{*}\NormalTok{ (}\DecValTok{1} \SpecialCharTok{{-}}\NormalTok{ p)}
 \NormalTok{\}}
-\CommentTok{# Calculate white's win rate}
-\NormalTok{white.prop <-}\StringTok{ }\NormalTok{srs.sample.s1 }\OperatorTok{%>%}
-\StringTok{  }\KeywordTok{count}\NormalTok{(winner) }\OperatorTok{%>%}
-\StringTok{  }\KeywordTok{group_by}\NormalTok{(winner) }\OperatorTok{%>%}
-\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{win.prop =}\NormalTok{ n }\OperatorTok{/}\StringTok{ }\DecValTok{2000}\NormalTok{)}
+\CommentTok{\# Calculate white\textquotesingle{}s win rate}
+\NormalTok{white.prop }\OtherTok{\textless{}{-}}\NormalTok{ srs.sample.s1 }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{count}\NormalTok{(winner) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{group\_by}\NormalTok{(winner) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{win.prop =}\NormalTok{ n }\SpecialCharTok{/} \DecValTok{2000}\NormalTok{)}
 
-\NormalTok{white.p <-}\StringTok{ }\KeywordTok{as.numeric}\NormalTok{(white.prop[}\DecValTok{3}\NormalTok{,}\DecValTok{3}\NormalTok{])}
+\NormalTok{white.p }\OtherTok{\textless{}{-}} \FunctionTok{as.numeric}\NormalTok{(white.prop[}\DecValTok{3}\NormalTok{,}\DecValTok{3}\NormalTok{])}
 
-\NormalTok{black.prop <-}\StringTok{ }\NormalTok{srs.sample.s2 }\OperatorTok{%>%}
-\StringTok{  }\KeywordTok{count}\NormalTok{(winner) }\OperatorTok{%>%}
-\StringTok{  }\KeywordTok{group_by}\NormalTok{(winner) }\OperatorTok{%>%}
-\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{win.prop =}\NormalTok{ n }\OperatorTok{/}\StringTok{ }\DecValTok{2000}\NormalTok{)}
+\NormalTok{black.prop }\OtherTok{\textless{}{-}}\NormalTok{ srs.sample.s2 }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{count}\NormalTok{(winner) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{group\_by}\NormalTok{(winner) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{win.prop =}\NormalTok{ n }\SpecialCharTok{/} \DecValTok{2000}\NormalTok{)}
 
-\NormalTok{black.p <-}\StringTok{ }\KeywordTok{as.numeric}\NormalTok{(black.prop[}\DecValTok{1}\NormalTok{,}\DecValTok{3}\NormalTok{])}
-\NormalTok{white.var <-}\StringTok{ }\NormalTok{(}\DecValTok{1}\OperatorTok{-}\NormalTok{n}\OperatorTok{/}\NormalTok{N)}\OperatorTok{*}\NormalTok{(}\KeywordTok{var.est}\NormalTok{(white.p)}\OperatorTok{/}\NormalTok{n)}
-\NormalTok{black.var <-}\StringTok{ }\NormalTok{(}\DecValTok{1}\OperatorTok{-}\NormalTok{n}\OperatorTok{/}\NormalTok{N)}\OperatorTok{*}\NormalTok{(}\KeywordTok{var.est}\NormalTok{(black.p)}\OperatorTok{/}\NormalTok{n)}
-\NormalTok{srs.se <-}\StringTok{ }\KeywordTok{sqrt}\NormalTok{(white.var }\OperatorTok{+}\StringTok{ }\NormalTok{black.var)}
+\NormalTok{black.p }\OtherTok{\textless{}{-}} \FunctionTok{as.numeric}\NormalTok{(black.prop[}\DecValTok{1}\NormalTok{,}\DecValTok{3}\NormalTok{])}
+\NormalTok{white.var }\OtherTok{\textless{}{-}}\NormalTok{ (}\DecValTok{1}\SpecialCharTok{{-}}\NormalTok{n}\SpecialCharTok{/}\NormalTok{N)}\SpecialCharTok{*}\NormalTok{(}\FunctionTok{var.est}\NormalTok{(white.p)}\SpecialCharTok{/}\NormalTok{n)}
+\NormalTok{black.var }\OtherTok{\textless{}{-}}\NormalTok{ (}\DecValTok{1}\SpecialCharTok{{-}}\NormalTok{n}\SpecialCharTok{/}\NormalTok{N)}\SpecialCharTok{*}\NormalTok{(}\FunctionTok{var.est}\NormalTok{(black.p)}\SpecialCharTok{/}\NormalTok{n)}
+\NormalTok{srs.se }\OtherTok{\textless{}{-}} \FunctionTok{sqrt}\NormalTok{(white.var }\SpecialCharTok{+}\NormalTok{ black.var)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{# Determine minimum and maximum before stratifying}
-\KeywordTok{min}\NormalTok{(df}\OperatorTok{$}\NormalTok{average_elo)}
-\KeywordTok{max}\NormalTok{(df}\OperatorTok{$}\NormalTok{average_elo)}
+\CommentTok{\# Determine minimum and maximum before stratifying}
+\FunctionTok{min}\NormalTok{(df}\SpecialCharTok{$}\NormalTok{average\_elo)}
+\FunctionTok{max}\NormalTok{(df}\SpecialCharTok{$}\NormalTok{average\_elo)}
 
-\NormalTok{df}\OperatorTok{$}\NormalTok{elo_range <-}\StringTok{ }\KeywordTok{cut}\NormalTok{(df}\OperatorTok{$}\NormalTok{average_elo,}
-                    \KeywordTok{c}\NormalTok{(}\DecValTok{1200}\NormalTok{, }\DecValTok{1400}\NormalTok{, }\DecValTok{1600}\NormalTok{, }\DecValTok{1800}\NormalTok{, }\DecValTok{2000}\NormalTok{, }\DecValTok{2600}\NormalTok{))}
-\KeywordTok{levels}\NormalTok{(df}\OperatorTok{$}\NormalTok{elo_range) <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"1200-1400"}\NormalTok{, }\StringTok{"1400-1600"}\NormalTok{, }\StringTok{"1600-1800"}\NormalTok{, }\StringTok{"1800-2000"}\NormalTok{,}
+\NormalTok{df}\SpecialCharTok{$}\NormalTok{elo\_range }\OtherTok{\textless{}{-}} \FunctionTok{cut}\NormalTok{(df}\SpecialCharTok{$}\NormalTok{average\_elo,}
+                    \FunctionTok{c}\NormalTok{(}\DecValTok{1200}\NormalTok{, }\DecValTok{1400}\NormalTok{, }\DecValTok{1600}\NormalTok{, }\DecValTok{1800}\NormalTok{, }\DecValTok{2000}\NormalTok{, }\DecValTok{2600}\NormalTok{))}
+\FunctionTok{levels}\NormalTok{(df}\SpecialCharTok{$}\NormalTok{elo\_range) }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"1200{-}1400"}\NormalTok{, }\StringTok{"1400{-}1600"}\NormalTok{, }\StringTok{"1600{-}1800"}\NormalTok{, }\StringTok{"1800{-}2000"}\NormalTok{,}
                           \StringTok{"2000+"}\NormalTok{)}
-\NormalTok{df}\OperatorTok{$}\NormalTok{winner <-}\StringTok{ }\KeywordTok{as.factor}\NormalTok{(df}\OperatorTok{$}\NormalTok{winner)}
+\NormalTok{df}\SpecialCharTok{$}\NormalTok{winner }\OtherTok{\textless{}{-}} \FunctionTok{as.factor}\NormalTok{(df}\SpecialCharTok{$}\NormalTok{winner)}
 
-\CommentTok{# Check if standard deviations of the strata are identical}
-\NormalTok{se.by.strata <-}\StringTok{ }\KeywordTok{aggregate}\NormalTok{(}\KeywordTok{as.numeric}\NormalTok{(df}\OperatorTok{$}\NormalTok{winner), }\DataTypeTok{by=}\KeywordTok{list}\NormalTok{(df}\OperatorTok{$}\NormalTok{elo_range), }\DataTypeTok{FUN=}\NormalTok{sd)}
+\CommentTok{\# Check if standard deviations of the strata are identical}
+\NormalTok{se.by.strata }\OtherTok{\textless{}{-}} \FunctionTok{aggregate}\NormalTok{(}\FunctionTok{as.numeric}\NormalTok{(df}\SpecialCharTok{$}\NormalTok{winner), }\AttributeTok{by=}\FunctionTok{list}\NormalTok{(df}\SpecialCharTok{$}\NormalTok{elo\_range), }\AttributeTok{FUN=}\NormalTok{sd)}
 \NormalTok{se.by.strata}
 
-\CommentTok{# Standard deviations within strata are not identical, \textbackslash{}}
-\CommentTok{# so find optimal sample sizes}
-\NormalTok{pop.size.by.strata <-}\StringTok{ }\KeywordTok{aggregate}\NormalTok{(df}\OperatorTok{$}\NormalTok{winner, }\DataTypeTok{by=}\KeywordTok{list}\NormalTok{(df}\OperatorTok{$}\NormalTok{elo_range), }\DataTypeTok{FUN=}\NormalTok{length)}
-\NormalTok{denom <-}\StringTok{ }\KeywordTok{sum}\NormalTok{(pop.size.by.strata[}\DecValTok{2}\NormalTok{] }\OperatorTok{*}\StringTok{ }\NormalTok{se.by.strata[}\DecValTok{2}\NormalTok{])}
-\NormalTok{sample.size.by.strata <-}\StringTok{ }\NormalTok{(pop.size.by.strata[}\DecValTok{2}\NormalTok{] }\OperatorTok{*}\StringTok{ }\NormalTok{se.by.strata[}\DecValTok{2}\NormalTok{]) }\OperatorTok{/}\StringTok{ }\NormalTok{denom}
+\CommentTok{\# Standard deviations within strata are not identical, \textbackslash{}}
+\CommentTok{\# so find optimal sample sizes}
+\NormalTok{pop.size.by.strata }\OtherTok{\textless{}{-}} \FunctionTok{aggregate}\NormalTok{(df}\SpecialCharTok{$}\NormalTok{winner, }\AttributeTok{by=}\FunctionTok{list}\NormalTok{(df}\SpecialCharTok{$}\NormalTok{elo\_range), }\AttributeTok{FUN=}\NormalTok{length)}
+\NormalTok{denom }\OtherTok{\textless{}{-}} \FunctionTok{sum}\NormalTok{(pop.size.by.strata[}\DecValTok{2}\NormalTok{] }\SpecialCharTok{*}\NormalTok{ se.by.strata[}\DecValTok{2}\NormalTok{])}
+\NormalTok{sample.size.by.strata }\OtherTok{\textless{}{-}}\NormalTok{ (pop.size.by.strata[}\DecValTok{2}\NormalTok{] }\SpecialCharTok{*}\NormalTok{ se.by.strata[}\DecValTok{2}\NormalTok{]) }\SpecialCharTok{/}\NormalTok{ denom}
 
-\CommentTok{# Sample from each strata}
-\NormalTok{strsample <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(df, sample.size.by.strata, n, seed) \{}
-\NormalTok{  str.sample <-}\StringTok{ }\NormalTok{df[}\OtherTok{FALSE}\NormalTok{,]}
-  \KeywordTok{colnames}\NormalTok{(str.sample) <-}\StringTok{ }\KeywordTok{names}\NormalTok{(df)}
-  \ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{1}\OperatorTok{:}\KeywordTok{length}\NormalTok{(}\KeywordTok{levels}\NormalTok{(df}\OperatorTok{$}\NormalTok{elo_range))) \{}
-\NormalTok{    strata <-}\StringTok{ }\KeywordTok{which}\NormalTok{(df}\OperatorTok{$}\NormalTok{elo_range }\OperatorTok{==}\StringTok{ }\KeywordTok{levels}\NormalTok{(df}\OperatorTok{$}\NormalTok{elo_range)[i])}
-    \KeywordTok{set.seed}\NormalTok{(seed)}
-\NormalTok{    sample.idx <-}\StringTok{ }\KeywordTok{sample}\NormalTok{(strata, }
-                             \DataTypeTok{size =} \KeywordTok{ceiling}\NormalTok{(sample.size.by.strata}\OperatorTok{$}\NormalTok{x[i] }\OperatorTok{*}\StringTok{ }\NormalTok{n), }
-                             \DataTypeTok{replace =} \OtherTok{FALSE}\NormalTok{)}
-\NormalTok{    sample <-}\StringTok{ }\NormalTok{df[sample.idx,]}
-\NormalTok{    str.sample <-}\StringTok{ }\KeywordTok{rbind}\NormalTok{(str.sample, sample)}
+\CommentTok{\# Sample from each strata}
+\NormalTok{strsample }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(df, sample.size.by.strata, n, seed) \{}
+\NormalTok{  str.sample }\OtherTok{\textless{}{-}}\NormalTok{ df[}\ConstantTok{FALSE}\NormalTok{,]}
+  \FunctionTok{colnames}\NormalTok{(str.sample) }\OtherTok{\textless{}{-}} \FunctionTok{names}\NormalTok{(df)}
+  \ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\FunctionTok{length}\NormalTok{(}\FunctionTok{levels}\NormalTok{(df}\SpecialCharTok{$}\NormalTok{elo\_range))) \{}
+\NormalTok{    strata }\OtherTok{\textless{}{-}} \FunctionTok{which}\NormalTok{(df}\SpecialCharTok{$}\NormalTok{elo\_range }\SpecialCharTok{==} \FunctionTok{levels}\NormalTok{(df}\SpecialCharTok{$}\NormalTok{elo\_range)[i])}
+    \FunctionTok{set.seed}\NormalTok{(seed)}
+\NormalTok{    sample.idx }\OtherTok{\textless{}{-}} \FunctionTok{sample}\NormalTok{(strata, }
+                             \AttributeTok{size =} \FunctionTok{ceiling}\NormalTok{(sample.size.by.strata}\SpecialCharTok{$}\NormalTok{x[i] }\SpecialCharTok{*}\NormalTok{ n), }
+                             \AttributeTok{replace =} \ConstantTok{FALSE}\NormalTok{)}
+\NormalTok{    sample }\OtherTok{\textless{}{-}}\NormalTok{ df[sample.idx,]}
+\NormalTok{    str.sample }\OtherTok{\textless{}{-}} \FunctionTok{rbind}\NormalTok{(str.sample, sample)}
 \NormalTok{  \}}
   
-  \CommentTok{# Stratified sample contains 1003 samples due to rounding of the proportions,}
-  \CommentTok{# so we randomly remove three from random strata}
-\NormalTok{  strata.for.removal <-}\StringTok{ }\KeywordTok{sample}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\DecValTok{5}\NormalTok{, }\DecValTok{2}\NormalTok{)}
+  \CommentTok{\# Stratified sample contains 1003 samples due to rounding of the proportions,}
+  \CommentTok{\# so we randomly remove three from random strata}
+\NormalTok{  strata.for.removal }\OtherTok{\textless{}{-}} \FunctionTok{sample}\NormalTok{(}\DecValTok{1}\SpecialCharTok{:}\DecValTok{5}\NormalTok{, }\DecValTok{2}\NormalTok{)}
   \ControlFlowTok{for}\NormalTok{ (s }\ControlFlowTok{in}\NormalTok{ strata.for.removal) \{}
-    \KeywordTok{set.seed}\NormalTok{(}\DecValTok{1234}\NormalTok{)}
-\NormalTok{    to.remove <-}\StringTok{ }\KeywordTok{sample}\NormalTok{(}\KeywordTok{which}\NormalTok{(str.sample}\OperatorTok{$}\NormalTok{elo_range }\OperatorTok{==}\StringTok{ }\KeywordTok{levels}\NormalTok{(df}\OperatorTok{$}\NormalTok{elo_range)[s]), }\DecValTok{1}\NormalTok{)}
-\NormalTok{    str.sample <-}\StringTok{ }\NormalTok{str.sample[}\OperatorTok{-}\NormalTok{to.remove,]}
+    \FunctionTok{set.seed}\NormalTok{(}\DecValTok{1234}\NormalTok{)}
+\NormalTok{    to.remove }\OtherTok{\textless{}{-}} \FunctionTok{sample}\NormalTok{(}\FunctionTok{which}\NormalTok{(str.sample}\SpecialCharTok{$}\NormalTok{elo\_range }\SpecialCharTok{==} \FunctionTok{levels}\NormalTok{(df}\SpecialCharTok{$}\NormalTok{elo\_range)[s]), }\DecValTok{1}\NormalTok{)}
+\NormalTok{    str.sample }\OtherTok{\textless{}{-}}\NormalTok{ str.sample[}\SpecialCharTok{{-}}\NormalTok{to.remove,]}
 \NormalTok{  \}}
   
-  \KeywordTok{return}\NormalTok{(str.sample)}
+  \FunctionTok{return}\NormalTok{(str.sample)}
 \NormalTok{\}}
 
-\NormalTok{white.str.sample <-}\StringTok{ }\KeywordTok{strsample}\NormalTok{(df, sample.size.by.strata, n, }\DecValTok{1234}\NormalTok{) }\OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{group_by}\NormalTok{(elo_range) }
-\NormalTok{black.str.sample <-}\StringTok{ }\KeywordTok{strsample}\NormalTok{(df, sample.size.by.strata, n, }\DecValTok{4321}\NormalTok{) }\OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{group_by}\NormalTok{(elo_range) }
+\NormalTok{white.str.sample }\OtherTok{\textless{}{-}} \FunctionTok{strsample}\NormalTok{(df, sample.size.by.strata, n, }\DecValTok{1234}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{group\_by}\NormalTok{(elo\_range) }
+\NormalTok{black.str.sample }\OtherTok{\textless{}{-}} \FunctionTok{strsample}\NormalTok{(df, sample.size.by.strata, n, }\DecValTok{4321}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{group\_by}\NormalTok{(elo\_range) }
 \end{Highlighting}
 \end{Shaded}
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{z}\FloatTok{.95}\NormalTok{ <-}\StringTok{ }\KeywordTok{qnorm}\NormalTok{(}\FloatTok{0.975}\NormalTok{)}
-\CommentTok{# Returns the sample variance of a given proportion}
-\NormalTok{var.est <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(p) \{}
-\NormalTok{  p }\OperatorTok{*}\StringTok{ }\NormalTok{(}\DecValTok{1} \OperatorTok{-}\StringTok{ }\NormalTok{p)}
+\NormalTok{z}\FloatTok{.95} \OtherTok{\textless{}{-}} \FunctionTok{qnorm}\NormalTok{(}\FloatTok{0.975}\NormalTok{)}
+\CommentTok{\# Returns the sample variance of a given proportion}
+\NormalTok{var.est }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(p) \{}
+\NormalTok{  p }\SpecialCharTok{*}\NormalTok{ (}\DecValTok{1} \SpecialCharTok{{-}}\NormalTok{ p)}
 \NormalTok{\}}
-\CommentTok{# Calculate white's win rate}
-\NormalTok{white.prop <-}\StringTok{ }\NormalTok{srs.sample.s1 }\OperatorTok{%>%}
-\StringTok{  }\KeywordTok{count}\NormalTok{(winner) }\OperatorTok{%>%}
-\StringTok{  }\KeywordTok{group_by}\NormalTok{(winner) }\OperatorTok{%>%}
-\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{win.prop =}\NormalTok{ n }\OperatorTok{/}\StringTok{ }\DecValTok{2000}\NormalTok{)}
+\CommentTok{\# Calculate white\textquotesingle{}s win rate}
+\NormalTok{white.prop }\OtherTok{\textless{}{-}}\NormalTok{ srs.sample.s1 }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{count}\NormalTok{(winner) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{group\_by}\NormalTok{(winner) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{win.prop =}\NormalTok{ n }\SpecialCharTok{/} \DecValTok{2000}\NormalTok{)}
 
-\NormalTok{white.p <-}\StringTok{ }\KeywordTok{as.numeric}\NormalTok{(white.prop[}\DecValTok{3}\NormalTok{,}\DecValTok{3}\NormalTok{])}
+\NormalTok{white.p }\OtherTok{\textless{}{-}} \FunctionTok{as.numeric}\NormalTok{(white.prop[}\DecValTok{3}\NormalTok{,}\DecValTok{3}\NormalTok{])}
 
-\NormalTok{black.prop <-}\StringTok{ }\NormalTok{srs.sample.s2 }\OperatorTok{%>%}
-\StringTok{  }\KeywordTok{count}\NormalTok{(winner) }\OperatorTok{%>%}
-\StringTok{  }\KeywordTok{group_by}\NormalTok{(winner) }\OperatorTok{%>%}
-\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{win.prop =}\NormalTok{ n }\OperatorTok{/}\StringTok{ }\DecValTok{2000}\NormalTok{)}
+\NormalTok{black.prop }\OtherTok{\textless{}{-}}\NormalTok{ srs.sample.s2 }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{count}\NormalTok{(winner) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{group\_by}\NormalTok{(winner) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{win.prop =}\NormalTok{ n }\SpecialCharTok{/} \DecValTok{2000}\NormalTok{)}
 
-\NormalTok{black.p <-}\StringTok{ }\KeywordTok{as.numeric}\NormalTok{(black.prop[}\DecValTok{1}\NormalTok{,}\DecValTok{3}\NormalTok{])}
+\NormalTok{black.p }\OtherTok{\textless{}{-}} \FunctionTok{as.numeric}\NormalTok{(black.prop[}\DecValTok{1}\NormalTok{,}\DecValTok{3}\NormalTok{])}
 
-\NormalTok{srs.se <-}\StringTok{ }\KeywordTok{sqrt}\NormalTok{((}\DecValTok{1}\OperatorTok{-}\NormalTok{n}\OperatorTok{/}\NormalTok{N)}\OperatorTok{*}\NormalTok{(}\KeywordTok{var.est}\NormalTok{(white.p) }\OperatorTok{+}\StringTok{ }\KeywordTok{var.est}\NormalTok{(black.p))}\OperatorTok{/}\NormalTok{n)}
+\NormalTok{srs.se }\OtherTok{\textless{}{-}} \FunctionTok{sqrt}\NormalTok{((}\DecValTok{1}\SpecialCharTok{{-}}\NormalTok{n}\SpecialCharTok{/}\NormalTok{N)}\SpecialCharTok{*}\NormalTok{(}\FunctionTok{var.est}\NormalTok{(white.p) }\SpecialCharTok{+} \FunctionTok{var.est}\NormalTok{(black.p))}\SpecialCharTok{/}\NormalTok{n)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{# Calculate Nh/N, the strata proportion}
-\NormalTok{Nh <-}\StringTok{ }\NormalTok{df }\OperatorTok{%>%}\StringTok{ }\KeywordTok{count}\NormalTok{(elo_range, }\DataTypeTok{.drop=}\OtherTok{FALSE}\NormalTok{)}
-\NormalTok{Nh <-}\StringTok{ }\NormalTok{Nh[}\KeywordTok{complete.cases}\NormalTok{(Nh),]}
+\CommentTok{\# Calculate Nh/N, the strata proportion}
+\NormalTok{Nh }\OtherTok{\textless{}{-}}\NormalTok{ df }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{count}\NormalTok{(elo\_range, }\AttributeTok{.drop=}\ConstantTok{FALSE}\NormalTok{)}
+\NormalTok{Nh }\OtherTok{\textless{}{-}}\NormalTok{ Nh[}\FunctionTok{complete.cases}\NormalTok{(Nh),]}
 
-\NormalTok{nh.white <-}\StringTok{ }\NormalTok{white.str.sample }\OperatorTok{%>%}\StringTok{ }\KeywordTok{count}\NormalTok{(elo_range, }\DataTypeTok{.drop=}\OtherTok{FALSE}\NormalTok{)}
-\NormalTok{nh.black <-}\StringTok{ }\NormalTok{black.str.sample }\OperatorTok{%>%}\StringTok{ }\KeywordTok{count}\NormalTok{(elo_range, }\DataTypeTok{.drop=}\OtherTok{FALSE}\NormalTok{)}
-\NormalTok{strata.size.prop <-}\StringTok{ }\NormalTok{Nh[}\DecValTok{2}\NormalTok{] }\OperatorTok{/}\StringTok{ }\NormalTok{N}
+\NormalTok{nh.white }\OtherTok{\textless{}{-}}\NormalTok{ white.str.sample }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{count}\NormalTok{(elo\_range, }\AttributeTok{.drop=}\ConstantTok{FALSE}\NormalTok{)}
+\NormalTok{nh.black }\OtherTok{\textless{}{-}}\NormalTok{ black.str.sample }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{count}\NormalTok{(elo\_range, }\AttributeTok{.drop=}\ConstantTok{FALSE}\NormalTok{)}
+\NormalTok{strata.size.prop }\OtherTok{\textless{}{-}}\NormalTok{ Nh[}\DecValTok{2}\NormalTok{] }\SpecialCharTok{/}\NormalTok{ N}
 
-\CommentTok{# Calculate white's win proportion by each strata}
-\NormalTok{white.win.prop <-}\StringTok{ }\NormalTok{white.str.sample }\OperatorTok{%>%}
-\StringTok{  }\KeywordTok{count}\NormalTok{(winner) }\OperatorTok{%>%}
-\StringTok{  }\KeywordTok{group_by}\NormalTok{(elo_range) }\OperatorTok{%>%}
-\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{win.prop =}\NormalTok{ n }\OperatorTok{/}\StringTok{ }\KeywordTok{sum}\NormalTok{(n))}
+\CommentTok{\# Calculate white\textquotesingle{}s win proportion by each strata}
+\NormalTok{white.win.prop }\OtherTok{\textless{}{-}}\NormalTok{ white.str.sample }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{count}\NormalTok{(winner) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{group\_by}\NormalTok{(elo\_range) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{win.prop =}\NormalTok{ n }\SpecialCharTok{/} \FunctionTok{sum}\NormalTok{(n))}
 
-\CommentTok{# The estimated aggregated win proportion for white}
-\NormalTok{white.prop <-}\StringTok{ }\NormalTok{white.win.prop[white.win.prop}\OperatorTok{$}\NormalTok{winner }\OperatorTok{==}\StringTok{ "white"}\NormalTok{, ] }
-\NormalTok{white.p.str.est <-}\StringTok{ }\KeywordTok{sum}\NormalTok{(white.prop}\OperatorTok{$}\NormalTok{win.prop }\OperatorTok{*}\StringTok{ }\NormalTok{strata.size.prop)}
+\CommentTok{\# The estimated aggregated win proportion for white}
+\NormalTok{white.prop }\OtherTok{\textless{}{-}}\NormalTok{ white.win.prop[white.win.prop}\SpecialCharTok{$}\NormalTok{winner }\SpecialCharTok{==} \StringTok{"white"}\NormalTok{, ] }
+\NormalTok{white.p.str.est }\OtherTok{\textless{}{-}} \FunctionTok{sum}\NormalTok{(white.prop}\SpecialCharTok{$}\NormalTok{win.prop }\SpecialCharTok{*}\NormalTok{ strata.size.prop)}
 
-\CommentTok{# The estimated aggregated variance of win proportion for white}
-\NormalTok{white.se.by.strata <-}\StringTok{ }\KeywordTok{bind_cols}\NormalTok{(white.prop, }\DataTypeTok{nh =}\NormalTok{ nh.white}\OperatorTok{$}\NormalTok{n)}
-\NormalTok{white.se.by.strata <-}\StringTok{ }\NormalTok{white.se.by.strata }\OperatorTok{%>%}\StringTok{ }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{var.by.strata =}\NormalTok{ win.prop }\OperatorTok{*}\StringTok{ }\NormalTok{(}\DecValTok{1}\OperatorTok{-}\NormalTok{win.prop)}\OperatorTok{/}\NormalTok{nh)}
-\NormalTok{white.se.by.strata <-}\StringTok{ }\KeywordTok{bind_cols}\NormalTok{(white.se.by.strata, }\DataTypeTok{strata.prop.sq =}\NormalTok{ strata.size.prop}\OperatorTok{$}\NormalTok{n}\OperatorTok{^}\DecValTok{2}\NormalTok{)}
-\NormalTok{white.se.by.strata <-}\StringTok{ }\NormalTok{white.se.by.strata }\OperatorTok{%>%}\StringTok{ }\KeywordTok{mutate}\NormalTok{(strata.prop.sq}\OperatorTok{*}\NormalTok{(}\DecValTok{1}\OperatorTok{-}\NormalTok{n}\OperatorTok{/}\NormalTok{nh)}\OperatorTok{*}\NormalTok{var.by.strata)}
-\NormalTok{white.str.se <-}\StringTok{ }\KeywordTok{sqrt}\NormalTok{(}\KeywordTok{sum}\NormalTok{(white.se.by.strata}\OperatorTok{$}\StringTok{`}\DataTypeTok{strata.prop.sq * (1 - n/nh) * var.by.strata}\StringTok{`}\NormalTok{))}
+\CommentTok{\# The estimated aggregated variance of win proportion for white}
+\NormalTok{white.se.by.strata }\OtherTok{\textless{}{-}} \FunctionTok{bind\_cols}\NormalTok{(white.prop, }\AttributeTok{nh =}\NormalTok{ nh.white}\SpecialCharTok{$}\NormalTok{n)}
+\NormalTok{white.se.by.strata }\OtherTok{\textless{}{-}}\NormalTok{ white.se.by.strata }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{var.by.strata =}\NormalTok{ win.prop }\SpecialCharTok{*}\NormalTok{ (}\DecValTok{1}\SpecialCharTok{{-}}\NormalTok{win.prop)}\SpecialCharTok{/}\NormalTok{nh)}
+\NormalTok{white.se.by.strata }\OtherTok{\textless{}{-}} \FunctionTok{bind\_cols}\NormalTok{(white.se.by.strata, }
+                                \AttributeTok{strata.prop.sq =}\NormalTok{ strata.size.prop}\SpecialCharTok{$}\NormalTok{n}\SpecialCharTok{\^{}}\DecValTok{2}\NormalTok{)}
+\NormalTok{white.se.by.strata }\OtherTok{\textless{}{-}}\NormalTok{ white.se.by.strata }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{mutate}\NormalTok{(strata.prop.sq}\SpecialCharTok{*}\NormalTok{(}\DecValTok{1}\SpecialCharTok{{-}}\NormalTok{n}\SpecialCharTok{/}\NormalTok{nh)}\SpecialCharTok{*}\NormalTok{var.by.strata)}
+\NormalTok{white.str.se }\OtherTok{\textless{}{-}} \FunctionTok{sqrt}\NormalTok{(}\FunctionTok{sum}\NormalTok{(}
+\NormalTok{  white.se.by.strata}\SpecialCharTok{$}\StringTok{\textasciigrave{}}\AttributeTok{strata.prop.sq * (1 {-} n/nh) * var.by.strata}\StringTok{\textasciigrave{}}\NormalTok{))}
 
-\CommentTok{# Calculate black's win proportion by each strata}
-\NormalTok{black.win.prop <-}\StringTok{ }\NormalTok{black.str.sample }\OperatorTok{%>%}
-\StringTok{  }\KeywordTok{count}\NormalTok{(winner) }\OperatorTok{%>%}
-\StringTok{  }\KeywordTok{group_by}\NormalTok{(elo_range) }\OperatorTok{%>%}
-\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{win.prop =}\NormalTok{ n }\OperatorTok{/}\StringTok{ }\KeywordTok{sum}\NormalTok{(n))}
+\CommentTok{\# Calculate black\textquotesingle{}s win proportion by each strata}
+\NormalTok{black.win.prop }\OtherTok{\textless{}{-}}\NormalTok{ black.str.sample }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{count}\NormalTok{(winner) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{group\_by}\NormalTok{(elo\_range) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{win.prop =}\NormalTok{ n }\SpecialCharTok{/} \FunctionTok{sum}\NormalTok{(n))}
 
-\CommentTok{# The estimated aggregated win proportion for white}
-\NormalTok{black.prop <-}\StringTok{ }\NormalTok{black.win.prop[black.win.prop}\OperatorTok{$}\NormalTok{winner }\OperatorTok{==}\StringTok{ "black"}\NormalTok{, ] }
-\NormalTok{black.p.str.est <-}\StringTok{ }\KeywordTok{sum}\NormalTok{(black.prop}\OperatorTok{$}\NormalTok{win.prop }\OperatorTok{*}\StringTok{ }\NormalTok{strata.size.prop)}
+\CommentTok{\# The estimated aggregated win proportion for white}
+\NormalTok{black.prop }\OtherTok{\textless{}{-}}\NormalTok{ black.win.prop[black.win.prop}\SpecialCharTok{$}\NormalTok{winner }\SpecialCharTok{==} \StringTok{"black"}\NormalTok{, ] }
+\NormalTok{black.p.str.est }\OtherTok{\textless{}{-}} \FunctionTok{sum}\NormalTok{(black.prop}\SpecialCharTok{$}\NormalTok{win.prop }\SpecialCharTok{*}\NormalTok{ strata.size.prop)}
 
-\CommentTok{# The estimated aggregated variance of win proportion for black}
-\NormalTok{black.se.by.strata <-}\StringTok{ }\KeywordTok{bind_cols}\NormalTok{(black.prop, }\DataTypeTok{nh =}\NormalTok{ nh.black}\OperatorTok{$}\NormalTok{n)}
-\NormalTok{black.se.by.strata <-}\StringTok{ }\NormalTok{black.se.by.strata }\OperatorTok{%>%}\StringTok{ }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{var.by.strata =}\NormalTok{ win.prop }\OperatorTok{*}\StringTok{ }\NormalTok{(}\DecValTok{1}\OperatorTok{-}\NormalTok{win.prop)}\OperatorTok{/}\NormalTok{nh)}
-\NormalTok{black.se.by.strata <-}\StringTok{ }\KeywordTok{bind_cols}\NormalTok{(black.se.by.strata, }\DataTypeTok{strata.prop.sq =}\NormalTok{ strata.size.prop}\OperatorTok{$}\NormalTok{n}\OperatorTok{^}\DecValTok{2}\NormalTok{)}
-\NormalTok{black.se.by.strata <-}\StringTok{ }\NormalTok{black.se.by.strata }\OperatorTok{%>%}\StringTok{ }\KeywordTok{mutate}\NormalTok{(strata.prop.sq}\OperatorTok{*}\NormalTok{(}\DecValTok{1}\OperatorTok{-}\NormalTok{n}\OperatorTok{/}\NormalTok{nh)}\OperatorTok{*}\NormalTok{var.by.strata)}
-\NormalTok{black.str.se <-}\StringTok{ }\KeywordTok{sqrt}\NormalTok{(}\KeywordTok{sum}\NormalTok{(black.se.by.strata}\OperatorTok{$}\StringTok{`}\DataTypeTok{strata.prop.sq * (1 - n/nh) * var.by.strata}\StringTok{`}\NormalTok{))}
+\CommentTok{\# The estimated aggregated variance of win proportion for black}
+\NormalTok{black.se.by.strata }\OtherTok{\textless{}{-}} \FunctionTok{bind\_cols}\NormalTok{(black.prop, }\AttributeTok{nh =}\NormalTok{ nh.black}\SpecialCharTok{$}\NormalTok{n)}
+\NormalTok{black.se.by.strata }\OtherTok{\textless{}{-}}\NormalTok{ black.se.by.strata }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{var.by.strata =}\NormalTok{ win.prop }\SpecialCharTok{*}\NormalTok{ (}\DecValTok{1}\SpecialCharTok{{-}}\NormalTok{win.prop)}\SpecialCharTok{/}\NormalTok{nh)}
+\NormalTok{black.se.by.strata }\OtherTok{\textless{}{-}} \FunctionTok{bind\_cols}\NormalTok{(black.se.by.strata, }
+                                \AttributeTok{strata.prop.sq =}\NormalTok{ strata.size.prop}\SpecialCharTok{$}\NormalTok{n}\SpecialCharTok{\^{}}\DecValTok{2}\NormalTok{)}
+\NormalTok{black.se.by.strata }\OtherTok{\textless{}{-}}\NormalTok{ black.se.by.strata }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{mutate}\NormalTok{(strata.prop.sq}\SpecialCharTok{*}\NormalTok{(}\DecValTok{1}\SpecialCharTok{{-}}\NormalTok{n}\SpecialCharTok{/}\NormalTok{nh)}\SpecialCharTok{*}\NormalTok{var.by.strata)}
+\NormalTok{black.str.se }\OtherTok{\textless{}{-}} \FunctionTok{sqrt}\NormalTok{(}\FunctionTok{sum}\NormalTok{(}
+\NormalTok{  black.se.by.strata}\SpecialCharTok{$}\StringTok{\textasciigrave{}}\AttributeTok{strata.prop.sq * (1 {-} n/nh) * var.by.strata}\StringTok{\textasciigrave{}}\NormalTok{))}
 
-\CommentTok{# Their difference}
+\CommentTok{\# Their difference}
 
-\NormalTok{diff.p <-}\StringTok{ }\NormalTok{white.p.str.est }\OperatorTok{-}\StringTok{ }\NormalTok{black.p.str.est}
-\NormalTok{pooled.se <-}\StringTok{ }\KeywordTok{sqrt}\NormalTok{(white.str.se}\OperatorTok{^}\DecValTok{2} \OperatorTok{+}\StringTok{ }\NormalTok{black.str.se}\OperatorTok{^}\DecValTok{2}\NormalTok{)}
-\NormalTok{(diff.p) }\OperatorTok{+}\StringTok{ }\NormalTok{z}\FloatTok{.95} \OperatorTok{*}\StringTok{ }\NormalTok{pooled.se }\OperatorTok{*}\StringTok{ }\KeywordTok{c}\NormalTok{(}\OperatorTok{-}\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{)}
+\NormalTok{diff.p }\OtherTok{\textless{}{-}}\NormalTok{ white.p.str.est }\SpecialCharTok{{-}}\NormalTok{ black.p.str.est}
+\NormalTok{pooled.se }\OtherTok{\textless{}{-}} \FunctionTok{sqrt}\NormalTok{(white.str.se}\SpecialCharTok{\^{}}\DecValTok{2} \SpecialCharTok{+}\NormalTok{ black.str.se}\SpecialCharTok{\^{}}\DecValTok{2}\NormalTok{)}
+\NormalTok{(diff.p) }\SpecialCharTok{+}\NormalTok{ z}\FloatTok{.95} \SpecialCharTok{*}\NormalTok{ pooled.se }\SpecialCharTok{*} \FunctionTok{c}\NormalTok{(}\SpecialCharTok{{-}}\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{# Guess the most conservative variance}
-\CommentTok{# Find minimum domain sample size for desired CI width}
-\NormalTok{var.guess <-}\StringTok{ }\FloatTok{0.25}
-\NormalTok{ci.width <-}\StringTok{ }\FloatTok{0.2}
-\NormalTok{n0 <-}\StringTok{ }\NormalTok{z}\FloatTok{.95}\OperatorTok{^}\DecValTok{2} \OperatorTok{*}\StringTok{ }\NormalTok{var.guess }\OperatorTok{/}\StringTok{ }\NormalTok{ci.width}\OperatorTok{^}\DecValTok{2}
+\CommentTok{\# Guess the most conservative variance}
+\CommentTok{\# Find minimum domain sample size for desired CI width}
+\NormalTok{var.guess }\OtherTok{\textless{}{-}} \FloatTok{0.25}
+\NormalTok{ci.width }\OtherTok{\textless{}{-}} \FloatTok{0.2}
+\NormalTok{n0 }\OtherTok{\textless{}{-}}\NormalTok{ z}\FloatTok{.95}\SpecialCharTok{\^{}}\DecValTok{2} \SpecialCharTok{*}\NormalTok{ var.guess }\SpecialCharTok{/}\NormalTok{ ci.width}\SpecialCharTok{\^{}}\DecValTok{2}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{openings.df.s1 <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(}\KeywordTok{table}\NormalTok{(white.str.sample}\OperatorTok{$}\NormalTok{opening_name))}
-\NormalTok{openings.df.s2 <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(}\KeywordTok{table}\NormalTok{(black.str.sample}\OperatorTok{$}\NormalTok{opening_name))}
-\KeywordTok{names}\NormalTok{(openings.df.s1) <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"name"}\NormalTok{, }\StringTok{"frequency"}\NormalTok{)}
-\KeywordTok{names}\NormalTok{(openings.df.s2) <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"name"}\NormalTok{, }\StringTok{"frequency"}\NormalTok{)}
+\NormalTok{openings.df.s1 }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}\FunctionTok{table}\NormalTok{(white.str.sample}\SpecialCharTok{$}\NormalTok{opening\_name))}
+\NormalTok{openings.df.s2 }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}\FunctionTok{table}\NormalTok{(black.str.sample}\SpecialCharTok{$}\NormalTok{opening\_name))}
+\FunctionTok{names}\NormalTok{(openings.df.s1) }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"name"}\NormalTok{, }\StringTok{"frequency"}\NormalTok{)}
+\FunctionTok{names}\NormalTok{(openings.df.s2) }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"name"}\NormalTok{, }\StringTok{"frequency"}\NormalTok{)}
 
-\CommentTok{# Include openings with sample size large enough for usable CI}
-\NormalTok{openings.freq.s1 <-}\StringTok{ }\NormalTok{openings.df.s1[openings.df.s1}\OperatorTok{$}\NormalTok{frequency }\OperatorTok{>}\StringTok{ }\DecValTok{15}\NormalTok{,]}
-\NormalTok{openings.freq.s2 <-}\StringTok{ }\NormalTok{openings.df.s2[openings.df.s2}\OperatorTok{$}\NormalTok{frequency }\OperatorTok{>}\StringTok{ }\DecValTok{15}\NormalTok{,]}
+\CommentTok{\# Include openings with sample size large enough for usable CI}
+\NormalTok{openings.freq.s1 }\OtherTok{\textless{}{-}}\NormalTok{ openings.df.s1[openings.df.s1}\SpecialCharTok{$}\NormalTok{frequency }\SpecialCharTok{\textgreater{}} \DecValTok{15}\NormalTok{,]}
+\NormalTok{openings.freq.s2 }\OtherTok{\textless{}{-}}\NormalTok{ openings.df.s2[openings.df.s2}\SpecialCharTok{$}\NormalTok{frequency }\SpecialCharTok{\textgreater{}} \DecValTok{15}\NormalTok{,]}
 
-\NormalTok{openings.df.p <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(}\KeywordTok{table}\NormalTok{(df}\OperatorTok{$}\NormalTok{opening_name))}
-\KeywordTok{names}\NormalTok{(openings.df.p) <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"name"}\NormalTok{, }\StringTok{"frequency"}\NormalTok{)}
+\NormalTok{openings.df.p }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}\FunctionTok{table}\NormalTok{(df}\SpecialCharTok{$}\NormalTok{opening\_name))}
+\FunctionTok{names}\NormalTok{(openings.df.p) }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"name"}\NormalTok{, }\StringTok{"frequency"}\NormalTok{)}
 
-\CommentTok{# Include openings with sample sizes yielding the desired CI width}
-\NormalTok{domain.sizes.s1 <-}\StringTok{ }\KeywordTok{c}\NormalTok{()}
-\NormalTok{domain.sizes.s2 <-}\StringTok{ }\KeywordTok{c}\NormalTok{()}
+\CommentTok{\# Include openings with sample sizes yielding the desired CI width}
+\NormalTok{domain.sizes.s1 }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{()}
+\NormalTok{domain.sizes.s2 }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{()}
 
-\ControlFlowTok{for}\NormalTok{ (name }\ControlFlowTok{in}\NormalTok{ openings.freq.s1}\OperatorTok{$}\NormalTok{name) \{}
-\NormalTok{  size <-}\StringTok{ }\NormalTok{n0 }\OperatorTok{/}\StringTok{ }\NormalTok{(}\DecValTok{1} \OperatorTok{+}\StringTok{ }\NormalTok{n0 }\OperatorTok{/}\StringTok{ }\NormalTok{openings.df.p[openings.df.p}\OperatorTok{$}\NormalTok{name }\OperatorTok{==}\StringTok{ }\NormalTok{name,]}\OperatorTok{$}\NormalTok{frequency)}
-\NormalTok{  domain.sizes.s1 <-}\StringTok{ }\KeywordTok{c}\NormalTok{(domain.sizes.s1, size)}
+\ControlFlowTok{for}\NormalTok{ (name }\ControlFlowTok{in}\NormalTok{ openings.freq.s1}\SpecialCharTok{$}\NormalTok{name) \{}
+\NormalTok{  size }\OtherTok{\textless{}{-}}\NormalTok{ n0 }\SpecialCharTok{/}\NormalTok{ (}\DecValTok{1} \SpecialCharTok{+}\NormalTok{ n0 }\SpecialCharTok{/}\NormalTok{ openings.df.p[openings.df.p}\SpecialCharTok{$}\NormalTok{name }\SpecialCharTok{==}\NormalTok{ name,]}\SpecialCharTok{$}\NormalTok{frequency)}
+\NormalTok{  domain.sizes.s1 }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(domain.sizes.s1, size)}
 \NormalTok{\}}
 
-\ControlFlowTok{for}\NormalTok{ (name }\ControlFlowTok{in}\NormalTok{ openings.freq.s2}\OperatorTok{$}\NormalTok{name) \{}
-\NormalTok{  size <-}\StringTok{ }\NormalTok{n0 }\OperatorTok{/}\StringTok{ }\NormalTok{(}\DecValTok{1} \OperatorTok{+}\StringTok{ }\NormalTok{n0 }\OperatorTok{/}\StringTok{ }\NormalTok{openings.df.p[openings.df.p}\OperatorTok{$}\NormalTok{name }\OperatorTok{==}\StringTok{ }\NormalTok{name,]}\OperatorTok{$}\NormalTok{frequency)}
-\NormalTok{  domain.sizes.s2 <-}\StringTok{ }\KeywordTok{c}\NormalTok{(domain.sizes.s2, size)}
+\ControlFlowTok{for}\NormalTok{ (name }\ControlFlowTok{in}\NormalTok{ openings.freq.s2}\SpecialCharTok{$}\NormalTok{name) \{}
+\NormalTok{  size }\OtherTok{\textless{}{-}}\NormalTok{ n0 }\SpecialCharTok{/}\NormalTok{ (}\DecValTok{1} \SpecialCharTok{+}\NormalTok{ n0 }\SpecialCharTok{/}\NormalTok{ openings.df.p[openings.df.p}\SpecialCharTok{$}\NormalTok{name }\SpecialCharTok{==}\NormalTok{ name,]}\SpecialCharTok{$}\NormalTok{frequency)}
+\NormalTok{  domain.sizes.s2 }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(domain.sizes.s2, size)}
 \NormalTok{\}}
 
-\NormalTok{openings.valid.s1 <-}\StringTok{ }
-\StringTok{  }\NormalTok{openings.freq.s1[openings.freq.s1}\OperatorTok{$}\NormalTok{frequency }\OperatorTok{>}\StringTok{ }\NormalTok{domain.sizes.s1,]}
-\NormalTok{openings.valid.s2 <-}\StringTok{ }
-\StringTok{  }\NormalTok{openings.freq.s2[openings.freq.s2}\OperatorTok{$}\NormalTok{frequency }\OperatorTok{>}\StringTok{ }\NormalTok{domain.sizes.s2,]}
+\NormalTok{openings.valid.s1 }\OtherTok{\textless{}{-}} 
+\NormalTok{  openings.freq.s1[openings.freq.s1}\SpecialCharTok{$}\NormalTok{frequency }\SpecialCharTok{\textgreater{}}\NormalTok{ domain.sizes.s1,]}
+\NormalTok{openings.valid.s2 }\OtherTok{\textless{}{-}} 
+\NormalTok{  openings.freq.s2[openings.freq.s2}\SpecialCharTok{$}\NormalTok{frequency }\SpecialCharTok{\textgreater{}}\NormalTok{ domain.sizes.s2,]}
 
-\NormalTok{openings.valid.str.sample <-}\StringTok{ }\KeywordTok{merge}\NormalTok{(openings.valid.s1, }
-\NormalTok{                                   openings.valid.s2, }\DataTypeTok{by =} \StringTok{"name"}\NormalTok{)}
+\NormalTok{openings.valid.str.sample }\OtherTok{\textless{}{-}} \FunctionTok{merge}\NormalTok{(openings.valid.s1, }
+\NormalTok{                                   openings.valid.s2, }\AttributeTok{by =} \StringTok{"name"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{# Guess the most conservative variance}
-\CommentTok{# Find minimum domain sample size for desired CI width}
-\NormalTok{var.guess <-}\StringTok{ }\FloatTok{0.25}
-\NormalTok{ci.width <-}\StringTok{ }\FloatTok{0.2}
-\NormalTok{n0 <-}\StringTok{ }\NormalTok{z}\FloatTok{.95}\OperatorTok{^}\DecValTok{2} \OperatorTok{*}\StringTok{ }\NormalTok{var.guess }\OperatorTok{/}\StringTok{ }\NormalTok{ci.width}\OperatorTok{^}\DecValTok{2}
-\NormalTok{openings.df.s1 <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(}\KeywordTok{table}\NormalTok{(srs.sample.s1}\OperatorTok{$}\NormalTok{opening_name))}
-\NormalTok{openings.df.s2 <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(}\KeywordTok{table}\NormalTok{(srs.sample.s2}\OperatorTok{$}\NormalTok{opening_name))}
-\KeywordTok{names}\NormalTok{(openings.df.s1) <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"name"}\NormalTok{, }\StringTok{"frequency"}\NormalTok{)}
-\KeywordTok{names}\NormalTok{(openings.df.s2) <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"name"}\NormalTok{, }\StringTok{"frequency"}\NormalTok{)}
+\CommentTok{\# Guess the most conservative variance}
+\CommentTok{\# Find minimum domain sample size for desired CI width}
+\NormalTok{var.guess }\OtherTok{\textless{}{-}} \FloatTok{0.25}
+\NormalTok{ci.width }\OtherTok{\textless{}{-}} \FloatTok{0.2}
+\NormalTok{n0 }\OtherTok{\textless{}{-}}\NormalTok{ z}\FloatTok{.95}\SpecialCharTok{\^{}}\DecValTok{2} \SpecialCharTok{*}\NormalTok{ var.guess }\SpecialCharTok{/}\NormalTok{ ci.width}\SpecialCharTok{\^{}}\DecValTok{2}
+\NormalTok{openings.df.s1 }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}\FunctionTok{table}\NormalTok{(srs.sample.s1}\SpecialCharTok{$}\NormalTok{opening\_name))}
+\NormalTok{openings.df.s2 }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}\FunctionTok{table}\NormalTok{(srs.sample.s2}\SpecialCharTok{$}\NormalTok{opening\_name))}
+\FunctionTok{names}\NormalTok{(openings.df.s1) }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"name"}\NormalTok{, }\StringTok{"frequency"}\NormalTok{)}
+\FunctionTok{names}\NormalTok{(openings.df.s2) }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"name"}\NormalTok{, }\StringTok{"frequency"}\NormalTok{)}
 
-\CommentTok{# Include openings with sample size large enough for usable CI}
-\NormalTok{openings.freq.s1 <-}\StringTok{ }\NormalTok{openings.df.s1[openings.df.s1}\OperatorTok{$}\NormalTok{frequency }\OperatorTok{>}\StringTok{ }\DecValTok{15}\NormalTok{,]}
-\NormalTok{openings.freq.s2 <-}\StringTok{ }\NormalTok{openings.df.s2[openings.df.s2}\OperatorTok{$}\NormalTok{frequency }\OperatorTok{>}\StringTok{ }\DecValTok{15}\NormalTok{,]}
+\CommentTok{\# Include openings with sample size large enough for usable CI}
+\NormalTok{openings.freq.s1 }\OtherTok{\textless{}{-}}\NormalTok{ openings.df.s1[openings.df.s1}\SpecialCharTok{$}\NormalTok{frequency }\SpecialCharTok{\textgreater{}} \DecValTok{15}\NormalTok{,]}
+\NormalTok{openings.freq.s2 }\OtherTok{\textless{}{-}}\NormalTok{ openings.df.s2[openings.df.s2}\SpecialCharTok{$}\NormalTok{frequency }\SpecialCharTok{\textgreater{}} \DecValTok{15}\NormalTok{,]}
 
-\NormalTok{openings.df.p <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(}\KeywordTok{table}\NormalTok{(df}\OperatorTok{$}\NormalTok{opening_name))}
-\KeywordTok{names}\NormalTok{(openings.df.p) <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"name"}\NormalTok{, }\StringTok{"frequency"}\NormalTok{)}
+\NormalTok{openings.df.p }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}\FunctionTok{table}\NormalTok{(df}\SpecialCharTok{$}\NormalTok{opening\_name))}
+\FunctionTok{names}\NormalTok{(openings.df.p) }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"name"}\NormalTok{, }\StringTok{"frequency"}\NormalTok{)}
 
-\CommentTok{# Include openings with sample sizes yielding the desired CI width}
-\NormalTok{domain.sizes.s1 <-}\StringTok{ }\KeywordTok{c}\NormalTok{()}
-\NormalTok{domain.sizes.s2 <-}\StringTok{ }\KeywordTok{c}\NormalTok{()}
+\CommentTok{\# Include openings with sample sizes yielding the desired CI width}
+\NormalTok{domain.sizes.s1 }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{()}
+\NormalTok{domain.sizes.s2 }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{()}
 
-\ControlFlowTok{for}\NormalTok{ (name }\ControlFlowTok{in}\NormalTok{ openings.freq.s1}\OperatorTok{$}\NormalTok{name) \{}
-\NormalTok{  domain.sizes.s1 <-}\StringTok{ }\KeywordTok{c}\NormalTok{(domain.sizes.s1, n0 }\OperatorTok{/}\StringTok{ }\NormalTok{(}\DecValTok{1} \OperatorTok{+}\StringTok{ }\NormalTok{n0 }\OperatorTok{/}\StringTok{ }\NormalTok{openings.df.p[openings.df.p}\OperatorTok{$}\NormalTok{name }\OperatorTok{==}\StringTok{ }\NormalTok{name,]}\OperatorTok{$}\NormalTok{frequency))}
+\ControlFlowTok{for}\NormalTok{ (name }\ControlFlowTok{in}\NormalTok{ openings.freq.s1}\SpecialCharTok{$}\NormalTok{name) \{}
+\NormalTok{  size }\OtherTok{\textless{}{-}}\NormalTok{ n0 }\SpecialCharTok{/}\NormalTok{ (}\DecValTok{1} \SpecialCharTok{+}\NormalTok{ n0 }\SpecialCharTok{/}\NormalTok{ openings.df.p[openings.df.p}\SpecialCharTok{$}\NormalTok{name }\SpecialCharTok{==}\NormalTok{ name,]}\SpecialCharTok{$}\NormalTok{frequency)}
+\NormalTok{  domain.sizes.s1 }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(domain.sizes.s1, size)}
 \NormalTok{\}}
 
-\ControlFlowTok{for}\NormalTok{ (name }\ControlFlowTok{in}\NormalTok{ openings.freq.s2}\OperatorTok{$}\NormalTok{name) \{}
-\NormalTok{  domain.sizes.s2 <-}\StringTok{ }\KeywordTok{c}\NormalTok{(domain.sizes.s2, n0 }\OperatorTok{/}\StringTok{ }\NormalTok{(}\DecValTok{1} \OperatorTok{+}\StringTok{ }\NormalTok{n0 }\OperatorTok{/}\StringTok{ }\NormalTok{openings.df.p[openings.df.p}\OperatorTok{$}\NormalTok{name }\OperatorTok{==}\StringTok{ }\NormalTok{name,]}\OperatorTok{$}\NormalTok{frequency))}
+\ControlFlowTok{for}\NormalTok{ (name }\ControlFlowTok{in}\NormalTok{ openings.freq.s2}\SpecialCharTok{$}\NormalTok{name) \{}
+\NormalTok{  size }\OtherTok{\textless{}{-}}\NormalTok{ n0 }\SpecialCharTok{/}\NormalTok{ (}\DecValTok{1} \SpecialCharTok{+}\NormalTok{ n0 }\SpecialCharTok{/}\NormalTok{ openings.df.p[openings.df.p}\SpecialCharTok{$}\NormalTok{name }\SpecialCharTok{==}\NormalTok{ name,]}\SpecialCharTok{$}\NormalTok{frequency)}
+\NormalTok{  domain.sizes.s2 }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(domain.sizes.s2, size)}
 \NormalTok{\}}
 
-\NormalTok{openings.valid.s1 <-}\StringTok{ }\NormalTok{openings.freq.s1[openings.freq.s1}\OperatorTok{$}\NormalTok{frequency }\OperatorTok{>}\StringTok{ }\NormalTok{domain.sizes.s1,]}
-\NormalTok{openings.valid.s2 <-}\StringTok{ }\NormalTok{openings.freq.s2[openings.freq.s2}\OperatorTok{$}\NormalTok{frequency }\OperatorTok{>}\StringTok{ }\NormalTok{domain.sizes.s2,]}
+\NormalTok{openings.valid.s1 }\OtherTok{\textless{}{-}}\NormalTok{ openings.freq.s1[openings.freq.s1}\SpecialCharTok{$}\NormalTok{frequency }\SpecialCharTok{\textgreater{}}\NormalTok{ domain.sizes.s1,]}
+\NormalTok{openings.valid.s2 }\OtherTok{\textless{}{-}}\NormalTok{ openings.freq.s2[openings.freq.s2}\SpecialCharTok{$}\NormalTok{frequency }\SpecialCharTok{\textgreater{}}\NormalTok{ domain.sizes.s2,]}
 
-\NormalTok{openings.valid.srs.sample <-}\StringTok{ }\KeywordTok{merge}\NormalTok{(openings.valid.s1, openings.valid.s2, }\DataTypeTok{by =} \StringTok{"name"}\NormalTok{)}
+\NormalTok{openings.valid.srs.sample }\OtherTok{\textless{}{-}} \FunctionTok{merge}\NormalTok{(openings.valid.s1, openings.valid.s2, }\AttributeTok{by =} \StringTok{"name"}\NormalTok{)}
 
-\NormalTok{estimates <-}\StringTok{ }\KeywordTok{rep}\NormalTok{(}\DecValTok{0}\NormalTok{, }\KeywordTok{nrow}\NormalTok{(openings.valid.srs.sample))}
-\NormalTok{diff.ses <-}\StringTok{ }\KeywordTok{rep}\NormalTok{(}\DecValTok{0}\NormalTok{, }\KeywordTok{nrow}\NormalTok{(openings.valid.srs.sample))}
-\NormalTok{intervals <-}\StringTok{ }\KeywordTok{matrix}\NormalTok{(}\DecValTok{0}\NormalTok{, }\KeywordTok{nrow}\NormalTok{(openings.valid.srs.sample), }\DecValTok{2}\NormalTok{)}
+\NormalTok{estimates }\OtherTok{\textless{}{-}} \FunctionTok{rep}\NormalTok{(}\DecValTok{0}\NormalTok{, }\FunctionTok{nrow}\NormalTok{(openings.valid.srs.sample))}
+\NormalTok{diff.ses }\OtherTok{\textless{}{-}} \FunctionTok{rep}\NormalTok{(}\DecValTok{0}\NormalTok{, }\FunctionTok{nrow}\NormalTok{(openings.valid.srs.sample))}
+\NormalTok{intervals }\OtherTok{\textless{}{-}} \FunctionTok{matrix}\NormalTok{(}\DecValTok{0}\NormalTok{, }\FunctionTok{nrow}\NormalTok{(openings.valid.srs.sample), }\DecValTok{2}\NormalTok{)}
 
-\ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{1}\OperatorTok{:}\KeywordTok{nrow}\NormalTok{(openings.valid.srs.sample)) \{}
-  \CommentTok{# Find estimate and CI for difference in win rate for white/black}
-  \CommentTok{# for one opening}
-\NormalTok{  domain.name <-}\StringTok{ }\NormalTok{openings.valid.srs.sample[i, }\DecValTok{1}\NormalTok{]}
-\NormalTok{  domain.s1 <-}\StringTok{ }\NormalTok{srs.sample.s1[srs.sample.s1}\OperatorTok{$}\NormalTok{opening_name }\OperatorTok{==}\StringTok{ }\NormalTok{domain.name,]}
-\NormalTok{  domain.s2 <-}\StringTok{ }\NormalTok{srs.sample.s2[srs.sample.s2}\OperatorTok{$}\NormalTok{opening_name }\OperatorTok{==}\StringTok{ }\NormalTok{domain.name,]}
+\ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\FunctionTok{nrow}\NormalTok{(openings.valid.srs.sample)) \{}
+  \CommentTok{\# Find estimate and CI for difference in win rate for white/black}
+  \CommentTok{\# for one opening}
+\NormalTok{  domain.name }\OtherTok{\textless{}{-}}\NormalTok{ openings.valid.srs.sample[i, }\DecValTok{1}\NormalTok{]}
+\NormalTok{  domain.s1 }\OtherTok{\textless{}{-}}\NormalTok{ srs.sample.s1[srs.sample.s1}\SpecialCharTok{$}\NormalTok{opening\_name }\SpecialCharTok{==}\NormalTok{ domain.name,]}
+\NormalTok{  domain.s2 }\OtherTok{\textless{}{-}}\NormalTok{ srs.sample.s2[srs.sample.s2}\SpecialCharTok{$}\NormalTok{opening\_name }\SpecialCharTok{==}\NormalTok{ domain.name,]}
   
-\NormalTok{  n.d}\FloatTok{.1}\NormalTok{ <-}\StringTok{ }\NormalTok{openings.valid.srs.sample[i, }\DecValTok{2}\NormalTok{]}
-\NormalTok{  n.d}\FloatTok{.2}\NormalTok{ <-}\StringTok{ }\NormalTok{openings.valid.srs.sample[i, }\DecValTok{3}\NormalTok{]}
+\NormalTok{  n.d}\FloatTok{.1} \OtherTok{\textless{}{-}}\NormalTok{ openings.valid.srs.sample[i, }\DecValTok{2}\NormalTok{]}
+\NormalTok{  n.d}\FloatTok{.2} \OtherTok{\textless{}{-}}\NormalTok{ openings.valid.srs.sample[i, }\DecValTok{3}\NormalTok{]}
 
-\NormalTok{  domain.p <-}\StringTok{ }\NormalTok{df[df}\OperatorTok{$}\NormalTok{opening_name }\OperatorTok{==}\StringTok{ }\NormalTok{domain.name,]}
-\NormalTok{  N.d <-}\StringTok{ }\KeywordTok{nrow}\NormalTok{(domain.p)}
+\NormalTok{  domain.p }\OtherTok{\textless{}{-}}\NormalTok{ df[df}\SpecialCharTok{$}\NormalTok{opening\_name }\SpecialCharTok{==}\NormalTok{ domain.name,]}
+\NormalTok{  N.d }\OtherTok{\textless{}{-}} \FunctionTok{nrow}\NormalTok{(domain.p)}
   
-\NormalTok{  white.win.count <-}\StringTok{ }\KeywordTok{nrow}\NormalTok{(domain.s1[domain.s1}\OperatorTok{$}\NormalTok{winner }\OperatorTok{==}\StringTok{ "white"}\NormalTok{,])}
-\NormalTok{  black.win.count <-}\StringTok{ }\KeywordTok{nrow}\NormalTok{(domain.s2[domain.s2}\OperatorTok{$}\NormalTok{winner }\OperatorTok{==}\StringTok{ "black"}\NormalTok{,])}
+\NormalTok{  white.win.count }\OtherTok{\textless{}{-}} \FunctionTok{nrow}\NormalTok{(domain.s1[domain.s1}\SpecialCharTok{$}\NormalTok{winner }\SpecialCharTok{==} \StringTok{"white"}\NormalTok{,])}
+\NormalTok{  black.win.count }\OtherTok{\textless{}{-}} \FunctionTok{nrow}\NormalTok{(domain.s2[domain.s2}\SpecialCharTok{$}\NormalTok{winner }\SpecialCharTok{==} \StringTok{"black"}\NormalTok{,])}
   
-  \CommentTok{# Vanilla estimates}
-\NormalTok{  white.p <-}\StringTok{ }\NormalTok{white.win.count }\OperatorTok{/}\StringTok{ }\NormalTok{n.d}\FloatTok{.1}
-\NormalTok{  black.p <-}\StringTok{ }\NormalTok{black.win.count }\OperatorTok{/}\StringTok{ }\NormalTok{n.d}\FloatTok{.2}
+  \CommentTok{\# Vanilla estimates}
+\NormalTok{  white.p }\OtherTok{\textless{}{-}}\NormalTok{ white.win.count }\SpecialCharTok{/}\NormalTok{ n.d}\FloatTok{.1}
+\NormalTok{  black.p }\OtherTok{\textless{}{-}}\NormalTok{ black.win.count }\SpecialCharTok{/}\NormalTok{ n.d}\FloatTok{.2}
   
-\NormalTok{  estimates[i] <-}\StringTok{ }\NormalTok{white.p }\OperatorTok{-}\StringTok{ }\NormalTok{black.p}
-  \CommentTok{# Using pooled variance}
-\NormalTok{  pooled.var <-}\StringTok{ }\KeywordTok{sqrt}\NormalTok{(((n.d}\FloatTok{.1}\DecValTok{-1}\NormalTok{)}\OperatorTok{*}\KeywordTok{var.est}\NormalTok{(white.p) }\OperatorTok{+}\StringTok{ }\NormalTok{(n.d}\FloatTok{.2}\DecValTok{-1}\NormalTok{)}\OperatorTok{*}\KeywordTok{var.est}\NormalTok{(black.p))}\OperatorTok{/}\NormalTok{(n.d}\FloatTok{.1}\OperatorTok{+}\NormalTok{n.d}\FloatTok{.2}\DecValTok{-2}\NormalTok{))}
-\NormalTok{  diff.ses[i] <-}\StringTok{   }\NormalTok{pooled.var }\OperatorTok{*}\StringTok{ }\KeywordTok{sqrt}\NormalTok{((}\DecValTok{1}\OperatorTok{-}\NormalTok{n.d}\FloatTok{.1}\OperatorTok{/}\NormalTok{N)}\OperatorTok{*}\DecValTok{1}\OperatorTok{/}\NormalTok{n.d}\FloatTok{.1} \OperatorTok{+}\StringTok{ }\NormalTok{(}\DecValTok{1}\OperatorTok{-}\NormalTok{n.d}\FloatTok{.2}\OperatorTok{/}\NormalTok{N)}\OperatorTok{*}\DecValTok{1}\OperatorTok{/}\NormalTok{n.d}\FloatTok{.2}\NormalTok{)}
-\NormalTok{  intervals[i,] <-}\StringTok{ }\NormalTok{(white.p }\OperatorTok{-}\StringTok{ }\NormalTok{black.p) }\OperatorTok{+}\StringTok{ }\KeywordTok{qt}\NormalTok{(}\FloatTok{0.975}\NormalTok{, n.d}\FloatTok{.1}\OperatorTok{+}\NormalTok{n.d}\FloatTok{.2}\DecValTok{-2}\NormalTok{) }\OperatorTok{*}\StringTok{ }\NormalTok{diff.ses[i] }\OperatorTok{*}\StringTok{ }\KeywordTok{c}\NormalTok{(}\OperatorTok{-}\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{)}
+\NormalTok{  estimates[i] }\OtherTok{\textless{}{-}}\NormalTok{ white.p }\SpecialCharTok{{-}}\NormalTok{ black.p}
+  \CommentTok{\# Using pooled variance}
+\NormalTok{  pooled.var }\OtherTok{\textless{}{-}} \FunctionTok{sqrt}\NormalTok{(((n.d}\FloatTok{.1}\DecValTok{{-}1}\NormalTok{)}\SpecialCharTok{*}\FunctionTok{var.est}\NormalTok{(white.p) }\SpecialCharTok{+} 
+\NormalTok{                        (n.d}\FloatTok{.2}\DecValTok{{-}1}\NormalTok{)}\SpecialCharTok{*}\FunctionTok{var.est}\NormalTok{(black.p))}\SpecialCharTok{/}\NormalTok{(n.d}\FloatTok{.1}\SpecialCharTok{+}\NormalTok{n.d}\FloatTok{.2}\DecValTok{{-}2}\NormalTok{))}
+\NormalTok{  diff.ses[i] }\OtherTok{\textless{}{-}}\NormalTok{   pooled.var }\SpecialCharTok{*} \FunctionTok{sqrt}\NormalTok{((}\DecValTok{1}\SpecialCharTok{{-}}\NormalTok{n.d}\FloatTok{.1}\SpecialCharTok{/}\NormalTok{N)}\SpecialCharTok{*}\DecValTok{1}\SpecialCharTok{/}\NormalTok{n.d}\FloatTok{.1} \SpecialCharTok{+}\NormalTok{ (}\DecValTok{1}\SpecialCharTok{{-}}\NormalTok{n.d}\FloatTok{.2}\SpecialCharTok{/}\NormalTok{N)}\SpecialCharTok{*}\DecValTok{1}\SpecialCharTok{/}\NormalTok{n.d}\FloatTok{.2}\NormalTok{)}
+\NormalTok{  intervals[i,] }\OtherTok{\textless{}{-}}\NormalTok{ (white.p }\SpecialCharTok{{-}}\NormalTok{ black.p) }\SpecialCharTok{+} 
+    \FunctionTok{qt}\NormalTok{(}\FloatTok{0.975}\NormalTok{, n.d}\FloatTok{.1}\SpecialCharTok{+}\NormalTok{n.d}\FloatTok{.2}\DecValTok{{-}2}\NormalTok{) }\SpecialCharTok{*}\NormalTok{ diff.ses[i] }\SpecialCharTok{*} \FunctionTok{c}\NormalTok{(}\SpecialCharTok{{-}}\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{)}
 \NormalTok{\}}
 
-\NormalTok{openings <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(openings.valid.srs.sample}\OperatorTok{$}\NormalTok{name, estimates, diff.ses, intervals)}
-\KeywordTok{names}\NormalTok{(openings) <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"opening name"}\NormalTok{, }\StringTok{"Diff. win rate"}\NormalTok{, }\StringTok{"SE"}\NormalTok{, }\StringTok{"95.CI.lower"}\NormalTok{, }\StringTok{"95.CI.upper"}\NormalTok{)}
-\NormalTok{white.higher <-}\StringTok{ }\NormalTok{openings[openings}\OperatorTok{$}\StringTok{`}\DataTypeTok{95.CI.lower}\StringTok{`} \OperatorTok{>}\StringTok{ }\DecValTok{0}\NormalTok{,]}
-\NormalTok{white.lower <-}\StringTok{ }\NormalTok{openings[openings}\OperatorTok{$}\StringTok{`}\DataTypeTok{95.CI.upper}\StringTok{`} \OperatorTok{<}\StringTok{ }\DecValTok{0}\NormalTok{,]}
+\NormalTok{openings }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(openings.valid.srs.sample}\SpecialCharTok{$}\NormalTok{name, estimates, diff.ses, intervals)}
+\FunctionTok{names}\NormalTok{(openings) }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"opening name"}\NormalTok{, }\StringTok{"Diff. win rate"}\NormalTok{, }\StringTok{"SE"}\NormalTok{, }\StringTok{"95.CI.lower"}\NormalTok{, }\StringTok{"95.CI.upper"}\NormalTok{)}
+\NormalTok{white.higher }\OtherTok{\textless{}{-}}\NormalTok{ openings[openings}\SpecialCharTok{$}\StringTok{\textasciigrave{}}\AttributeTok{95.CI.lower}\StringTok{\textasciigrave{}} \SpecialCharTok{\textgreater{}} \DecValTok{0}\NormalTok{,]}
+\NormalTok{white.lower }\OtherTok{\textless{}{-}}\NormalTok{ openings[openings}\SpecialCharTok{$}\StringTok{\textasciigrave{}}\AttributeTok{95.CI.upper}\StringTok{\textasciigrave{}} \SpecialCharTok{\textless{}} \DecValTok{0}\NormalTok{,]}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{openings.df.s1 <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(}\KeywordTok{table}\NormalTok{(white.str.sample}\OperatorTok{$}\NormalTok{opening_name))}
-\NormalTok{openings.df.s2 <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(}\KeywordTok{table}\NormalTok{(black.str.sample}\OperatorTok{$}\NormalTok{opening_name))}
-\KeywordTok{names}\NormalTok{(openings.df.s1) <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"name"}\NormalTok{, }\StringTok{"frequency"}\NormalTok{)}
-\KeywordTok{names}\NormalTok{(openings.df.s2) <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"name"}\NormalTok{, }\StringTok{"frequency"}\NormalTok{)}
+\NormalTok{openings.df.s1 }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}\FunctionTok{table}\NormalTok{(white.str.sample}\SpecialCharTok{$}\NormalTok{opening\_name))}
+\NormalTok{openings.df.s2 }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}\FunctionTok{table}\NormalTok{(black.str.sample}\SpecialCharTok{$}\NormalTok{opening\_name))}
+\FunctionTok{names}\NormalTok{(openings.df.s1) }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"name"}\NormalTok{, }\StringTok{"frequency"}\NormalTok{)}
+\FunctionTok{names}\NormalTok{(openings.df.s2) }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"name"}\NormalTok{, }\StringTok{"frequency"}\NormalTok{)}
 
-\CommentTok{# Include openings with sample size large enough for usable CI}
-\NormalTok{openings.freq.s1 <-}\StringTok{ }\NormalTok{openings.df.s1[openings.df.s1}\OperatorTok{$}\NormalTok{frequency }\OperatorTok{>}\StringTok{ }\DecValTok{15}\NormalTok{,]}
-\NormalTok{openings.freq.s2 <-}\StringTok{ }\NormalTok{openings.df.s2[openings.df.s2}\OperatorTok{$}\NormalTok{frequency }\OperatorTok{>}\StringTok{ }\DecValTok{15}\NormalTok{,]}
+\CommentTok{\# Include openings with sample size large enough for usable CI}
+\NormalTok{openings.freq.s1 }\OtherTok{\textless{}{-}}\NormalTok{ openings.df.s1[openings.df.s1}\SpecialCharTok{$}\NormalTok{frequency }\SpecialCharTok{\textgreater{}} \DecValTok{15}\NormalTok{,]}
+\NormalTok{openings.freq.s2 }\OtherTok{\textless{}{-}}\NormalTok{ openings.df.s2[openings.df.s2}\SpecialCharTok{$}\NormalTok{frequency }\SpecialCharTok{\textgreater{}} \DecValTok{15}\NormalTok{,]}
 
-\NormalTok{openings.df.p <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(}\KeywordTok{table}\NormalTok{(df}\OperatorTok{$}\NormalTok{opening_name))}
-\KeywordTok{names}\NormalTok{(openings.df.p) <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"name"}\NormalTok{, }\StringTok{"frequency"}\NormalTok{)}
+\NormalTok{openings.df.p }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}\FunctionTok{table}\NormalTok{(df}\SpecialCharTok{$}\NormalTok{opening\_name))}
+\FunctionTok{names}\NormalTok{(openings.df.p) }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"name"}\NormalTok{, }\StringTok{"frequency"}\NormalTok{)}
 
-\CommentTok{# openings.size.p1 <- openings.df.p[openings.df.p$name %in% openings.freq.s1$name,]}
-\CommentTok{# openings.size.p2 <- openings.df.p[openings.df.p$name %in% openings.freq.s2$name,]}
+\CommentTok{\# openings.size.p1 \textless{}{-} openings.df.p[openings.df.p$name \%in\% openings.freq.s1$name,]}
+\CommentTok{\# openings.size.p2 \textless{}{-} openings.df.p[openings.df.p$name \%in\% openings.freq.s2$name,]}
 
-\CommentTok{# Include openings with sample sizes yielding the desired CI width}
-\NormalTok{domain.sizes.s1 <-}\StringTok{ }\KeywordTok{c}\NormalTok{()}
-\NormalTok{domain.sizes.s2 <-}\StringTok{ }\KeywordTok{c}\NormalTok{()}
+\CommentTok{\# Include openings with sample sizes yielding the desired CI width}
+\NormalTok{domain.sizes.s1 }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{()}
+\NormalTok{domain.sizes.s2 }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{()}
 
-\ControlFlowTok{for}\NormalTok{ (name }\ControlFlowTok{in}\NormalTok{ openings.freq.s1}\OperatorTok{$}\NormalTok{name) \{}
-\NormalTok{  domain.sizes.s1 <-}\StringTok{ }\KeywordTok{c}\NormalTok{(domain.sizes.s1, n0 }\OperatorTok{/}\StringTok{ }\NormalTok{(}\DecValTok{1} \OperatorTok{+}\StringTok{ }\NormalTok{n0 }\OperatorTok{/}\StringTok{ }\NormalTok{openings.df.p[openings.df.p}\OperatorTok{$}\NormalTok{name }\OperatorTok{==}\StringTok{ }\NormalTok{name,]}\OperatorTok{$}\NormalTok{frequency))}
+\ControlFlowTok{for}\NormalTok{ (name }\ControlFlowTok{in}\NormalTok{ openings.freq.s1}\SpecialCharTok{$}\NormalTok{name) \{}
+\NormalTok{  size }\OtherTok{\textless{}{-}}\NormalTok{ n0 }\SpecialCharTok{/}\NormalTok{ (}\DecValTok{1} \SpecialCharTok{+}\NormalTok{ n0 }\SpecialCharTok{/}\NormalTok{ openings.df.p[openings.df.p}\SpecialCharTok{$}\NormalTok{name }\SpecialCharTok{==}\NormalTok{ name,]}\SpecialCharTok{$}\NormalTok{frequency)}
+\NormalTok{  domain.sizes.s1 }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(domain.sizes.s1, size)}
 \NormalTok{\}}
 
-\ControlFlowTok{for}\NormalTok{ (name }\ControlFlowTok{in}\NormalTok{ openings.freq.s2}\OperatorTok{$}\NormalTok{name) \{}
-\NormalTok{  domain.sizes.s2 <-}\StringTok{ }\KeywordTok{c}\NormalTok{(domain.sizes.s2, n0 }\OperatorTok{/}\StringTok{ }\NormalTok{(}\DecValTok{1} \OperatorTok{+}\StringTok{ }\NormalTok{n0 }\OperatorTok{/}\StringTok{ }\NormalTok{openings.df.p[openings.df.p}\OperatorTok{$}\NormalTok{name }\OperatorTok{==}\StringTok{ }\NormalTok{name,]}\OperatorTok{$}\NormalTok{frequency))}
+\ControlFlowTok{for}\NormalTok{ (name }\ControlFlowTok{in}\NormalTok{ openings.freq.s2}\SpecialCharTok{$}\NormalTok{name) \{}
+\NormalTok{  size }\OtherTok{\textless{}{-}}\NormalTok{ n0 }\SpecialCharTok{/}\NormalTok{ (}\DecValTok{1} \SpecialCharTok{+}\NormalTok{ n0 }\SpecialCharTok{/}\NormalTok{ openings.df.p[openings.df.p}\SpecialCharTok{$}\NormalTok{name }\SpecialCharTok{==}\NormalTok{ name,]}\SpecialCharTok{$}\NormalTok{frequency)}
+\NormalTok{  domain.sizes.s2 }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(domain.sizes.s2, size)}
 \NormalTok{\}}
 
-\NormalTok{openings.valid.s1 <-}\StringTok{ }\NormalTok{openings.freq.s1[openings.freq.s1}\OperatorTok{$}\NormalTok{frequency }\OperatorTok{>}\StringTok{ }\NormalTok{domain.sizes.s1,]}
-\NormalTok{openings.valid.s2 <-}\StringTok{ }\NormalTok{openings.freq.s2[openings.freq.s2}\OperatorTok{$}\NormalTok{frequency }\OperatorTok{>}\StringTok{ }\NormalTok{domain.sizes.s2,]}
+\NormalTok{openings.valid.s1 }\OtherTok{\textless{}{-}}\NormalTok{ openings.freq.s1[openings.freq.s1}\SpecialCharTok{$}\NormalTok{frequency }\SpecialCharTok{\textgreater{}}\NormalTok{ domain.sizes.s1,]}
+\NormalTok{openings.valid.s2 }\OtherTok{\textless{}{-}}\NormalTok{ openings.freq.s2[openings.freq.s2}\SpecialCharTok{$}\NormalTok{frequency }\SpecialCharTok{\textgreater{}}\NormalTok{ domain.sizes.s2,]}
 
-\NormalTok{openings.valid.str.sample <-}\StringTok{ }\KeywordTok{merge}\NormalTok{(openings.valid.s1, openings.valid.s2, }\DataTypeTok{by =} \StringTok{"name"}\NormalTok{)}
+\NormalTok{openings.valid.str.sample }\OtherTok{\textless{}{-}} \FunctionTok{merge}\NormalTok{(openings.valid.s1, openings.valid.s2, }\AttributeTok{by =} \StringTok{"name"}\NormalTok{)}
 
-\NormalTok{estimates <-}\StringTok{ }\KeywordTok{rep}\NormalTok{(}\DecValTok{0}\NormalTok{, }\KeywordTok{nrow}\NormalTok{(openings.valid.str.sample))}
-\NormalTok{diff.ses <-}\StringTok{ }\KeywordTok{rep}\NormalTok{(}\DecValTok{0}\NormalTok{, }\KeywordTok{nrow}\NormalTok{(openings.valid.str.sample))}
-\NormalTok{intervals <-}\StringTok{ }\KeywordTok{matrix}\NormalTok{(}\DecValTok{0}\NormalTok{, }\KeywordTok{nrow}\NormalTok{(openings.valid.str.sample), }\DecValTok{2}\NormalTok{)}
-\ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{1}\OperatorTok{:}\KeywordTok{nrow}\NormalTok{(openings.valid.str.sample)) \{}
-  \CommentTok{# Find estimate and CI for difference in win rate for white/black}
-  \CommentTok{# for one domain}
-\NormalTok{  domain.name <-}\StringTok{ }\NormalTok{openings.valid.str.sample[i, }\DecValTok{1}\NormalTok{]}
-\NormalTok{  domain.s1 <-}\StringTok{ }\NormalTok{white.str.sample[white.str.sample}\OperatorTok{$}\NormalTok{opening_name }\OperatorTok{==}\StringTok{ }\NormalTok{domain.name,]}
-\NormalTok{  domain.s2 <-}\StringTok{ }\NormalTok{black.str.sample[black.str.sample}\OperatorTok{$}\NormalTok{opening_name }\OperatorTok{==}\StringTok{ }\NormalTok{domain.name,]}
-\NormalTok{  domain.p <-}\StringTok{ }\NormalTok{df[df}\OperatorTok{$}\NormalTok{opening_name }\OperatorTok{==}\StringTok{ }\NormalTok{domain.name,]}
+\NormalTok{estimates }\OtherTok{\textless{}{-}} \FunctionTok{rep}\NormalTok{(}\DecValTok{0}\NormalTok{, }\FunctionTok{nrow}\NormalTok{(openings.valid.str.sample))}
+\NormalTok{diff.ses }\OtherTok{\textless{}{-}} \FunctionTok{rep}\NormalTok{(}\DecValTok{0}\NormalTok{, }\FunctionTok{nrow}\NormalTok{(openings.valid.str.sample))}
+\NormalTok{intervals }\OtherTok{\textless{}{-}} \FunctionTok{matrix}\NormalTok{(}\DecValTok{0}\NormalTok{, }\FunctionTok{nrow}\NormalTok{(openings.valid.str.sample), }\DecValTok{2}\NormalTok{)}
+\ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\FunctionTok{nrow}\NormalTok{(openings.valid.str.sample)) \{}
+  \CommentTok{\# Find estimate and CI for difference in win rate for white/black}
+  \CommentTok{\# for one domain}
+\NormalTok{  domain.name }\OtherTok{\textless{}{-}}\NormalTok{ openings.valid.str.sample[i, }\DecValTok{1}\NormalTok{]}
+\NormalTok{  domain.s1 }\OtherTok{\textless{}{-}}\NormalTok{ white.str.sample[white.str.sample}\SpecialCharTok{$}\NormalTok{opening\_name }\SpecialCharTok{==}\NormalTok{ domain.name,]}
+\NormalTok{  domain.s2 }\OtherTok{\textless{}{-}}\NormalTok{ black.str.sample[black.str.sample}\SpecialCharTok{$}\NormalTok{opening\_name }\SpecialCharTok{==}\NormalTok{ domain.name,]}
+\NormalTok{  domain.p }\OtherTok{\textless{}{-}}\NormalTok{ df[df}\SpecialCharTok{$}\NormalTok{opening\_name }\SpecialCharTok{==}\NormalTok{ domain.name,]}
   
-\NormalTok{  n.d.s1 <-}\StringTok{ }\NormalTok{openings.valid.str.sample[i, }\DecValTok{2}\NormalTok{]}
-\NormalTok{  n.d.s2 <-}\StringTok{ }\NormalTok{openings.valid.str.sample[i, }\DecValTok{3}\NormalTok{]}
+\NormalTok{  n.d.s1 }\OtherTok{\textless{}{-}}\NormalTok{ openings.valid.str.sample[i, }\DecValTok{2}\NormalTok{]}
+\NormalTok{  n.d.s2 }\OtherTok{\textless{}{-}}\NormalTok{ openings.valid.str.sample[i, }\DecValTok{3}\NormalTok{]}
 
-\NormalTok{  N.d <-}\StringTok{ }\KeywordTok{nrow}\NormalTok{(domain.p)}
-\NormalTok{  nh.d1 <-}\StringTok{ }\NormalTok{domain.s1 }\OperatorTok{%>%}\StringTok{ }\KeywordTok{count}\NormalTok{(elo_range, }\DataTypeTok{.drop=}\OtherTok{FALSE}\NormalTok{)}
-\NormalTok{  nh.d2 <-}\StringTok{ }\NormalTok{domain.s2 }\OperatorTok{%>%}\StringTok{ }\KeywordTok{count}\NormalTok{(elo_range, }\DataTypeTok{.drop=}\OtherTok{FALSE}\NormalTok{)}
-\NormalTok{  Nh.d <-}\StringTok{ }\NormalTok{domain.p }\OperatorTok{%>%}\StringTok{ }\KeywordTok{count}\NormalTok{(elo_range, }\DataTypeTok{.drop=}\OtherTok{FALSE}\NormalTok{)}
-\NormalTok{  strata.size.prop <-}\StringTok{ }\NormalTok{Nh.d[}\DecValTok{2}\NormalTok{]}\OperatorTok{/}\NormalTok{N.d}
+\NormalTok{  N.d }\OtherTok{\textless{}{-}} \FunctionTok{nrow}\NormalTok{(domain.p)}
+\NormalTok{  nh.d1 }\OtherTok{\textless{}{-}}\NormalTok{ domain.s1 }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{count}\NormalTok{(elo\_range, }\AttributeTok{.drop=}\ConstantTok{FALSE}\NormalTok{)}
+\NormalTok{  nh.d2 }\OtherTok{\textless{}{-}}\NormalTok{ domain.s2 }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{count}\NormalTok{(elo\_range, }\AttributeTok{.drop=}\ConstantTok{FALSE}\NormalTok{)}
+\NormalTok{  Nh.d }\OtherTok{\textless{}{-}}\NormalTok{ domain.p }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{count}\NormalTok{(elo\_range, }\AttributeTok{.drop=}\ConstantTok{FALSE}\NormalTok{)}
+\NormalTok{  strata.size.prop }\OtherTok{\textless{}{-}}\NormalTok{ Nh.d[}\DecValTok{2}\NormalTok{]}\SpecialCharTok{/}\NormalTok{N.d}
   
-  \CommentTok{# Calculate white's win proportion by each strata}
-\NormalTok{  white.win.prop <-}\StringTok{ }\NormalTok{domain.s1 }\OperatorTok{%>%}
-\StringTok{    }\KeywordTok{count}\NormalTok{(winner, }\DataTypeTok{.drop=}\OtherTok{FALSE}\NormalTok{) }\OperatorTok{%>%}
-\StringTok{    }\KeywordTok{group_by}\NormalTok{(elo_range) }\OperatorTok{%>%}
-\StringTok{    }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{win.prop =}\NormalTok{ n }\OperatorTok{/}\StringTok{ }\KeywordTok{sum}\NormalTok{(n))}
+  \CommentTok{\# Calculate white\textquotesingle{}s win proportion by each strata}
+\NormalTok{  white.win.prop }\OtherTok{\textless{}{-}}\NormalTok{ domain.s1 }\SpecialCharTok{\%\textgreater{}\%}
+    \FunctionTok{count}\NormalTok{(winner, }\AttributeTok{.drop=}\ConstantTok{FALSE}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+    \FunctionTok{group\_by}\NormalTok{(elo\_range) }\SpecialCharTok{\%\textgreater{}\%}
+    \FunctionTok{mutate}\NormalTok{(}\AttributeTok{win.prop =}\NormalTok{ n }\SpecialCharTok{/} \FunctionTok{sum}\NormalTok{(n))}
   
-  \CommentTok{# The estimated aggregated win proportion for white}
-\NormalTok{  white.prop <-}\StringTok{ }\NormalTok{white.win.prop[white.win.prop}\OperatorTok{$}\NormalTok{winner }\OperatorTok{==}\StringTok{ "white"}\NormalTok{, ] }
-\NormalTok{  white.prop[}\KeywordTok{is.na}\NormalTok{(white.prop)] <-}\StringTok{ }\DecValTok{0}
-\NormalTok{  white.p.str.est <-}\StringTok{ }\KeywordTok{sum}\NormalTok{(white.prop}\OperatorTok{$}\NormalTok{win.prop }\OperatorTok{*}\StringTok{ }\NormalTok{strata.size.prop)}
+  \CommentTok{\# The estimated aggregated win proportion for white}
+\NormalTok{  white.prop }\OtherTok{\textless{}{-}}\NormalTok{ white.win.prop[white.win.prop}\SpecialCharTok{$}\NormalTok{winner }\SpecialCharTok{==} \StringTok{"white"}\NormalTok{, ] }
+\NormalTok{  white.prop[}\FunctionTok{is.na}\NormalTok{(white.prop)] }\OtherTok{\textless{}{-}} \DecValTok{0}
+\NormalTok{  white.p.str.est }\OtherTok{\textless{}{-}} \FunctionTok{sum}\NormalTok{(white.prop}\SpecialCharTok{$}\NormalTok{win.prop }\SpecialCharTok{*}\NormalTok{ strata.size.prop)}
   
-  \CommentTok{# The estimated aggregated variance of win proportion for white}
-\NormalTok{  white.se.by.strata <-}\StringTok{ }\KeywordTok{bind_cols}\NormalTok{(white.prop, }\DataTypeTok{nh =}\NormalTok{ nh.d1}\OperatorTok{$}\NormalTok{n)}
-\NormalTok{  white.se.by.strata <-}\StringTok{ }\NormalTok{white.se.by.strata }\OperatorTok{%>%}\StringTok{ }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{var.by.strata =}\NormalTok{ win.prop }\OperatorTok{*}\StringTok{ }\NormalTok{(}\DecValTok{1}\OperatorTok{-}\NormalTok{win.prop)}\OperatorTok{/}\NormalTok{nh)}
-\NormalTok{  white.se.by.strata <-}\StringTok{ }\KeywordTok{bind_cols}\NormalTok{(white.se.by.strata, }\DataTypeTok{Nh =}\NormalTok{ Nh.d}\OperatorTok{$}\NormalTok{n)}
-\NormalTok{  white.se.by.strata <-}\StringTok{ }\KeywordTok{bind_cols}\NormalTok{(white.se.by.strata, }\DataTypeTok{strata.prop.sq =}\NormalTok{ strata.size.prop}\OperatorTok{$}\NormalTok{n}\OperatorTok{^}\DecValTok{2}\NormalTok{)}
-\NormalTok{  white.se.by.strata <-}\StringTok{ }\NormalTok{white.se.by.strata }\OperatorTok{%>%}\StringTok{ }\KeywordTok{mutate}\NormalTok{(strata.prop.sq}\OperatorTok{*}\NormalTok{(}\DecValTok{1}\OperatorTok{-}\NormalTok{nh}\OperatorTok{/}\NormalTok{Nh)}\OperatorTok{*}\NormalTok{var.by.strata)}
-\NormalTok{  white.se.by.strata[}\KeywordTok{is.na}\NormalTok{(white.se.by.strata)] <-}\StringTok{ }\DecValTok{0}
-\NormalTok{  white.str.se <-}\StringTok{ }\KeywordTok{sqrt}\NormalTok{(}\KeywordTok{sum}\NormalTok{(white.se.by.strata}\OperatorTok{$}\StringTok{`}\DataTypeTok{strata.prop.sq * (1 - nh/Nh) * var.by.strata}\StringTok{`}\NormalTok{))}
+  \CommentTok{\# The estimated aggregated variance of win proportion for white}
+\NormalTok{  white.se.by.strata }\OtherTok{\textless{}{-}} \FunctionTok{bind\_cols}\NormalTok{(white.prop, }\AttributeTok{nh =}\NormalTok{ nh.d1}\SpecialCharTok{$}\NormalTok{n)}
+\NormalTok{  white.se.by.strata }\OtherTok{\textless{}{-}}\NormalTok{ white.se.by.strata }\SpecialCharTok{\%\textgreater{}\%} 
+    \FunctionTok{mutate}\NormalTok{(}\AttributeTok{var.by.strata =}\NormalTok{ win.prop }\SpecialCharTok{*}\NormalTok{ (}\DecValTok{1}\SpecialCharTok{{-}}\NormalTok{win.prop)}\SpecialCharTok{/}\NormalTok{nh)}
+\NormalTok{  white.se.by.strata }\OtherTok{\textless{}{-}} \FunctionTok{bind\_cols}\NormalTok{(white.se.by.strata, }\AttributeTok{Nh =}\NormalTok{ Nh.d}\SpecialCharTok{$}\NormalTok{n)}
+\NormalTok{  white.se.by.strata }\OtherTok{\textless{}{-}} \FunctionTok{bind\_cols}\NormalTok{(white.se.by.strata, }
+                                  \AttributeTok{strata.prop.sq =}\NormalTok{ strata.size.prop}\SpecialCharTok{$}\NormalTok{n}\SpecialCharTok{\^{}}\DecValTok{2}\NormalTok{)}
+\NormalTok{  white.se.by.strata }\OtherTok{\textless{}{-}}\NormalTok{ white.se.by.strata }\SpecialCharTok{\%\textgreater{}\%} 
+    \FunctionTok{mutate}\NormalTok{(strata.prop.sq}\SpecialCharTok{*}\NormalTok{(}\DecValTok{1}\SpecialCharTok{{-}}\NormalTok{nh}\SpecialCharTok{/}\NormalTok{Nh)}\SpecialCharTok{*}\NormalTok{var.by.strata)}
+\NormalTok{  white.se.by.strata[}\FunctionTok{is.na}\NormalTok{(white.se.by.strata)] }\OtherTok{\textless{}{-}} \DecValTok{0}
+\NormalTok{  white.str.se }\OtherTok{\textless{}{-}} \FunctionTok{sqrt}\NormalTok{(}\FunctionTok{sum}\NormalTok{(}
+\NormalTok{    white.se.by.strata}\SpecialCharTok{$}\StringTok{\textasciigrave{}}\AttributeTok{strata.prop.sq * (1 {-} nh/Nh) * var.by.strata}\StringTok{\textasciigrave{}}\NormalTok{))}
   
-  \CommentTok{# Calculate black's win proportion by each strata}
-\NormalTok{  black.win.prop <-}\StringTok{ }\NormalTok{domain.s2 }\OperatorTok{%>%}
-\StringTok{    }\KeywordTok{count}\NormalTok{(winner, }\DataTypeTok{.drop=}\OtherTok{FALSE}\NormalTok{) }\OperatorTok{%>%}
-\StringTok{    }\KeywordTok{group_by}\NormalTok{(elo_range) }\OperatorTok{%>%}
-\StringTok{    }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{win.prop =}\NormalTok{ n }\OperatorTok{/}\StringTok{ }\KeywordTok{sum}\NormalTok{(n))}
+  \CommentTok{\# Calculate black\textquotesingle{}s win proportion by each strata}
+\NormalTok{  black.win.prop }\OtherTok{\textless{}{-}}\NormalTok{ domain.s2 }\SpecialCharTok{\%\textgreater{}\%}
+    \FunctionTok{count}\NormalTok{(winner, }\AttributeTok{.drop=}\ConstantTok{FALSE}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+    \FunctionTok{group\_by}\NormalTok{(elo\_range) }\SpecialCharTok{\%\textgreater{}\%}
+    \FunctionTok{mutate}\NormalTok{(}\AttributeTok{win.prop =}\NormalTok{ n }\SpecialCharTok{/} \FunctionTok{sum}\NormalTok{(n))}
   
-  \CommentTok{# The estimated aggregated win proportion for white}
-\NormalTok{  black.prop <-}\StringTok{ }\NormalTok{black.win.prop[black.win.prop}\OperatorTok{$}\NormalTok{winner }\OperatorTok{==}\StringTok{ "black"}\NormalTok{, ] }
-\NormalTok{  black.prop[}\KeywordTok{is.na}\NormalTok{(black.prop)] <-}\StringTok{ }\DecValTok{0}
-\NormalTok{  black.p.str.est <-}\StringTok{ }\KeywordTok{sum}\NormalTok{(black.prop}\OperatorTok{$}\NormalTok{win.prop }\OperatorTok{*}\StringTok{ }\NormalTok{strata.size.prop)}
+  \CommentTok{\# The estimated aggregated win proportion for white}
+\NormalTok{  black.prop }\OtherTok{\textless{}{-}}\NormalTok{ black.win.prop[black.win.prop}\SpecialCharTok{$}\NormalTok{winner }\SpecialCharTok{==} \StringTok{"black"}\NormalTok{, ] }
+\NormalTok{  black.prop[}\FunctionTok{is.na}\NormalTok{(black.prop)] }\OtherTok{\textless{}{-}} \DecValTok{0}
+\NormalTok{  black.p.str.est }\OtherTok{\textless{}{-}} \FunctionTok{sum}\NormalTok{(black.prop}\SpecialCharTok{$}\NormalTok{win.prop }\SpecialCharTok{*}\NormalTok{ strata.size.prop)}
   
-  \CommentTok{# The estimated aggregated variance of win proportion for black}
-\NormalTok{  black.se.by.strata <-}\StringTok{ }\KeywordTok{bind_cols}\NormalTok{(black.prop, }\DataTypeTok{nh =}\NormalTok{ nh.d2}\OperatorTok{$}\NormalTok{n)}
-\NormalTok{  black.se.by.strata <-}\StringTok{ }\NormalTok{black.se.by.strata }\OperatorTok{%>%}\StringTok{ }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{var.by.strata =}\NormalTok{ win.prop }\OperatorTok{*}\StringTok{ }\NormalTok{(}\DecValTok{1}\OperatorTok{-}\NormalTok{win.prop)}\OperatorTok{/}\NormalTok{nh)}
-\NormalTok{  black.se.by.strata <-}\StringTok{ }\KeywordTok{bind_cols}\NormalTok{(black.se.by.strata, }\DataTypeTok{Nh =}\NormalTok{ Nh.d}\OperatorTok{$}\NormalTok{n)}
-\NormalTok{  black.se.by.strata <-}\StringTok{ }\KeywordTok{bind_cols}\NormalTok{(black.se.by.strata, }\DataTypeTok{strata.prop.sq =}\NormalTok{ strata.size.prop}\OperatorTok{$}\NormalTok{n}\OperatorTok{^}\DecValTok{2}\NormalTok{)}
-\NormalTok{  black.se.by.strata <-}\StringTok{ }\NormalTok{black.se.by.strata }\OperatorTok{%>%}\StringTok{ }\KeywordTok{mutate}\NormalTok{(strata.prop.sq}\OperatorTok{*}\NormalTok{(}\DecValTok{1}\OperatorTok{-}\NormalTok{nh}\OperatorTok{/}\NormalTok{Nh)}\OperatorTok{*}\NormalTok{var.by.strata)}
-\NormalTok{  black.se.by.strata[}\KeywordTok{is.na}\NormalTok{(black.se.by.strata)] <-}\StringTok{ }\DecValTok{0}
-\NormalTok{  black.str.se <-}\StringTok{ }\KeywordTok{sqrt}\NormalTok{(}\KeywordTok{sum}\NormalTok{(black.se.by.strata}\OperatorTok{$}\StringTok{`}\DataTypeTok{strata.prop.sq * (1 - nh/Nh) * var.by.strata}\StringTok{`}\NormalTok{))}
+  \CommentTok{\# The estimated aggregated variance of win proportion for black}
+\NormalTok{  black.se.by.strata }\OtherTok{\textless{}{-}} \FunctionTok{bind\_cols}\NormalTok{(black.prop, }\AttributeTok{nh =}\NormalTok{ nh.d2}\SpecialCharTok{$}\NormalTok{n)}
+\NormalTok{  black.se.by.strata }\OtherTok{\textless{}{-}}\NormalTok{ black.se.by.strata }\SpecialCharTok{\%\textgreater{}\%} 
+    \FunctionTok{mutate}\NormalTok{(}\AttributeTok{var.by.strata =}\NormalTok{ win.prop }\SpecialCharTok{*}\NormalTok{ (}\DecValTok{1}\SpecialCharTok{{-}}\NormalTok{win.prop)}\SpecialCharTok{/}\NormalTok{nh)}
+\NormalTok{  black.se.by.strata }\OtherTok{\textless{}{-}} \FunctionTok{bind\_cols}\NormalTok{(black.se.by.strata, }\AttributeTok{Nh =}\NormalTok{ Nh.d}\SpecialCharTok{$}\NormalTok{n)}
+\NormalTok{  black.se.by.strata }\OtherTok{\textless{}{-}} \FunctionTok{bind\_cols}\NormalTok{(black.se.by.strata, }
+                                  \AttributeTok{strata.prop.sq =}\NormalTok{ strata.size.prop}\SpecialCharTok{$}\NormalTok{n}\SpecialCharTok{\^{}}\DecValTok{2}\NormalTok{)}
+\NormalTok{  black.se.by.strata }\OtherTok{\textless{}{-}}\NormalTok{ black.se.by.strata }\SpecialCharTok{\%\textgreater{}\%} 
+    \FunctionTok{mutate}\NormalTok{(strata.prop.sq}\SpecialCharTok{*}\NormalTok{(}\DecValTok{1}\SpecialCharTok{{-}}\NormalTok{nh}\SpecialCharTok{/}\NormalTok{Nh)}\SpecialCharTok{*}\NormalTok{var.by.strata)}
+\NormalTok{  black.se.by.strata[}\FunctionTok{is.na}\NormalTok{(black.se.by.strata)] }\OtherTok{\textless{}{-}} \DecValTok{0}
+\NormalTok{  black.str.se }\OtherTok{\textless{}{-}} \FunctionTok{sqrt}\NormalTok{(}\FunctionTok{sum}\NormalTok{(}
+\NormalTok{    black.se.by.strata}\SpecialCharTok{$}\StringTok{\textasciigrave{}}\AttributeTok{strata.prop.sq * (1 {-} nh/Nh) * var.by.strata}\StringTok{\textasciigrave{}}\NormalTok{))}
   
 
-  \CommentTok{# Their difference}
-\NormalTok{  estimates[i] <-}\StringTok{ }\NormalTok{white.p.str.est }\OperatorTok{-}\StringTok{ }\NormalTok{black.p.str.est}
-  \CommentTok{# Using pooled variance}
-\NormalTok{  diff.ses[i] <-}\StringTok{ }\KeywordTok{sqrt}\NormalTok{(white.str.se}\OperatorTok{^}\DecValTok{2} \OperatorTok{+}\StringTok{ }\NormalTok{black.str.se}\OperatorTok{^}\DecValTok{2}\NormalTok{)}
-\NormalTok{  intervals[i,] <-}\StringTok{ }\NormalTok{(white.p.str.est }\OperatorTok{-}\StringTok{ }\NormalTok{black.p.str.est) }\OperatorTok{+}\StringTok{ }\KeywordTok{qt}\NormalTok{(}\FloatTok{0.975}\NormalTok{, n.d.s1}\OperatorTok{+}\NormalTok{n.d.s2}\OperatorTok{-}\StringTok{ }\DecValTok{2}\NormalTok{) }\OperatorTok{*}\StringTok{ }\NormalTok{diff.ses[i] }\OperatorTok{*}\StringTok{ }\KeywordTok{c}\NormalTok{(}\OperatorTok{-}\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{)}
+  \CommentTok{\# Their difference}
+\NormalTok{  estimates[i] }\OtherTok{\textless{}{-}}\NormalTok{ white.p.str.est }\SpecialCharTok{{-}}\NormalTok{ black.p.str.est}
+  \CommentTok{\# Using pooled variance}
+\NormalTok{  diff.ses[i] }\OtherTok{\textless{}{-}} \FunctionTok{sqrt}\NormalTok{(white.str.se}\SpecialCharTok{\^{}}\DecValTok{2} \SpecialCharTok{+}\NormalTok{ black.str.se}\SpecialCharTok{\^{}}\DecValTok{2}\NormalTok{)}
+\NormalTok{  intervals[i,] }\OtherTok{\textless{}{-}}\NormalTok{ (white.p.str.est }\SpecialCharTok{{-}}\NormalTok{ black.p.str.est) }\SpecialCharTok{+} 
+    \FunctionTok{qt}\NormalTok{(}\FloatTok{0.975}\NormalTok{, n.d.s1}\SpecialCharTok{+}\NormalTok{n.d.s2}\SpecialCharTok{{-}} \DecValTok{2}\NormalTok{) }\SpecialCharTok{*}\NormalTok{ diff.ses[i] }\SpecialCharTok{*} \FunctionTok{c}\NormalTok{(}\SpecialCharTok{{-}}\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{)}
 \NormalTok{\}}
 
 
 
-\NormalTok{openings <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(openings.valid.str.sample}\OperatorTok{$}\NormalTok{name, estimates, diff.ses, intervals)}
-\KeywordTok{names}\NormalTok{(openings) <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"opening name"}\NormalTok{, }\StringTok{"Diff. win rate"}\NormalTok{, }\StringTok{"SE"}\NormalTok{, }\StringTok{"95.CI.lower"}\NormalTok{, }\StringTok{"95.CI.upper"}\NormalTok{)}
-\NormalTok{white.higher <-}\StringTok{ }\NormalTok{openings[openings}\OperatorTok{$}\StringTok{`}\DataTypeTok{95.CI.lower}\StringTok{`} \OperatorTok{>}\StringTok{ }\DecValTok{0}\NormalTok{,]}
-\NormalTok{white.lower <-}\StringTok{ }\NormalTok{openings[openings}\OperatorTok{$}\StringTok{`}\DataTypeTok{95.CI.upper}\StringTok{`} \OperatorTok{<}\StringTok{ }\DecValTok{0}\NormalTok{,]}
+\NormalTok{openings }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(openings.valid.str.sample}\SpecialCharTok{$}\NormalTok{name, estimates, diff.ses, intervals)}
+\FunctionTok{names}\NormalTok{(openings) }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"opening name"}\NormalTok{, }\StringTok{"Diff. win rate"}\NormalTok{, }\StringTok{"SE"}\NormalTok{, }\StringTok{"95.CI.lower"}\NormalTok{, }\StringTok{"95.CI.upper"}\NormalTok{)}
+\NormalTok{white.higher }\OtherTok{\textless{}{-}}\NormalTok{ openings[openings}\SpecialCharTok{$}\StringTok{\textasciigrave{}}\AttributeTok{95.CI.lower}\StringTok{\textasciigrave{}} \SpecialCharTok{\textgreater{}} \DecValTok{0}\NormalTok{,]}
+\NormalTok{white.lower }\OtherTok{\textless{}{-}}\NormalTok{ openings[openings}\SpecialCharTok{$}\StringTok{\textasciigrave{}}\AttributeTok{95.CI.upper}\StringTok{\textasciigrave{}} \SpecialCharTok{\textless{}} \DecValTok{0}\NormalTok{,]}
 \NormalTok{openings}
 \end{Highlighting}
 \end{Shaded}
+
 
 
 

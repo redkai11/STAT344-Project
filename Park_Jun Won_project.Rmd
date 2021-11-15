@@ -11,7 +11,7 @@ output:
 title: "White Advantage in Chess and How to Counter It"
 author:
 - name: Jun Won (Lakon) Park (Group Leader)
-  affiliation: 79453940, Group Leader, data collection, data analysis, report-writing
+  affiliation: 79453940, data collection, data analysis, report-writing
 - name: Sarah Li
   affiliation: 60136959, data collection, data analysis, report-writing
 abstract: "Research question: Is white at an advantage in chess and if so, what are some optimal strategies for black to increase their winning probability?"
@@ -94,8 +94,8 @@ $p_{i,B} = 1$ if $i \in P_{winner = Black}$ (if game i's winner is Black)
 $p_{i,d,W} = 1$ if $i \in P_{winner = White, opening = d}$ (if game i's winner is White with opening d)   
 $p_{i,d,B} = 1$ if $i \in P_{winner = Black, opening = d}$ (if game i's winner is Black with opening d)   
 $y_i$ = number of turns took for the winner to win for game i   
-$\mu_{i,W}$ = y_i$ if $i \in P_{winner = White}$ (if game i's winner is White)   
-$\mu_{i,B}$ = y_i$ if $i \in P_{winner = Black}$ (if game i's winner is Black)   
+$\mu_{i,W} = y_i$ if $i \in P_{winner = White}$ (if game i's winner is White)   
+$\mu_{i,B} = y_i$ if $i \in P_{winner = Black}$ (if game i's winner is Black)   
 $\bar p_{S_1,W}$ = average of $p_{i,W}$ for $i \in S_1$   
 $\bar p_{S_2,B}$ = average of $p_{i,B}$ for $i \in S_2$   
 $\bar p_{S_1,d,W}$ = average of $p_{i,d,W}$ for $i \in S_{1,d}$   
