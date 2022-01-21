@@ -1,1 +1,1 @@
-# STAT344-Project
+# White-Advantage-in-Chess-and-How-to-Counter-It
